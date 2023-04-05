@@ -1,0 +1,10 @@
+{
+    "name": "marce/vale-agricola",
+    "authors": [
+        {
+            "name": "marceloost",
+            "email": "marcelo.ost7@gmail.com"
+        }
+    ],
+    "require": {}
+}
