@@ -114,5 +114,23 @@ class Empresa implements ActiveRecord{
         return $empresa;
     }
 
+    public function authenticate(): bool
+    {
+        $connection = new MySQL();
+        $sql = "SELECT idEmpresa, nome, senha, cnpj FROM  WHERE email = '{$this->email}'";
+        $results = $connection->query($sql);
+        
+        if (password_verify($this->senha, $results[0]["senha"])) {
+            session_start();
+            $_SESSION['idEmpresa'] = $results[0]['idEmpresa'];
+            $_SESSION['nome'] = $results[0]['nome'];
+            $_SESSION['email'] = $results[0]['email'];
+            $_SESSION['cnpj'] = $results[0]['cnpj'];
+            
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

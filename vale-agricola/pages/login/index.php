@@ -1,11 +1,12 @@
 <?php
 
+require_once __DIR__."/../../settings/config.php";
 
 if (isset($_POST["button"])) {
-    $usuario = new Player();
-    $usuario->constructLogin($_POST["email"], $_POST["password"]);
+    $empresa = new Empresa();
+    $empresa->constructLogin($_POST["email"], $_POST["senha"]);
     
-    if ($usuario->authenticate()) {
+    if ($empresa->authenticate()) {
         header("location: ../home");
     } else {
         header("location: index.php");
