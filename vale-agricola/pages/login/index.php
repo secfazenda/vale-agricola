@@ -32,7 +32,7 @@ if (isset($_POST["button"])) {
 				<label for="senha">Senha:</label>
 				<input type="password" name="password" id="password" required>
 
-				<a class="create-account" href="cadastro.php">Crie sua conta aqui</a>
+				<a class="create-account" href="../new">Crie sua conta aqui</a>
 
             	<input type="submit" value="Login" class="botao" name="button">
 			</form>

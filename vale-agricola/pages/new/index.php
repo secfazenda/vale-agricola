@@ -1,20 +1,20 @@
 <?php
 
+require_once "../settings/config.php";
 ini_set('error_reporting', E_ALL); // mesmo resultado de: error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST["button"])) {
-    require_once __DIR__."/vendor/autoload.php";
     $empresa = new Empresa();
     $empresa->constructorCreate(
-        trim($_POST["cnpj"]),
-        trim($_POST["email"]),
+        trim($_POST["nome"]),
         trim($_POST["senha"]),
-        $_POST["nome"],
+        trim($_POST["email"]),
+        $_POST["cnpj"]
     );
     $empresa->save();
     
-    header("location: login.php");
+    header("location: ../login/");
 }
 
 ?>

@@ -2,25 +2,29 @@
 
 class Empresa implements ActiveRecord{
 
-    private int $cnpj;
-    private string $email;
-    private string $senha;
+    private int $idEmpresa;
     private string $nome;
+    private string $senha;
+    private string $email;
+    private int $cnpj;
+    
+    
 
     public function __construct() {}
         
     public function constructorCreate(
-        int $cnpj,
-        string $email,
+        string $nome,
         string $senha,
-        string $nome
+        string $email,
+        int $cnpj
 
     ): void{
 
-        $this->setCnpj($cnpj);
-        $this->setEmail($email);
-        $this->setSenha($senha);
         $this->setNome($nome);
+        $this->setSenha($senha);
+        $this->setEmail($email);
+        $this->setCnpj($cnpj);        
+        
     }
 
 
@@ -28,6 +32,14 @@ class Empresa implements ActiveRecord{
     {
         $this->setEmail($email);
         $this->setSenha($senha);
+    }
+
+    public function setIdEmpresa(int $idEmpresa): void{
+        $this->idEmpresa = $idEmpresa;
+    }
+
+    public function getIdEmpresa(): int{
+        return $this->idEmpresa;
     }
 
     public function setCnpj(int $cnpj): void{
@@ -66,13 +78,13 @@ class Empresa implements ActiveRecord{
     {
         $connection = new MySQL();
         
-        if (isset($this->cnpj)) {
-          $sql = "UPDATE empresa SET email = '{$this->email}', nome = '{$this->nome}' WHERE cnpj = {$this->cnpj}";
+        if (isset($this->idEmpresa)) {
+          $sql = "UPDATE empresa SET nome = '{$this->nome}', email = '{$this->email}', cnpj = '{$this->cnpj}'   WHERE idEmpresa = {$this->idEmpresa}";
         }
 
         else {
             $this->senha = password_hash($this->senha,PASSWORD_BCRYPT);
-            $sql = "INSERT INTO empresa (cnpj,email,senha,nome) VALUES ('{$this->cnpj}','{$this->email}','{$this->senha}','{$this->nome}')";
+            $sql = "INSERT INTO empresa (nome,senha,email,cnpj) VALUES ('{$this->nome}','{$this->senha}','{$this->email}','{$this->cnpj}')";
         }
         
         return $connection->execute($sql);
@@ -81,23 +93,23 @@ class Empresa implements ActiveRecord{
     public function delete(): bool
     {
         $connection = new MySQL();
-        $sql = "DELETE FROM empresa WHERE cnpj = {$this->cnpj}";
+        $sql = "DELETE FROM empresa WHERE idEmpresa = {$this->idEmpresa}";
         return $connection->execute($sql);
     }
 
-    public static function find($cnpj): Empresa
+    public static function find($id): Empresa
     {
         $connection = new MySQL();
-        $sql = "SELECT * FROM empresa WHERE cnpj = {$cnpj}";
+        $sql = "SELECT * FROM empresa WHERE idEmpresa = {$id}";
         $res = $connection->query($sql);
         $empresa = new Empresa;
         $empresa->constructorCreate(
-            $res[0]['cnpj'],
+            $res[0]['nome'],
+            $res[0]['senha'],
             $res[0]['email'],
-            $res[0]['nickname'],
-            $res[0]['senha']
+            $res[0]['cnpj']
         );
-        $empresa->setCnpj($res[0]['cnpj']);
+        $empresa->setIdEmpresa($res[0]['idEmpresa']);
         
         return $empresa;
     }

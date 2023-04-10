@@ -25,7 +25,7 @@
             </div>
             <div class="hp-bottom-part">
                 <div class="hp-button-space">
-                    <a href="./pages/login.php">
+                    <a href="./pages/login">
                         <div class="hp-button">
                             <p>Login</p>
                         </div>
