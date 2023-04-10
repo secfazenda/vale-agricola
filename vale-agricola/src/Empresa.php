@@ -1,6 +1,7 @@
 <?php
 
-class Empresa implements ActiveRecord{
+class Empresa implements ActiveRecord
+{
 
     private int $idEmpresa;
     private string $nome;
@@ -17,14 +18,11 @@ class Empresa implements ActiveRecord{
         string $senha,
         string $email,
         int $cnpj
-
     ): void{
-
         $this->setNome($nome);
         $this->setSenha($senha);
         $this->setEmail($email);
         $this->setCnpj($cnpj);        
-        
     }
 
 
@@ -54,7 +52,7 @@ class Empresa implements ActiveRecord{
         $this->email = $email;
     }
 
-    public function getEmail(): int{
+    public function getEmail(): string{
         return $this->email;
     }
 
@@ -62,7 +60,7 @@ class Empresa implements ActiveRecord{
         $this->senha = $senha;
     }
 
-    public function getSenha(): int{
+    public function getSenha(): string{
         return $this->senha;
     }
 
@@ -71,7 +69,7 @@ class Empresa implements ActiveRecord{
     }
 
     public function getNome(): string{
-        $this->email = $nome;
+        return $this->nome;
     }
 
     public function save(): bool 
@@ -117,7 +115,7 @@ class Empresa implements ActiveRecord{
     public function authenticate(): bool
     {
         $connection = new MySQL();
-        $sql = "SELECT idEmpresa, nome, senha, cnpj FROM  WHERE email = '{$this->email}'";
+        $sql = "SELECT idEmpresa, nome, senha, cnpj FROM empresa WHERE email = '{$this->email}'";
         $results = $connection->query($sql);
         
         if (password_verify($this->senha, $results[0]["senha"])) {

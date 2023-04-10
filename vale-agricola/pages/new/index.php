@@ -1,7 +1,7 @@
 <?php
 
 require_once "../../settings/config.php";
-ini_set('error_reporting', E_ALL); // mesmo resultado de: error_reporting(E_ALL);
+ini_set('error_reporting', E_ALL); 
 ini_set('display_errors', 1);
 
 if (isset($_POST["button"])) {
@@ -11,7 +11,7 @@ if (isset($_POST["button"])) {
         trim($_POST["senha"]),
         trim($_POST["email"]),
         $_POST["cnpj"]
-    );
+    ); 
     $empresa->save();
     
     header("location: ../login/");
@@ -44,7 +44,7 @@ if (isset($_POST["button"])) {
             <input type="email" name="email" id="email" required>
 
             <label for="password">Senha</label>
-            <input type="password" name="password" id="password" required>
+            <input type="password" name="senha" id="senha" required>
 
             <input type="submit" value="Criar" name="button" class="botao">
         </form>

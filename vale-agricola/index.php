@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__.'/settings/config.php';
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
