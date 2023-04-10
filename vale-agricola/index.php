@@ -1,26 +1,38 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-	<title>Vale Agrícola | Login</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/olifx_logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <title>Vale Agrícola</title>
 </head>
 <body>
-	<div class="login-util">
-		<div class="login">
-			<h1 class="titulo">Vale Agrícola</h1>
-			<form action="index.php" method="post" enctype="multipart/form-data">
-
-				<label for="usuario">Usuário:</label>
-				<input type="email" name="email" id="email" required>
-
-				<label for="senha">Senha:</label>
-				<input type="password" name="password" id="password" required>
-
-				<a class="create-account" href="../new">Crie sua conta aqui</a>
-
-            	<input type="submit" value="Login" class="botao" name="button">
-			</form>
-		</div>
-	</div>
+    <div class="homepage-container">
+        <div class="homepage-util-area">
+            <div class="hp-superior-part">
+                <div class="hp-title">
+                    <h1>Bem-vindo ao Vale Agrícola</h1>
+                </div>
+                <div class="hp-subtitle">
+                    <h3></h3>
+                </div>
+            </div>
+            <div class="hp-mid-part">
+                <img src="./assets/images/OLIFX.png" alt="" class="hp-main-image">
+            </div>
+            <div class="hp-bottom-part">
+                <div class="hp-button-space">
+                    <a href="./pages/login.php">
+                        <div class="hp-button">
+                            <p>Login</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
