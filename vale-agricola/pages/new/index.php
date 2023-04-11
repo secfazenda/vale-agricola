@@ -27,6 +27,7 @@ if (isset($_POST["button"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../../assets/images/olifx_logo.png" type="image/png">
   <title>Vale Agrícola | Criar conta</title>
+  <script src="scripts.js"></script>
   <link rel="stylesheet" href="cadastro.css">
 </head>
 <body>
@@ -51,3 +52,35 @@ if (isset($_POST["button"])) {
     </section>
 </body>
 </html>
+
+<!-- Incluindo o jQuery e o jQuery Mask Plugin -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<!-- Aplicando a máscara de CNPJ -->
+<script>
+$(document).ready(function(){
+  $('#cnpj').mask('00.000.000/0000-00');
+});
+</script>
+
+<!-- Aplicando a máscara de e-mail -->
+<script>
+$(document).ready(function(){
+  $('#email').mask("A", {
+    translation: {
+      "A": { pattern: /[\w@\-.+]/, recursive: true }
+    }
+  }).on("blur", function(){
+    let email = $(this).val();
+    if(!isValidEmail(email)){
+      $(this).val("");
+    }
+  });
+});
+
+function isValidEmail(email) {
+  let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+</script>
