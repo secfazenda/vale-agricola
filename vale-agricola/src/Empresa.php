@@ -7,7 +7,7 @@ class Empresa implements ActiveRecord
     private string $nome;
     private string $senha;
     private string $email;
-    private int $cnpj;
+    private string $cnpj;
     
     
 
@@ -17,7 +17,7 @@ class Empresa implements ActiveRecord
         string $nome,
         string $senha,
         string $email,
-        int $cnpj
+        string $cnpj
     ): void{
         $this->setNome($nome);
         $this->setSenha($senha);
@@ -40,11 +40,11 @@ class Empresa implements ActiveRecord
         return $this->idEmpresa;
     }
 
-    public function setCnpj(int $cnpj): void{
+    public function setCnpj(string $cnpj): void{
         $this->cnpj = $cnpj;
     }
 
-    public function getCnpj(): int{
+    public function getCnpj(): string{
         return $this->cnpj;
     }
 

@@ -35,7 +35,7 @@ if (isset($_POST["button"])) {
         <form action="index.php" method="post" enctype="multipart/form-data">
 
             <label for="cnpj">Cnpj</label>
-            <input type="int" name="cnpj" id="cnpj" required>
+            <input type="string" name="cnpj" id="cnpj" required>
 
             <label for="fullname">Nome</label>
             <input type="text" name="nome" id="nome" required>
