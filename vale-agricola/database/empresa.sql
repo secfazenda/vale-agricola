@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Abr-2023 às 21:11
+-- Tempo de geração: 11-Abr-2023 às 21:49
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -28,12 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `empresa` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `idEmpresa` bigint(20) UNSIGNED NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `cnpj` varchar(14) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `empresa`
+--
+
+INSERT INTO `empresa` (`idEmpresa`, `nome`, `senha`, `email`, `cnpj`) VALUES
+(1, 'Marcelo Agroferagem', '$2y$10$74d1anjeYSF2lCWWZ6vhxOPRAUrXdQXHMmK7VPHKil1gHrkv73jkK', 'marcelo@gmail.com', '12312312312');
 
 --
 -- Índices para tabelas despejadas
@@ -43,7 +50,8 @@ CREATE TABLE `empresa` (
 -- Índices para tabela `empresa`
 --
 ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idEmpresa`),
+  ADD UNIQUE KEY `idEmpresa` (`idEmpresa`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -53,7 +61,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de tabela `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idEmpresa` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

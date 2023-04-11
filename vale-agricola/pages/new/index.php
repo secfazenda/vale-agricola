@@ -28,7 +28,7 @@ if (isset($_POST["button"])) {
   <link rel="shortcut icon" href="../../assets/images/olifx_logo.png" type="image/png">
   <title>Vale Agrícola | Criar conta</title>
   <script src="scripts.js"></script>
-  <link rel="stylesheet" href="cadastro.css">
+  <link rel="stylesheet" href="new.css">
 </head>
 <body>
     <section class="form">
@@ -45,9 +45,11 @@ if (isset($_POST["button"])) {
             <input type="email" name="email" id="email" required>
 
             <label for="password">Senha</label>
-            <input type="password" name="senha" id="senha" required>
+            <input type="password" name="senha" id="senha" maxlength="20" required>
 
             <input type="submit" value="Criar" name="button" class="botao">
+
+            <a href="../login">Voltar</a>
         </form>
     </section>
 </body>
@@ -62,6 +64,17 @@ if (isset($_POST["button"])) {
 $(document).ready(function(){
   $('#cnpj').mask('00.000.000/0000-00');
 });
+</script>
+
+<!-- Aplicando a máscara de Nome -->
+<script>
+  $(document).ready(function() {
+    $('#nome').mask('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', {
+      translation: {
+      'A': { pattern: /[A-Za-zÀ-ú\s]/ }
+      }
+    });
+  });
 </script>
 
 <!-- Aplicando a máscara de e-mail -->
