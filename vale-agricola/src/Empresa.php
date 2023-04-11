@@ -112,6 +112,26 @@ class Empresa implements ActiveRecord
         return $empresa;
     }
 
+    public static function findall():array{
+        $conexao = new MySQL();
+        $sql = "SELECT * FROM empresa";
+        $resultados = $conexao->consulta($sql);
+        $empresas = array();
+        foreach($res as $resultado){
+            $e = new Empresa;
+            // $e = new Empresa($resultado['nome'],$resultado['email'],$resultado['email']);
+            $e->constructorCreate(
+                $res['nome'],
+                $res['senha'],
+                $res['email'],
+                $res['cnpj']
+            );
+            $e->setIdEmpresa($resultado['id']);
+            $empresas[] = $e;
+        }           
+        return $empresas;
+    }
+
     public function authenticate(): bool
     {
         $connection = new MySQL();
@@ -130,5 +150,6 @@ class Empresa implements ActiveRecord
             return false;
         }
     }
+
 
 }
