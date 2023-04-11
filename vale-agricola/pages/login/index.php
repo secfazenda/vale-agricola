@@ -31,7 +31,7 @@ if (isset($_POST["button"])) {
 				<input type="email" name="email" id="email" required>
 
 				<label for="senha">Senha:</label>
-				<input type="password" name="password" id="password" required>
+				<input type="password" name="senha" id="senha" required>
 
 				<a class="create-account" href="../new">Crie sua conta aqui</a>
 

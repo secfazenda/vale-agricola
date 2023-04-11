@@ -7,6 +7,6 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Home do usuário</h1>
+    <h1>Usuário Logado</h1>
 </body>
 </html>
