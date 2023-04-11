@@ -1,3 +1,15 @@
+<?php
+
+require_once "../../settings/config.php";
+
+session_start();
+
+if (!isset($_SESSION["idEmpresa"])) {
+    header("location: ../login");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
