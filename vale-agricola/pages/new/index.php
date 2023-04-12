@@ -14,7 +14,7 @@ if (isset($_POST["button"])) {
     ); 
     $empresa->save();
     
-    header("location: ../login/");
+    header("location: ../new-confirm/");
 }
 
 ?>
@@ -35,16 +35,16 @@ if (isset($_POST["button"])) {
         <h1 class="titulo">Criar Conta</h1>
         <form action="index.php" method="post" enctype="multipart/form-data">
 
-            <label for="cnpj">Cnpj</label>
+            <label for="cnpj">Cnpj:</label>
             <input type="string" name="cnpj" id="cnpj" required>
 
-            <label for="fullname">Nome</label>
+            <label for="fullname">Nome:</label>
             <input type="text" name="nome" id="nome" required>
 
-            <label for="email">E-Mail</label>
+            <label for="email">E-Mail:</label>
             <input type="email" name="email" id="email" required>
 
-            <label for="password">Senha</label>
+            <label for="password">Senha:</label>
             <input type="password" name="senha" id="senha" maxlength="20" required>
 
             <input type="submit" value="Criar" name="button" class="botao">
