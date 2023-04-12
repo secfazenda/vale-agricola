@@ -18,8 +18,15 @@ if (isset($_SESSION['idEmpresa'])) {
 } else {
     header("location: ../login");
 }
-
-
+/*
+    if(isset($_POST['excluir'])) {
+        echo "<script>alert('Tem certeza que deseja excluir a conta?" .
+        "<form method=\"post\" action=\"../delete\">" .
+        "<button type=\"submit\" name=\"confirmar\" value=\"Sim\">Sim</button>" .
+        "<button type=\"button\" onclick=\"history.back()\">Não</button>" .
+        "</form>" .
+        "')</script>";
+    }*/
 ?>
 
 <!DOCTYPE html>
@@ -49,10 +56,11 @@ if (isset($_SESSION['idEmpresa'])) {
             <label for="email">E-mail:</label>
             <input type="email" name="email" id="email" value="<?php echo $empresa->getEmail() ?>" required>
 
-            <a class="go-home" href="../home">Voltar para a tela inicial</a>
-
             <input type="submit" value="Editar" class="botao" name="button">
+            <button type="submit" name="excluir">Excluir conta</button>
         </form>
+        
+        <a class="go-home" href="../home">Voltar para a tela inicial</a>
     </div>
 </div>
 </body>

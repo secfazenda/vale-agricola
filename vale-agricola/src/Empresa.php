@@ -112,6 +112,29 @@ class Empresa implements ActiveRecord
         return $empresa;
     }
 
+    /* Consulta com processo de segurança contra SQL Inject
+    
+    public static function find($id): Empresa
+{
+    $connection = new MySQL();
+    $stmt = $connection->prepare("SELECT * FROM empresa WHERE idEmpresa = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    
+    $empresa = new Empresa;
+    $empresa->constructorCreate(
+        $res[0]['nome'],
+        $res[0]['senha'],
+        $res[0]['email'],
+        $res[0]['cnpj']
+    );
+    $empresa->setIdEmpresa($res[0]['idEmpresa']);
+    
+    return $empresa;
+}
+*/
+
     public static function findall():array{
         $conexao = new MySQL();
         $sql = "SELECT * FROM empresa";
