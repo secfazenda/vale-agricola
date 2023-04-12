@@ -21,6 +21,7 @@ if (!isset($_SESSION["idEmpresa"])) {
 <body>
     <h1>Usuário Logado</h1>
 
+    <a href="../edit">Editar Conta</a>
     <a href="../logout">Sair</a>
 </body>
 </html>
