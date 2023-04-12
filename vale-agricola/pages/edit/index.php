@@ -40,7 +40,7 @@ if (isset($_SESSION['idEmpresa'])) {
     <link rel="stylesheet" href="../home/style.css">
 
     <link rel="stylesheet" href="style.css">
-    <title>Vale Agrícola | Editar conta </title>
+    <title>Vale Agrícola | Editar Conta </title>
 
 </head>
 
@@ -59,7 +59,7 @@ if (isset($_SESSION['idEmpresa'])) {
             <input type="submit" value="Editar" class="botao" name="button">
             <!-- <button type="submit" name="excluir">Excluir conta</button> -->
         </form>
-        <a href="../delete-confirm">Excluir Conta</a>
+        <a class="go-delete" href="../delete-confirm">Excluir Conta</a>
         <a class="go-home" href="../home">Voltar para a tela inicial</a>
     </div>
 </div>
