@@ -57,9 +57,9 @@ if (isset($_SESSION['idEmpresa'])) {
             <input type="email" name="email" id="email" value="<?php echo $empresa->getEmail() ?>" required>
 
             <input type="submit" value="Editar" class="botao" name="button">
-            <button type="submit" name="excluir">Excluir conta</button>
+            <!-- <button type="submit" name="excluir">Excluir conta</button> -->
         </form>
-        
+        <a href="../delete-confirm">Excluir Conta</a>
         <a class="go-home" href="../home">Voltar para a tela inicial</a>
     </div>
 </div>
