@@ -18,15 +18,7 @@ if (isset($_SESSION['idEmpresa'])) {
 } else {
     header("location: ../login");
 }
-/*
-    if(isset($_POST['excluir'])) {
-        echo "<script>alert('Tem certeza que deseja excluir a conta?" .
-        "<form method=\"post\" action=\"../delete\">" .
-        "<button type=\"submit\" name=\"confirmar\" value=\"Sim\">Sim</button>" .
-        "<button type=\"button\" onclick=\"history.back()\">Não</button>" .
-        "</form>" .
-        "')</script>";
-    }*/
+
 ?>
 
 <!DOCTYPE html>
@@ -65,16 +57,58 @@ if (isset($_SESSION['idEmpresa'])) {
 </div>
 
 <script>
-      // Função de confirmação com alerta
-      function confirmarExclusao() {
+    /*
+    document.querySelector('.botao').addEventListener('click', function() {
+    if (window.confirm("Tem certeza que deseja editar sua conta?")) {
+        confirmarEdicao();
+    } else {
+        event.preventDefault();
+    }
+    });
+
+    function confirmarEdicao() {
+    var confirmacao = window.confirm("Sua conta foi editada com sucesso.");
+    window.location.href = '../home';
+    }
+
+    window.confirm = function (mensagem) {
+    return !!window.confirm(mensagem.toString().replace("OK", "Sim"));
+    };
+    */
+
+
+      
+    document.querySelector('.botao').addEventListener('click', function() {
+    if (confirm("Tem certeza que deseja editar sua conta?")) {
+        alert("Sua conta foi editada com sucesso.");
+        //confirmarEdicao();
+    } else {
+        event.preventDefault();
+    }
+    });
+
+    /* function confirmarEdicao() {
+    alert("Sua conta foi editada com sucesso.");
+    } */
+    
+    function confirmarExclusao() {
         if (confirm("Tem certeza que deseja excluir sua conta?")) {
           alert("Sua conta foi excluída com sucesso.");
           return true;
         } else {
           return false;
         }
-      }
-    </script>
+    } 
+    /*
+    function confirmarEdicao() {
+        if (confirm("Tem certeza que deseja editar sua conta?")) {
+          alert("Sua conta foi editada com sucesso.");
+          return true;
+        } else {
+          return false;
+        }
+    } */
+</script>
 
 </body>
 </html>
