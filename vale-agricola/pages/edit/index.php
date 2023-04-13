@@ -59,10 +59,22 @@ if (isset($_SESSION['idEmpresa'])) {
             <input type="submit" value="Editar" class="botao" name="button">
             <!-- <button type="submit" name="excluir">Excluir conta</button> -->
         </form>
-        <a class="go-delete" href="../delete-confirm">Excluir Conta</a>
+        <a class="excluir" href="../delete" onclick="return confirmarExclusao()">Excluir Conta</a>
         <a class="go-home" href="../home">Voltar para a tela inicial</a>
     </div>
 </div>
-</body>
 
+<script>
+      // Função de confirmação com alerta
+      function confirmarExclusao() {
+        if (confirm("Tem certeza que deseja excluir sua conta?")) {
+          alert("Sua conta foi excluída com sucesso.");
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+
+</body>
 </html>
