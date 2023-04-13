@@ -90,7 +90,7 @@ if (isset($_SESSION['idEmpresa'])) {
     /* function confirmarEdicao() {
     alert("Sua conta foi editada com sucesso.");
     } */
-    
+    /*
     function confirmarExclusao() {
         if (confirm("Tem certeza que deseja excluir sua conta?")) {
           alert("Sua conta foi excluída com sucesso.");
@@ -98,7 +98,7 @@ if (isset($_SESSION['idEmpresa'])) {
         } else {
           return false;
         }
-    } 
+    } */
     /*
     function confirmarEdicao() {
         if (confirm("Tem certeza que deseja editar sua conta?")) {
