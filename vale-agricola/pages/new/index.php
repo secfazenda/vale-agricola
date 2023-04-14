@@ -34,17 +34,17 @@ if (isset($_POST["button"])) {
         <h1 class="titulo">Criar Conta</h1>
         <form action="index.php" method="post" enctype="multipart/form-data">
 
-            <label for="cnpj">Cnpj:</label>
-            <input type="string" name="cnpj" id="cnpj" required>
+            <label for="cnpj">CNPJ:</label>
+            <input type="string" name="cnpj" id="cnpj" required placeholder="Digite o CNPJ de sua empresa aqui">
 
             <label for="fullname">Nome:</label>
-            <input type="text" name="nome" id="nome" required>
+            <input type="text" name="nome" id="nome" required placeholder="Digite o nome de sua empresa aqui">
 
-            <label for="email">E-Mail:</label>
-            <input type="email" name="email" id="email" required>
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" required placeholder="Digite seu e-mail aqui">
 
             <label for="password">Senha:</label>
-            <input type="password" name="senha" id="senha" maxlength="20" required>
+            <input type="password" name="senha" id="senha" maxlength="20" required placeholder="Digite sua senha aqui">
 
             <input type="submit" value="Criar" name="button" class="botao">
 

@@ -28,10 +28,10 @@ if (isset($_POST["button"])) {
 			<form action="index.php" method="post" enctype="multipart/form-data">
 
 				<label for="usuario">E-mail:</label>
-				<input type="email" name="email" id="email" required>
+				<input type="email" name="email" id="email" required placeholder="Digite seu e-mail aqui">
 
 				<label for="senha">Senha:</label>
-				<input type="password" name="senha" id="senha" maxlength="20" required>
+				<input type="password" name="senha" id="senha" maxlength="20" required placeholder="Digite sua senha aqui">
         <button type="button" id="olho-senha"><i class="fa fa-eye"></i></button>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
@@ -49,7 +49,6 @@ if (isset($_POST["button"])) {
           }
         });
         </script>
-
 
 				<a class="create-account" href="../new">Crie sua conta aqui</a>
 
