@@ -21,7 +21,6 @@ if (isset($_POST["button"])) {
   }
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +53,7 @@ if (isset($_POST["button"])) {
             <label for="password">Confirmar Senha:</label>
             <input type="password" name="confirmar-senha" id="confirmar-senha" maxlength="20" required placeholder="Confirme sua senha aqui">
 
-            <input type="submit" value="Criar" name="button" class="botao">
+            <input type="submit" value="Criar" class="botao" name="button">
 
             <a href="../login">Voltar</a>
         </form>
@@ -65,6 +64,29 @@ if (isset($_POST["button"])) {
 <!-- Incluindo o jQuery e o jQuery Mask Plugin -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script>
+  document.querySelector('.botao').addEventListener('click', function() {
+    var cnpj = document.getElementById("cnpj").value;
+    var nome = document.getElementById("nome").value;
+    var email = document.getElementById("email").value;
+    var senha = document.getElementById("senha").value;
+    var confirmarSenha = document.getElementById("confirmar-senha").value;
+    //alert("Sua conta foi criada com sucesso.");
+    // Não está conseguindo passar por dentro desse if 
+
+    if (cnpj.trim() === '' || nome.trim() === '' || email.trim() === '' || senha.trim() === '' || confirmarSenha.trim() === '' || !validarEmail(email)) {
+        alert("Por favor, preencha os campos corretamente.");
+        event.preventDefault();
+    } else if (senha !== confirmarSenha) {
+        alert("As senhas não coincidem.");
+        event.preventDefault();
+    } else {
+        alert("Sua conta foi criada com sucesso.");
+        // confirmarCriacao();
+    }
+});
+</script>
 
 <!-- Aplicando a máscara de CNPJ -->
 <script>
@@ -112,27 +134,5 @@ $(document).ready(function(){
     }
   });
 });
-
-document.querySelector('.botao').addEventListener('click', function(event) {
-  var cnpj = document.getElementById("cnpj").value;
-  var nome = document.getElementById("nome").value;
-  var email = document.getElementById("email").value;
-  var senha = document.getElementById("senha").value;
-  var confirmarSenha = document.getElementById("confirmar-senha").value;
-
-  if (cnpj.trim() === '' || nome.trim() === '' || email.trim() === '' || senha.trim() === '' || confirmarSenha.trim() === '' || !validarEmail(email)) {
-    alert("Por favor, preencha os campos corretamente.");
-    event.preventDefault();
-  } else if (senha !== confirmarSenha) {
-      alert("As senhas não coincidem.");
-    event.preventDefault();
-  } else if (confirm("Tem certeza que deseja criar uma conta?")) {
-      alert("Sua conta foi criada com sucesso.");
-    // confirmarCriacao();
-  } else {
-      event.preventDefault();
-  }
-});
-
 
 </script>
