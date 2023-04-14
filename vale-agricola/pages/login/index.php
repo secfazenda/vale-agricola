@@ -27,11 +27,29 @@ if (isset($_POST["button"])) {
 			<h1 class="titulo">Vale Agrícola</h1>
 			<form action="index.php" method="post" enctype="multipart/form-data">
 
-				<label for="usuario">Usuário:</label>
+				<label for="usuario">E-mail:</label>
 				<input type="email" name="email" id="email" required>
 
 				<label for="senha">Senha:</label>
 				<input type="password" name="senha" id="senha" maxlength="20" required>
+        <button type="button" id="olho-senha"><i class="fa fa-eye"></i></button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+        <script>
+        var senha = document.getElementById("senha");
+        var olhoSenha = document.getElementById("olho-senha");
+
+        olhoSenha.addEventListener("click", function() {
+          if (senha.type === "password") {
+            senha.type = "text";
+            olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
+          } else {
+            senha.type = "password";
+            olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
+          }
+        });
+        </script>
+
 
 				<a class="create-account" href="../new">Crie sua conta aqui</a>
 
@@ -43,13 +61,13 @@ if (isset($_POST["button"])) {
 	</div>
 </body>
 </html>
-
-<!-- Incluindo o jQuery e o jQuery Mask Plugin -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
-<!-- Aplicando a máscara de usuário -->
 <script>
+// <!-- Incluindo o jQuery e o jQuery Mask Plugin -->
+src="https://code.jquery.com/jquery-3.6.0.min.js">
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js">
+
+// <!-- Aplicando a máscara de usuário -->
+
 $(document).ready(function(){
   $('#email').mask("A", {
     translation: {

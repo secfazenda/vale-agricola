@@ -42,7 +42,7 @@ if (isset($_SESSION['idEmpresa'])) {
         <h1 class="titulo">Editar conta</h1>
         <form action="index.php" method="post" enctype="multipart/form-data">
 
-            <label for="nome">Usuário:</label>
+            <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" value="<?php echo $empresa->getNome() ?>" required>
 
             <label for="email">E-mail:</label>
@@ -75,22 +75,49 @@ if (isset($_SESSION['idEmpresa'])) {
     return !!window.confirm(mensagem.toString().replace("OK", "Sim"));
     };
     */
+/*
+    src="https://code.jquery.com/jquery-3.6.0.min.js">
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js">
 
-
-      
-    document.querySelector('.botao').addEventListener('click', function() {
-    if (confirm("Tem certeza que deseja editar sua conta?")) {
-        alert("Sua conta foi editada com sucesso.");
-        //confirmarEdicao();
-    } else {
-        event.preventDefault();
-    }
+    $(document).ready(function(){
+    $('#email').mask("A", {
+        translation: {
+        "A": { pattern: /[\w@\-.+]/, recursive: true }
+        }
+    }).on("blur", function(){
+        let email = $(this).val();
+        if(!isValidEmail(email)){
+        $(this).val("");
+        }
+    });
     });
 
-    /* function confirmarEdicao() {
-    alert("Sua conta foi editada com sucesso.");
-    } */
-    /*
+    function isValidEmail(email) {
+    let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+    }       
+*/
+                                
+    document.querySelector('.botao').addEventListener('click', function() {
+        var nome = document.getElementById("nome").value;
+        var email = document.getElementById("email").value;
+
+        if (nome.trim() === '' || !validarEmail(email)) {
+            alert("Por favor, preencha os campos corretamente.");
+            event.preventDefault();
+        } else if (confirm("Tem certeza que deseja editar sua conta?")) {
+            alert("Sua conta foi editada com sucesso.");
+            // confirmarEdicao();
+        } else {
+            event.preventDefault();
+        }
+        });
+
+    function validarEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
     function confirmarExclusao() {
         if (confirm("Tem certeza que deseja excluir sua conta?")) {
           alert("Sua conta foi excluída com sucesso.");
@@ -98,7 +125,8 @@ if (isset($_SESSION['idEmpresa'])) {
         } else {
           return false;
         }
-    } */
+    } 
+                      
     /*
     function confirmarEdicao() {
         if (confirm("Tem certeza que deseja editar sua conta?")) {
