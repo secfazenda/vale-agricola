@@ -5,17 +5,22 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST["button"])) {
-    $empresa = new Empresa();
-    $empresa->constructorCreate(
-        trim($_POST["nome"]),
-        trim($_POST["senha"]),
-        trim($_POST["email"]),
-        $_POST["cnpj"]
-    ); 
-    $empresa->save();
-    
-    header("location: ../new-confirm/");
+  if ($_POST["senha"] != $_POST["confirmar-senha"]) {
+      echo "As senhas não coincidem";
+  } else {
+      $empresa = new Empresa();
+      $empresa->constructorCreate(
+          trim($_POST["nome"]),
+          trim($_POST["senha"]),
+          trim($_POST["email"]),
+          $_POST["cnpj"]
+      ); 
+      $empresa->save();
+      
+      header("location: ../new-confirm/");
+  }
 }
+
 
 ?>
 
@@ -45,6 +50,9 @@ if (isset($_POST["button"])) {
 
             <label for="password">Senha:</label>
             <input type="password" name="senha" id="senha" maxlength="20" required placeholder="Digite sua senha aqui">
+
+            <label for="password">Confirmar Senha:</label>
+            <input type="password" name="confirmar-senha" id="confirmar-senha" maxlength="20" required placeholder="Confirme sua senha aqui">
 
             <input type="submit" value="Criar" name="button" class="botao">
 
@@ -95,4 +103,36 @@ function isValidEmail(email) {
   let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
+$(document).ready(function(){
+  $('#confirmar-senha').on('input', function() {
+    if ($(this).val() != $('#senha').val()) {
+      this.setCustomValidity("As senhas não coincidem");
+    } else {
+      this.setCustomValidity('');
+    }
+  });
+});
+
+document.querySelector('.botao').addEventListener('click', function(event) {
+  var cnpj = document.getElementById("cnpj").value;
+  var nome = document.getElementById("nome").value;
+  var email = document.getElementById("email").value;
+  var senha = document.getElementById("senha").value;
+  var confirmarSenha = document.getElementById("confirmar-senha").value;
+
+  if (cnpj.trim() === '' || nome.trim() === '' || email.trim() === '' || senha.trim() === '' || confirmarSenha.trim() === '' || !validarEmail(email)) {
+    alert("Por favor, preencha os campos corretamente.");
+    event.preventDefault();
+  } else if (senha !== confirmarSenha) {
+      alert("As senhas não coincidem.");
+    event.preventDefault();
+  } else if (confirm("Tem certeza que deseja criar uma conta?")) {
+      alert("Sua conta foi criada com sucesso.");
+    // confirmarCriacao();
+  } else {
+      event.preventDefault();
+  }
+});
+
+
 </script>
