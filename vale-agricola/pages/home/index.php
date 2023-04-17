@@ -22,9 +22,10 @@ if (!isset($_SESSION["idEmpresa"])) {
     <div class="home-page-util">
         <div class="home-page">
             <h1>Usuário Logado</h1>
-
-            <a href="../edit">Editar Conta</a>
-            <a href="../logout">Sair</a>
+            <div class="buttons">
+                <div class="edit-account"><a href="../edit">Editar Conta</a></div>
+                <div class="back-account"><a href="../logout">Sair</a></div>
+            </div>
         </div>
     </div>
 </body>
