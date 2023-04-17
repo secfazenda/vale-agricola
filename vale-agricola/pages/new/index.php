@@ -31,32 +31,36 @@ if (isset($_POST["button"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vale Agrícola | Criar Conta</title>
   <script src="scripts.js"></script>
-  <link rel="stylesheet" href="new.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section class="form">
-        <h1 class="titulo">Criar Conta</h1>
-        <form action="index.php" method="post" enctype="multipart/form-data">
+      <div class="create-account-util">
+        <div class="crate-account">
+            <h1 class="titulo">Criar Conta</h1>
+            <form action="index.php" method="post" enctype="multipart/form-data">
 
-            <label for="cnpj">CNPJ:</label>
-            <input type="string" name="cnpj" id="cnpj" minlength="14" required placeholder="Digite o CNPJ de sua empresa aqui">
+                <label for="cnpj">CNPJ:</label>
+                <input type="string" name="cnpj" id="cnpj" minlength="14" required placeholder="Digite o CNPJ da sua empresa aqui">
 
-            <label for="fullname">Nome:</label>
-            <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required placeholder="Digite o nome de sua empresa aqui">
+                <label for="fullname">Nome:</label>
+                <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required placeholder="Digite o nome da sua empresa aqui">
 
-            <label for="email">E-mail:</label>
-            <input type="email" name="email" id="email" required placeholder="Digite seu e-mail aqui">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required placeholder="Digite seu e-mail aqui">
 
-            <label for="password">Senha:</label>
-            <input type="password" name="senha" id="senha" minlength="5" maxlength="20" required placeholder="Digite sua senha aqui">
+                <label for="password">Senha:</label>
+                <input type="password" name="senha" id="senha" minlength="5" maxlength="20" required placeholder="Digite sua senha aqui">
 
-            <label for="password">Confirmar Senha:</label>
-            <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="5" maxlength="20" required placeholder="Confirme sua senha aqui">
+                <label for="password">Confirmar Senha:</label>
+                <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="5" maxlength="20" required placeholder="Confirme sua senha aqui">
 
-            <input type="submit" value="Criar" class="botao" name="button">
+                <input type="submit" value="Criar" class="botao" name="button">
 
-            <a href="../login">Voltar</a>
-        </form>
+                <a href="../login">Voltar</a>
+            </form>
+        </div>
+      </div>
     </section>
 </body>
 </html>

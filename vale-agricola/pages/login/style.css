@@ -1,0 +1,99 @@
+/* Estilo para o corpo da página */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilo para a div que contém o formulário de login */
+  .login-util {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Estilo para o formulário de login */
+  .login {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 400px;
+  }
+  
+  /* Estilo para o título do formulário */
+  .titulo {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  /* Estilo para as etiquetas dos campos de entrada */
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo para os campos de entrada */
+  input[type="email"],
+  input[type="password"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para o botão de login */
+  .botao {
+    background-color: #00c853;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  /* Estilo para o link "Crie sua conta aqui" */
+  .create-account {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  /* Estilo para o link "Voltar" */
+  a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  /* Estilo para o botão de mostrar/ocultar senha */
+  #olho-senha {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  /* Estilo para o ícone de mostrar/ocultar senha */
+  #olho-senha i {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Estilo para o ícone de mostrar/ocultar senha quando a senha estiver visível */
+  #olho-senha i.fa-eye-slash {
+    color: #00c853;
+  }
+  
+  /* Estilo para o erro na validação do e-mail */
+  input[type="email"].error {
+    border-color: red;
+  }
+  

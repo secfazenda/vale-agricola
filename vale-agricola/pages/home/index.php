@@ -19,9 +19,13 @@ if (!isset($_SESSION["idEmpresa"])) {
     <title>Vale Agrícola | Página de Usuário</title>
 </head>
 <body>
-    <h1>Usuário Logado</h1>
+    <div class="home-page-util">
+        <div class="home-page">
+            <h1>Usuário Logado</h1>
 
-    <a href="../edit">Editar Conta</a>
-    <a href="../logout">Sair</a>
+            <a href="../edit">Editar Conta</a>
+            <a href="../logout">Sair</a>
+        </div>
+    </div>
 </body>
 </html>

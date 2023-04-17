@@ -34,7 +34,7 @@ if (isset($_SESSION['idEmpresa'])) {
     <link rel="stylesheet" href="../home/style.css">
     <link rel="stylesheet" href="style.css">
 
-    <title>Vale Agrícola | Editar Conta </title>
+    <title>Vale Agrícola | Editar Conta</title>
 </head>
 
 <body>
