@@ -39,19 +39,19 @@ if (isset($_POST["button"])) {
         <form action="index.php" method="post" enctype="multipart/form-data">
 
             <label for="cnpj">CNPJ:</label>
-            <input type="string" name="cnpj" id="cnpj" required placeholder="Digite o CNPJ de sua empresa aqui">
+            <input type="string" name="cnpj" id="cnpj" minlength="14" required placeholder="Digite o CNPJ de sua empresa aqui">
 
             <label for="fullname">Nome:</label>
-            <input type="text" name="nome" id="nome" required placeholder="Digite o nome de sua empresa aqui">
+            <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required placeholder="Digite o nome de sua empresa aqui">
 
             <label for="email">E-mail:</label>
             <input type="email" name="email" id="email" required placeholder="Digite seu e-mail aqui">
 
             <label for="password">Senha:</label>
-            <input type="password" name="senha" id="senha" maxlength="20" required placeholder="Digite sua senha aqui">
+            <input type="password" name="senha" id="senha" minlength="5" maxlength="20" required placeholder="Digite sua senha aqui">
 
             <label for="password">Confirmar Senha:</label>
-            <input type="password" name="confirmar-senha" id="confirmar-senha" maxlength="20" required placeholder="Confirme sua senha aqui">
+            <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="5" maxlength="20" required placeholder="Confirme sua senha aqui">
 
             <input type="submit" value="Criar" class="botao" name="button">
 

@@ -14,7 +14,7 @@ require_once "../../settings/config.php";
 </head>
 <body>
     <h1>Cadastro concluído com Sucesso!</h1>
-    <p>Clique no botão "Login" para voltar à página de acesso, realizar o login e conseguir acessar o programa.</p>
+    <p>Clique no botão "Login" para voltar à página de acesso, realizar o login e conseguir acessar a página do programa.</p>
     <a href="../login">Login</a>
 </body>
 </html>
