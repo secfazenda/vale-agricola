@@ -14,7 +14,7 @@ if (isset($_POST["button"])) {
   $dados = array_map('trim', $dados_st);
 
   $result_usuario = "SELECT idEmpresa FROM empresas WHERE nome='". $dados['nome'] ."'";
-  $resultado_usuario = mysqli_query($conn, $result_usuario);
+  $resultado_usuario = mysqli_query($connection, $result_usuario);
 
   if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
     $erro = true;
