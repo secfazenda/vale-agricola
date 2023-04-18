@@ -5,6 +5,22 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST["button"])) {
+  /*
+  $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+  $erro = false;
+
+  $dados_st = array_map('strip_tags', $dados_rc);
+  $dados = array_map('trim', $dados_st);
+
+  $result_usuario = "SELECT idEmpresa FROM empresas WHERE nome='". $dados['nome'] ."'";
+  $resultado_usuario = mysqli_query($conn, $result_usuario);
+
+  if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
+    $erro = true;
+    $_SESSION['msg'] = "Este usuário já está sendo utilizado";
+  }
+  */
   if ($_POST["senha"] != $_POST["confirmar-senha"]) {
       echo "As senhas não coincidem";
   } else {
