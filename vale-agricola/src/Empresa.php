@@ -112,6 +112,17 @@ class Empresa implements ActiveRecord
         return $empresa;
     }
 
+    public function validarCadastro(): bool
+    {
+        $connection = new MySQL();
+        $sql = "SELECT id FROM usuarios WHERE usuario='". $empresa['usuario'] ."'";
+		$res = $connection->query($sql);
+		if(($sql) AND ($sql->num_rows != 0)){
+			$erro = true;
+			$_SESSION['msg'] = "Este usuário já está sendo utilizado";
+		}
+    }
+
     /* Consulta com processo de segurança contra SQL Inject
     
     public static function find($id): Empresa

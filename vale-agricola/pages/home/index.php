@@ -22,6 +22,7 @@ if (!isset($_SESSION["idEmpresa"])) {
     <div class="home-page-util">
         <div class="home-page">
             <h1>Usuário Logado</h1>
+            <?php echo "Olá ".$_SESSION['nome'].", Bem vindo! <br>"; ?>
             <div class="buttons">
                 <div class="edit-account"><a href="../edit">Editar Conta</a></div>
                 <div class="back-account"><a href="../logout">Sair</a></div>
