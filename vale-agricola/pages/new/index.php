@@ -5,35 +5,40 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST["button"])) {
-  /*
-  $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+  $empresas = Empresa::findall();
+  
+  $nome = trim($_POST["nome"]);
+  $cnpj = trim($_POST["cnpj"]);
+  $email = trim($_POST["email"]);
 
   $erro = false;
 
-  $dados_st = array_map('strip_tags', $dados_rc);
-  $dados = array_map('trim', $dados_st);
-
-  $result_usuario = "SELECT idEmpresa FROM empresas WHERE nome='". $dados['nome'] ."'";
-  $resultado_usuario = mysqli_query($connection, $result_usuario);
-
-  if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
-    $erro = true;
-    $_SESSION['msg'] = "Este usuário já está sendo utilizado";
+  foreach ($empresas as $empresa) {
+    if($empresa->getNome() == $nome){
+      echo "Nome já está sendo utilizado.";
+      $erro = true;
+      break;
+    } else if($empresa->getEmail() == $email){
+      echo "E-mail já está sendo utilizado.";
+      $erro = true;
+      break;
+    } else if($empresa->getCnpj() == $cnpj){
+      echo "Cnpj já está sendo utilizado.";
+      $erro = true;
+      break;
+    }
   }
-  */
-  if ($_POST["senha"] != $_POST["confirmar-senha"]) {
-      echo "As senhas não coincidem";
-  } else {
-      $empresa = new Empresa();
-      $empresa->constructorCreate(
-          trim($_POST["nome"]),
-          trim($_POST["senha"]),
-          trim($_POST["email"]),
-          $_POST["cnpj"]
-      ); 
-      $empresa->save();
-      
-      header("location: ../new-confirm/");
+
+  if (!$erro){
+    $empresa = new Empresa();
+    $empresa->constructorCreate(
+      $nome,
+      trim($_POST["senha"]),
+      $email,
+      $cnpj
+    );
+    $empresa->save();
+    header("location: ../new-confirm/");
   }
 }
 

@@ -112,46 +112,12 @@ class Empresa implements ActiveRecord
         return $empresa;
     }
 
-    public function validarCadastro(): bool
-    {
-        $connection = new MySQL();
-        $sql = "SELECT id FROM usuarios WHERE usuario='". $empresa['usuario'] ."'";
-		$res = $connection->query($sql);
-		if(($sql) AND ($sql->num_rows != 0)){
-			$erro = true;
-			$_SESSION['msg'] = "Este usuário já está sendo utilizado";
-		}
-    }
-
-    /* Consulta com processo de segurança contra SQL Inject
-    
-    public static function find($id): Empresa
-{
-    $connection = new MySQL();
-    $stmt = $connection->prepare("SELECT * FROM empresa WHERE idEmpresa = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $res = $stmt->get_result();
-    
-    $empresa = new Empresa;
-    $empresa->constructorCreate(
-        $res[0]['nome'],
-        $res[0]['senha'],
-        $res[0]['email'],
-        $res[0]['cnpj']
-    );
-    $empresa->setIdEmpresa($res[0]['idEmpresa']);
-    
-    return $empresa;
-}
-*/
-
     public static function findall():array{
-        $conexao = new MySQL();
+        $connection = new MySQL();
         $sql = "SELECT * FROM empresa";
-        $resultados = $conexao->consulta($sql);
+        $results = $connection->query($sql);
         $empresas = array();
-        foreach($res as $resultado){
+        foreach($results as $res){
             $e = new Empresa;
             // $e = new Empresa($resultado['nome'],$resultado['email'],$resultado['email']);
             $e->constructorCreate(
@@ -160,7 +126,7 @@ class Empresa implements ActiveRecord
                 $res['email'],
                 $res['cnpj']
             );
-            $e->setIdEmpresa($resultado['id']);
+            $e->setIdEmpresa($res['idEmpresa']);
             $empresas[] = $e;
         }           
         return $empresas;
