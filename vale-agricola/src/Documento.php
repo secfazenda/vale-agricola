@@ -7,7 +7,7 @@ class Documento implements ActiveRecord
     private string $nome;
     private DateTime $validade;
     private ?string $pdf;
-     
+    
     public function __construct() {}
         
     public function constructorCreate(
