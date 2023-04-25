@@ -8,7 +8,7 @@ class Documento implements ActiveRecord
     private ?string $pdf;
     
     public function __construct() {
-        $this->validadee = new DateTime();
+        // $this->validadee = new DateTime();
     }
     public function constructorCreate(string $nome, ?DateTime $validadee, ?string $pdf): Documento {
         if ($validadee === null) {
