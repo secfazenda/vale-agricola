@@ -1,9 +1,19 @@
 <?php
 
 require_once "../../settings/config.php";
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
 
-session_start();
-
+if (isset($_POST["button"])) {
+    $documento = new Documento();
+    $documento->constructorCreate(
+        trim($_POST["nome"]),
+        $_POST["validade"],
+        $_POST["pdf"]
+    );
+    $documento->save();
+    header("location: ../home/");
+};
 
 ?>
 

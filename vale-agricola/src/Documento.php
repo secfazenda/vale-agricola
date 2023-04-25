@@ -2,14 +2,25 @@
 
 class Documento implements ActiveRecord
 {
-    use DateTime;
     private int $idDocumento;
     private string $nome;
-    private DateTime $validade;
+    private DateTime $validadee;
     private ?string $pdf;
     
-    public function __construct() {}
-        
+    public function __construct() {
+        $this->validadee = new DateTime();
+    }
+    public function constructorCreate(string $nome, ?DateTime $validadee, ?string $pdf): Documento {
+        if ($validadee === null) {
+            $validadee = new DateTime(); // cria um objeto DateTime com a data atual
+            $validade = $validadee->format('Y-m-d H:i:s');
+        }
+        $this->nome = $nome;
+        $this->validade = $validade;
+        $this->pdf = $pdf;
+        return $this;
+    }
+    /*    
     public function constructorCreate(
         string $nome,
         DateTime $validade,
@@ -19,7 +30,7 @@ class Documento implements ActiveRecord
         $this->setValidade($validade);
         $this->setPdf($pdf);
     }
-
+    */
     public function setIdDocumento(int $idDocumento): void{
         $this->idDocumento = $idDocumento;
     }
@@ -57,11 +68,11 @@ class Documento implements ActiveRecord
         $connection = new MySQL();
         
         if (isset($this->idDocumento)) {
-          $sql = "UPDATE documento SET nome = '{$this->nome}', validade = '{$this->validade}', pdf = '{$this->pdf}'   WHERE idDocumento = {$this->idDocumento}";
+            $sql = "UPDATE documento SET nome = '{$this->nome}', validade = '{$this->validade}', pdf = '{$this->pdf}'   WHERE idDocumento = {$this->idDocumento}";
         }
 
         else {
-            $sql = "INSERT INTO documento (nome,validade,pdf) VALUES ('{$this->nome}','{$this->validade}','{$this->pdf}','{$this->cnpj}')";
+            $sql = "INSERT INTO documento (nome,validade,pdf) VALUES ('{$this->nome}','{$this->validade}','{$this->pdf}')";
         }
         
         return $connection->execute($sql);
