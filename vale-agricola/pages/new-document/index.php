@@ -38,7 +38,7 @@ if (isset($_POST["button"])) {
         );
         $documento->save();          
         
-        // header("location: ../home/");
+        header("location: ../home/");
     } else {
         echo "Por favor, preencha o nome do documento.";
     }

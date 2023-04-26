@@ -8,6 +8,9 @@ if (!isset($_SESSION["idEmpresa"])) {
     header("location: ../login");
 }
 
+$documentos = Documento::findall();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +25,20 @@ if (!isset($_SESSION["idEmpresa"])) {
     <div class="home-page-util">
         <div class="home-page">
             <h1>Usuário Logado</h1>
-            <?php echo "Olá ".$_SESSION['nome'].", Bem vindo! <br>"; ?>
+            <?php echo "Olá ".$_SESSION['nome'].", Bem vindo! <br>";
+            foreach($documentos as $documento){?>
+                <div><a href="">
+                <?php 
+                echo "<td>{$documento->getNome()}</td>";
+                $validade = $documento->getValidade();
+                echo " - ";
+                echo "<td>{$validade->format("d/m/Y")}</td>";
+                // echo " - ";
+                // echo "<td>{$documento->getPdf()}</td>";
+                ?>
+                </a></div>
+            <?php } ?>
+            
             <div class="buttons">
                 <div class="new-document"><a href="../new-document">Cadastrar Documento</a></div>
                 <div class="edit-account"><a href="../edit">Editar Conta</a></div>
