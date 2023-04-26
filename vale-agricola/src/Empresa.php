@@ -8,9 +8,7 @@ class Empresa implements ActiveRecord
     private string $senha;
     private string $email;
     private string $cnpj;
-    
-    
-
+      
     public function __construct() {}
         
     public function constructorCreate(
