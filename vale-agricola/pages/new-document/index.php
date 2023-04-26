@@ -5,25 +5,45 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST["button"])) {
+    if(isset($_FILES["pdf"])) {
+        $nome_arquivo = $_FILES["pdf"]["name"];
+        $extensao_arquivo = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
+        if($extensao_arquivo == "pdf") {
+            $diretorio_destino = "../../documentos/";
+            $caminho_completo = $diretorio_destino . $nome_arquivo;
+            if(move_uploaded_file($_FILES["pdf"]["tmp_name"], $caminho_completo)) {
+                echo "Arquivo enviado com sucesso.";
+            } else {
+                echo "Ocorreu um erro ao enviar o arquivo.";
+            }
+        } else {
+            echo "Apenas arquivos PDF são permitidos.";
+        }
+    }
+    
     // Verifica se os campos obrigatórios foram preenchidos
     if (!empty($_POST["nome"])) {
         // Converte a data para um objeto DateTime
         $validade = isset($_POST["validade"]) ? new DateTime($_POST["validade"]) : null;
+        
+        // Armazena o caminho completo do arquivo em uma variável
+        $caminho_arquivo = $caminho_completo;
         
         // Cria o objeto Documento
         $documento = new Documento();
         $documento->constructorCreate(
             trim($_POST["nome"]),
             $validade,
-            $_POST["pdf"]
+            $caminho_arquivo
         );
         $documento->save();          
         
-        header("location: ../home/");
+        // header("location: ../home/");
     } else {
         echo "Por favor, preencha o nome do documento.";
     }
 }
+
 
 
 ?>
