@@ -27,7 +27,7 @@ $documentos = Documento::findall();
             <h1>Usuário Logado</h1>
             <?php echo "Olá ".$_SESSION['nome'].", Bem vindo! <br>";
             foreach($documentos as $documento){?>
-                <div><a href="">
+                <div class="document"><a href="">
                 <?php 
                 echo "<td>{$documento->getNome()}</td>";
                 $validade = $documento->getValidade();
