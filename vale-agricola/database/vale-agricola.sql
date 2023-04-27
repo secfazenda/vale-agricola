@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Abr-2023 às 19:40
+-- Tempo de geração: 27-Abr-2023 às 21:39
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -42,7 +42,8 @@ INSERT INTO `documento` (`idDocumento`, `nome`, `validade`, `pdf`) VALUES
 (30, 'teste', '2025-05-17', 0x2e2e2f2e2e2f646f63756d656e746f732f41727469676f2031352e706466),
 (31, 'teste2', '2028-02-28', 0x2e2e2f2e2e2f646f63756d656e746f732f41636164c3aa6d69636f2e706466),
 (32, 'teste 3', '2028-03-25', 0x2e2e2f2e2e2f646f63756d656e746f732f4f20536f6d20646f2052756769646f206461204f6ec3a7612e706466),
-(33, 'Agro Ost II', '2025-10-17', 0x2e2e2f2e2e2f646f63756d656e746f732f617465737461646f2e706466);
+(33, 'Agro Ost II', '2025-10-17', 0x2e2e2f2e2e2f646f63756d656e746f732f617465737461646f2e706466),
+(34, 'Reg. Documentos', '2023-06-05', 0x2e2e2f2e2e2f646f63756d656e746f732f706c616e6f5f64655f617469766964616465735f617373696e61646f2e706466);
 
 -- --------------------------------------------------------
 
@@ -51,19 +52,21 @@ INSERT INTO `documento` (`idDocumento`, `nome`, `validade`, `pdf`) VALUES
 --
 
 CREATE TABLE `empresa` (
-  `idEmpresa` bigint(20) UNSIGNED NOT NULL,
+  `idEmpresa` bigint(20) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `cnpj` varchar(18) DEFAULT NULL
+  `cnpj` varchar(18) DEFAULT NULL,
+  `idDocumento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `empresa`
 --
 
-INSERT INTO `empresa` (`idEmpresa`, `nome`, `senha`, `email`, `cnpj`) VALUES
-(101, 'Agro Ost', '$2y$10$DdiZxK5RVfqZ42vCESDnSuYfBBp/JZmRu/Z3VMkSsb/O/L5SoUkiW', 'marcelo7@gmail.com', '25.615.161/5615-61');
+INSERT INTO `empresa` (`idEmpresa`, `nome`, `senha`, `email`, `cnpj`, `idDocumento`) VALUES
+(101, 'Agro Ost', '$2y$10$DdiZxK5RVfqZ42vCESDnSuYfBBp/JZmRu/Z3VMkSsb/O/L5SoUkiW', 'marcelo7@gmail.com', '25.615.161/5615-61', NULL),
+(107, 'Agro Griebler', '$2y$10$dKHMVP5/w.on8H8yK.CL4e4dvUMtNe4HJtc41n/VZbIu1v0FrLy.y', 'marcelo.ost7@gmail.com', '02.154.845/1518-75', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -80,7 +83,8 @@ ALTER TABLE `documento`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`idEmpresa`),
-  ADD UNIQUE KEY `idEmpresa` (`idEmpresa`);
+  ADD UNIQUE KEY `idEmpresa` (`idEmpresa`),
+  ADD KEY `fk_idDocumento` (`idDocumento`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -90,13 +94,23 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de tabela `documento`
 --
 ALTER TABLE `documento`
-  MODIFY `idDocumento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `idDocumento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idEmpresa` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `idEmpresa` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `empresa`
+--
+ALTER TABLE `empresa`
+  ADD CONSTRAINT `fk_idDocumento` FOREIGN KEY (`idDocumento`) REFERENCES `documento` (`idDocumento`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

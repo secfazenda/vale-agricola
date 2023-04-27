@@ -116,4 +116,19 @@ class Documento implements ActiveRecord{
         return $documentos;
     }
 
+    public static function findallByUsuario($idEmpresa):array{
+        $connection = new MySQL();
+        $sql = "SELECT * FROM documento WHERE idDocumento = {$idUsuario}";
+        $resultados = $conexao->consulta($sql);
+        $pessoas = array();
+        foreach($resultados as $resultado){
+            $p = new Pessoa($resultado['nome'],$resultado['email']);
+            $p->setId($resultado['id']);
+            $p->setIdUsuario($resultado['idUsuario']);
+            $pessoas[] = $p;
+        }
+        return $pessoas;
+    }
+    
+
 }

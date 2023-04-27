@@ -149,5 +149,4 @@ class Empresa implements ActiveRecord
         }
     }
 
-
 }
