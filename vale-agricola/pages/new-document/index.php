@@ -25,15 +25,11 @@ if (isset($_POST["button"])) {
         }
     }
     
-    // Verifica se os campos obrigatórios foram preenchidos
+    
     if (!empty($_POST["nome"])) {
-        // Converte a data para um objeto DateTime
         $validade = isset($_POST["validade"]) ? new DateTime($_POST["validade"]) : null;
-        
-        // Armazena o caminho completo do arquivo em uma variável
         $caminho_arquivo = $caminho_completo;
         
-        // Cria o objeto Documento
         $documento = new Documento();
         $documento->constructorCreate(
             trim($_POST["nome"]),
@@ -48,8 +44,6 @@ if (isset($_POST["button"])) {
         echo "Por favor, preencha o nome do documento.";
     }
 }
-
-
 
 ?>
 

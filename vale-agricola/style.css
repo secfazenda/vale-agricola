@@ -1,0 +1,99 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+    
+    /* Define styles for the util area */
+    .homepage-util-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    /* Define styles for the superior part */
+    .hp-superior-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+    
+    /* Define styles for the title */
+    .hp-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    }
+    
+    /* Define styles for the subtitle */
+    .hp-subtitle {
+    font-size: 18px;
+    font-weight: normal;
+    text-align: left;
+    }
+
+    .content {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: justify;
+    }
+    
+    /* Define styles for the mid part */
+    .hp-mid-part {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ccc;
+    margin: 0 50px;
+    padding: 10px;
+    }
+    
+    /* Define styles for the main image */
+    .hp-main-image {
+    max-width: 100%;
+    height: auto;
+    }
+    
+    /* Define styles for the bottom part */
+    .hp-bottom-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    /* Define styles for the button space */
+    .hp-button-space {
+    margin-bottom: 20px;
+    }
+    
+    /* Define styles for the button */
+    .hp-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #5C5C5C;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    }
+    
+    /* Define styles for the button on hover */
+    .hp-button:hover {
+    background-color: #222222;
+    }
+    

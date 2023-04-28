@@ -19,7 +19,7 @@ class Documento implements ActiveRecord{
     ): self {
         
         if ($validade === null) {
-            $validade = new DateTime(); // cria um objeto DateTime com a data atual
+            $validade = new DateTime(); 
         }
         $this->nome = $nome;
         $this->validade = $validade;

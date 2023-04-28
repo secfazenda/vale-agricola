@@ -24,8 +24,7 @@ $documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
 <body>
     <div class="home-page-util">
         <div class="home-page">
-            <h1>Usuário Logado</h1>
-            <?php echo "Olá ".$_SESSION['nome'].", Bem vindo! <br>";
+            <?php echo "<h2>Olá ".$_SESSION['nome'].", Bem vindo! <br></h2>";
             foreach($documentos as $documento){?>
                 <div class="document"><a href="">
                 <?php 
