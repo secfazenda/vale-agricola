@@ -6,6 +6,7 @@ class Documento implements ActiveRecord{
     private string $nome;
     private ?DateTime $validade;
     private ?string $pdf;
+    private int $idEmpresa;
     
     public function __construct() {
         // $this->validade = new DateTime();
@@ -58,6 +59,14 @@ class Documento implements ActiveRecord{
         return $this->pdf;
     }
 
+    public function setIdEmpresa(int $idEmpresa): void{
+        $this->idEmpresa = $idEmpresa;
+    }
+
+    public function getIdEmpresa(): int{
+        return $this->idEmpresa;
+    }
+
     public function save(): bool 
     {
         $connection = new MySQL();
@@ -66,7 +75,7 @@ class Documento implements ActiveRecord{
             $sql = "UPDATE documento SET nome = '{$this->nome}', validade = '{$this->validade->format('Y-m-d H:i:s')}', pdf = '{$this->pdf}' WHERE idDocumento = {$this->idDocumento}";
         }
         else {
-            $sql = "INSERT INTO documento (nome,validade,pdf) VALUES ('{$this->nome}','{$this->validade->format('Y-m-d H:i:s')}','{$this->pdf}')";
+            $sql = "INSERT INTO documento (nome,validade,pdf,idEmpresa) VALUES ('{$this->nome}','{$this->validade->format('Y-m-d H:i:s')}','{$this->pdf}','{$this->idEmpresa}')";
         }
         
         return $connection->execute($sql);
@@ -94,6 +103,7 @@ class Documento implements ActiveRecord{
             $res[0]['pdf']
         );
         $documento->setIdDocumento($res[0]['idDocumento']);
+        $documento->setIdEmpresa($res[0]['idEmpresa']);
         
         return $documento;
     }
@@ -111,23 +121,30 @@ class Documento implements ActiveRecord{
                 $res['pdf']
             );
             $d->setIdDocumento($res['idDocumento']);
+            $d->setIdEmpresa($res['idEmpresa']);
             $documentos[] = $d;
         }
         return $documentos;
     }
 
-    public static function findallByUsuario($idEmpresa):array{
+    public static function findallByDocumento($idDocumento):array{
         $connection = new MySQL();
-        $sql = "SELECT * FROM documento WHERE idDocumento = {$idUsuario}";
-        $resultados = $conexao->consulta($sql);
-        $pessoas = array();
+        $sql = "SELECT * FROM documento WHERE idEmpresa = {$idEmpresa}";
+        $resultados = $connection->consulta($sql);
+        $documentos = array();
         foreach($resultados as $resultado){
-            $p = new Pessoa($resultado['nome'],$resultado['email']);
-            $p->setId($resultado['id']);
-            $p->setIdUsuario($resultado['idUsuario']);
-            $pessoas[] = $p;
+            $d = new Documento;
+            $d->constructorCreate(
+                $resultado['nome'],
+                new DateTime($resultado['validade']),
+                $resultado['pdf']
+            );
+            $d->setIdDocumento($resultado['idDocumento']);
+            $d->setIdEmpresa($resultado['idEmpresa']);
+            $documentos[] = $d;
+
         }
-        return $pessoas;
+        return $documentos;
     }
     
 

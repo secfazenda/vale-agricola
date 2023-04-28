@@ -3,6 +3,10 @@
 require_once "../../settings/config.php";
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
+session_start();
+if(!isset($_SESSION['idEmpresa'])){
+    header("../login");
+}
 
 if (isset($_POST["button"])) {
     if(isset($_FILES["pdf"])) {
@@ -36,6 +40,7 @@ if (isset($_POST["button"])) {
             $validade,
             $caminho_arquivo
         );
+        $documento->setIdEmpresa($_SESSION['idEmpresa']);
         $documento->save();          
         
         header("location: ../home/");
