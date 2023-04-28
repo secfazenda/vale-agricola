@@ -127,10 +127,10 @@ class Documento implements ActiveRecord{
         return $documentos;
     }
 
-    public static function findallByDocumento($idDocumento):array{
+    public static function findallByDocumento($idEmpresa):array{
         $connection = new MySQL();
         $sql = "SELECT * FROM documento WHERE idEmpresa = {$idEmpresa}";
-        $resultados = $connection->consulta($sql);
+        $resultados = $connection->query($sql);
         $documentos = array();
         foreach($resultados as $resultado){
             $d = new Documento;

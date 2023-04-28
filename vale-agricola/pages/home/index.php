@@ -8,7 +8,7 @@ if (!isset($_SESSION["idEmpresa"])) {
     header("location: ../login");
 }
 
-$documentos = Documento::findall();
+$documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
 
 
 ?>
