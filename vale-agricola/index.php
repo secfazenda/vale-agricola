@@ -32,7 +32,7 @@ require_once __DIR__.'/settings/config.php';
             <div class="hp-mid-part">
                 <div class="hp-subtitle"><h3>Como funciona?</h3></div>
                 <div class="content">
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;O incentivo concedido aos agricultores sob forma de Vale Agrícola, de acordo com o disposto na Lei 1211/2017 e alterações instituídas pela Lei 1468/2021,  prevê o reembolso, mediante apresentação de nota fiscal de compras de mudas, produtos e insumos agrícolas, ferramentas agrícolas e combustíveis na Prefeitura Municipal.</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;O incentivo concedido aos agricultores sob forma de Vale Agrícola, de acordo com o disposto na <a href="https://cespro.com.br/visualizarDiploma.php?cdMunicipio=7221&cdDiploma=20211468&NroLei=1.468&Word=&Word2=">Lei 1211/2017</a> e alterações instituídas pela Lei 1468/2021,  prevê o reembolso, mediante apresentação de nota fiscal de compras de mudas, produtos e insumos agrícolas, ferramentas agrícolas e combustíveis na Prefeitura Municipal.</p>
 
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;Dos bônus já gerados e ainda válidos, referentes à produção do ano de 2018 e 2019, 30% pode ser gasto nos estabelecimentos acima relacionados. A contar do ano de 2021, ano base 2020, este valor passa a ser de 40% do valor, uma das alterações instituídas pela lei 1468.</p>
 

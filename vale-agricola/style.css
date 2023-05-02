@@ -10,7 +10,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 100px;
     }
     
     /* Define styles for the util area */
@@ -19,6 +21,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     }
     
     /* Define styles for the superior part */
@@ -32,7 +38,7 @@
     
     /* Define styles for the title */
     .hp-title {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
     }
@@ -55,9 +61,6 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    border: 2px solid #ccc;
-    margin: 0 50px;
-    padding: 10px;
     }
     
     /* Define styles for the main image */
@@ -71,6 +74,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
     }
     
     /* Define styles for the button space */
