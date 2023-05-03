@@ -13,11 +13,22 @@ require_once __DIR__.'/settings/config.php';
     <title>Vale Agrícola</title>
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+            <img src="settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        </div>
+        <div class="icone">
+            <img src="settings/imagens/icone-contraste.png" alt="iconedl">
+        </div>
+
+    </header>
     <div class="homepage-container">
         <div class="homepage-util-area">
             <div class="hp-superior-part">
-                <div class="hp-title"><h1>Bem-vindo ao Vale Agrícola</h1></div>
-
+                <div class="hp-title">
+                    <h1>Bem-vindo ao Vale Agrícola</h1>
+                </div>
+                
                 <div class="hp-bottom-part">
                     <div class="hp-button-space">
                         <a href="./pages/login">
@@ -30,7 +41,9 @@ require_once __DIR__.'/settings/config.php';
 
             </div>
             <div class="hp-mid-part">
-                <div class="hp-subtitle"><h3>Como funciona?</h3></div>
+                <div class="hp-subtitle">
+                    <h3>Como funciona?</h3>
+                </div>
                 <div class="content">
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;O incentivo concedido aos agricultores sob forma de Vale Agrícola, de acordo com o disposto na <a href="https://cespro.com.br/visualizarDiploma.php?cdMunicipio=7221&cdDiploma=20211468&NroLei=1.468&Word=&Word2=">Lei 1211/2017</a> e alterações instituídas pela Lei 1468/2021,  prevê o reembolso, mediante apresentação de nota fiscal de compras de mudas, produtos e insumos agrícolas, ferramentas agrícolas e combustíveis na Prefeitura Municipal.</p>
 
