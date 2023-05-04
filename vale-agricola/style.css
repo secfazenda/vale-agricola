@@ -5,32 +5,37 @@
     margin: 0;
 }
 
-.header{
+.header {
     display: flex;
+    align-items: center;
     background-color: #D9D9D9;
-    padding-top: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-bottom: 24px;
-    height: auto;
-    width: 100%;
+    padding: 10px;
 }
 
 .logo{
-    height: auto;
     width: 100%;
-    padding-top: 20px;
-    padding-left: 50px;
+    height: auto;
+    padding-left: 200px;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
 }
 
 .icone{
+    width: 100%;
     height: auto;
-    width: 20%;
-    margin: 18px 14px 18px 14px;
-    max-width: 100%;
-    max-height: 100%;
+    padding-left: 400px;
 }
 
+.icone img {
+    width: 100%;
+    max-width: 20px;
+    height: auto;
+}
 
 .homepage-container {
     display: flex;
@@ -39,9 +44,9 @@
     align-items: center;
     background-color: #f2f2f2;
     border-radius: 5px;
-    padding: 100px;
+    padding: 100px 200px 150px 200px;
     background-color: rgba(242, 242, 242, 1.0);
-    background-image: url("settings/imagens/vale-agricola.jpeg");
+    background-image: url("settings/imagens/vale-agricola.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -134,3 +139,102 @@
     background-color: #222222;
     }
     
+    h1, h3{
+        margin-top: 50px;
+    }
+
+    h1{
+        margin-bottom: 30px;
+    }
+
+    .content{
+        margin: 5px;
+    }
+    @media screen and (max-width: 768px) {
+        .homepage-container {
+          padding: 50px 70px 50px 70px;
+        }
+        
+        .logo {
+          padding-left: 0;
+          text-align: center;
+        }
+
+        .logo img {
+            width: 100%;
+            max-width: 170px;
+            height: auto;
+        }
+        
+        .icone {
+          padding-left: 0;
+          text-align: center;
+        }
+
+        .icone img {
+            width: 100%;
+            max-width: 20px;
+            height: auto;
+        }
+        
+        .homepage-util-area {
+          padding: 10px;
+        }
+        
+        .hp-title {
+          font-size: 24px;
+        }
+        
+        .hp-subtitle {
+          font-size: 14px;
+        }
+        
+        .content {
+          font-size: 14px;
+        }
+        
+        .hp-main-image {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+        
+        .hp-button {
+          width: 80px;
+          height: 30px;
+          font-size: 14px;
+        }
+      }
+      
+      @media screen and (max-width: 480px) {
+        .homepage-container {
+          padding: 20px;
+        }
+
+        .homepage-util-area {
+          border-radius: 5px;
+        }
+        
+        .hp-title {
+          font-size: 20px;
+        }
+        
+        .hp-subtitle {
+          font-size: 12px;
+        }
+        
+        .content {
+          font-size: 12px;
+        }
+        
+        .hp-main-image {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        
+        .hp-button {
+          width: 60px;
+          height: 20px;
+          font-size: 12px;
+        }
+      }
+      
