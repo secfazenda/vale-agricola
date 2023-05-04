@@ -20,7 +20,6 @@ require_once __DIR__.'/settings/config.php';
         <div class="icone">
             <img src="settings/imagens/icone-contraste.png" alt="iconedl">
         </div>
-
     </header>
     <div class="homepage-container">
         <div class="homepage-util-area">
