@@ -12,17 +12,18 @@ if (isset($_POST["button"])) {
         header("location: index.php");
     }
 }
-
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Vale Agrícola | Login</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vale Agrícola | Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="login-util">
     <header class="header">
         <div class="logo">
             <img src="../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
@@ -31,51 +32,46 @@ if (isset($_POST["button"])) {
             <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
         </div>
     </header>
-		<div class="login">
-      <div class="form-util">
-        <form action="index.php" method="post" enctype="multipart/form-data">
-        <div class="titulo">  
-          <h1 claas="titulo">Login</h1>
-        </div>
-        <div class="div-email">
-          <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" required placeholder="Digite seu e-mail aqui">
-        </div>
-        <div class="div-senha">
-          <label for="senha">Senha</label>
-          <input type="password" name="senha" id="senha" maxlength="20" required placeholder="Digite sua senha aqui">
-          <button type="button" id="olho-senha"><i class="fa fa-eye"></i></button>
-        </div>
+    <div class="login-util">
+        <div class="login">
+            <h1 class="titulo">Login</h1>
+            
+            <form action="index.php" method="post" enctype="multipart/form-data">
 
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-          <script>
-          var senha = document.getElementById("senha");
-          var olhoSenha = document.getElementById("olho-senha");
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" required>
+    
+                <label for="senha">Senha</label>
+                <div class="div-senha">
+                    <input type="password" name="senha" id="senha" maxlength="50" required>
+                    <button type="button" id="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>
+                </div>
 
-          olhoSenha.addEventListener("click", function() {
-            if (senha.type === "password") {
-              senha.type = "text";
-              olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
-            } else {
-              senha.type = "password";
-              olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
-            }
-          });
-          </script>
-          
-          <div class="div-login">
-            <input type="submit" value="Login" class="botao" name="button">
-          </div class="botao-voltar">
-          <div class="div-criar-conta">
-            <a class="create-account" href="../new">Crie sua conta aqui</a>
-          </div>
-          <div class="div-sair">
-            <a href="../../index.php"><img src="../../settings/imagens/botao-voltar.png" alt="" class="botao-voltar"></a>
-          </div>
-			  </form>
-      </div>
-		</div>
-	</div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+                <script>
+                var senha = document.getElementById("senha");
+                var olhoSenha = document.getElementById("olho-senha");
+
+                olhoSenha.addEventListener("click", function() {
+                    if (senha.type === "password") {
+                    senha.type = "text";
+                    olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
+                    } else {
+                    senha.type = "password";
+                    olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
+                    }
+                });
+                </script>
+
+                <input type="submit" value="Login" class="botao" name="button">
+
+                <a class="create-account" href="../new">Crie sua conta aqui</a>
+
+                <a href="../../index.php" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
+
+            </form>
+        </div>
+    </div>
 </body>
 </html>
 <script>
