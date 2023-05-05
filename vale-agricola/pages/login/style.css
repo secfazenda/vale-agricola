@@ -5,6 +5,10 @@
     margin: 0;
 }
 
+body{
+    background-color: rgba(240,240,240);
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -48,11 +52,11 @@ body {
 .login-util {
 	background-size: cover;
 	background-position: bottom center;
-	height: 100vh;
+	height: 90vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    background-color: rgba(240,240,240)
+    background-color: rgba(240,240,240);
 }
 
 .login {
@@ -69,6 +73,7 @@ body {
     font-size: 39px;
     text-align: center;
     text-shadow: 2px 2px var #0000;
+    margin: 10px;
 }
 
 form {
@@ -77,27 +82,29 @@ form {
 }
 
 label {
+    margin-top: 5px;
 	margin-bottom: 10px;
 }
 
 input {
 	padding: 10px;
 	font-size: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	border-radius: 5px;
 	border: none;
-}
-
-.botao-voltar img {
-    width: 100%;
-    max-width: 30px;
-    height: auto;
 }
 
 .create-account {
     color: #2c2c2c;
 	text-align: center;
 	text-decoration: none;
+    margin: 7px;
+}
+
+.botao-voltar img {
+    width: 100%;
+    max-width: 30px;
+    height: auto;
 }
 
 .botao {
@@ -123,4 +130,37 @@ input {
     top: 5px;
     right: 10px;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .logo{
+        padding-left: 5%;
+    }
+
+    .icone{
+        padding-left: 10%;
+    }
+
+    .login-util {
+        height: 85vh;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .logo{
+        padding-left: 5%;
+    }
+
+    .icone{
+        padding-left: 10%;
+    }
+
+    .login-util {
+        height: 80vh;
+    }
+
+    .login {
+        margin: 10px;
+    }
+
 }
