@@ -15,15 +15,15 @@ if (isset($_POST["button"])) {
 
   foreach ($empresas as $empresa) {
     if($empresa->getNome() == $nome){
-      echo "Nome já está sendo utilizado.";
+      echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>O nome já está sendo utilizado.</h3></div>";
       $erro = true;
       break;
     } else if($empresa->getEmail() == $email){
-      echo "E-mail já está sendo utilizado.";
+      echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>E-mail já está sendo utilizado.</h3></div>";
       $erro = true;
       break;
     } else if($empresa->getCnpj() == $cnpj){
-      echo "Cnpj já está sendo utilizado.";
+      echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>Cnpj já está sendo utilizado.</h3></div>";
       $erro = true;
       break;
     }
@@ -55,34 +55,42 @@ if (isset($_POST["button"])) {
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="form">
-      <div class="create-account-util">
-        <div class="crate-account">
+    
+    <header class="header">
+        <div class="logo">
+            <img src="../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        </div>
+        <div class="icone">
+            <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
+        </div>
+    </header>
+
+    <div class="create-account-util">
+        <div class="create-account">
             <h1 class="titulo">Criar Conta</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
 
-                <label for="cnpj">CNPJ:</label>
-                <input type="string" name="cnpj" id="cnpj" minlength="14" required placeholder="Digite o CNPJ da sua empresa aqui">
+                <label for="cnpj">Cnpj</label>
+                <input type="string" name="cnpj" id="cnpj" minlength="14" required>
 
-                <label for="fullname">Nome:</label>
-                <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required placeholder="Digite o nome da sua empresa aqui">
+                <label for="fullname">Nome</label>
+                <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required>
 
-                <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email" required placeholder="Digite seu e-mail aqui">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" required>
 
-                <label for="password">Senha:</label>
-                <input type="password" name="senha" id="senha" minlength="5" maxlength="20" required placeholder="Digite sua senha aqui">
+                <label for="password">Senha</label>
+                <input type="password" name="senha" id="senha" minlength="5" maxlength="20" required>
 
-                <label for="password">Confirmar Senha:</label>
-                <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="5" maxlength="20" required placeholder="Confirme sua senha aqui">
+                <label for="password">Confirmar Senha</label>
+                <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="5" maxlength="20" required>
 
-                <input type="submit" value="Criar" class="botao" name="button">
+                <input type="submit" value="Criar Conta" class="botao" name="button">
 
-                <a href="../login">Voltar</a>
+                <a href="../login" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
             </form>
         </div>
-      </div>
-    </section>
+    </div>
 </body>
 </html>
 
