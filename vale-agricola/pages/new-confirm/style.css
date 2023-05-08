@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -52,7 +51,7 @@ body {
 .login-util {
 	background-size: cover;
 	background-position: bottom center;
-	height: 90vh;
+	height: 70vh;
     width: 100%;
 	display: flex;
 	align-items: center;
@@ -64,7 +63,7 @@ body {
 	background-color: rgba(250, 250, 250, 0.8);
 	padding: 10px 30px;
 	border-radius: 10px;
-	max-width: 400px;
+	max-width: 800px;
 	box-shadow: 0 0 20px #0000;
 	transition: all ease .3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -74,65 +73,32 @@ body {
     font-size: 39px;
     text-align: center;
     text-shadow: 2px 2px var #0000;
-    margin: 10px;
-}
-
-form {
-	display: flex;
-	flex-direction: column;
-}
-
-label {
-    margin-top: 5px;
-	margin-bottom: 10px;
-    font-size: 20px;
-}
-
-input {
-	padding: 10px;
-	font-size: 20px;
-	margin-bottom: 10px;
-	border-radius: 5px;
-	border: none;
-}
-
-.create-account {
-    color: #2c2c2c;
-	text-align: center;
-	text-decoration: none;
-    margin: 7px;
-    font-size: 20px;
-}
-
-.botao-voltar img {
-    width: 100%;
-    max-width: 30px;
-    height: auto;
+    margin: 10px 10px 20px 10px;
 }
 
 .botao {
 	display: flex;
     justify-content: center;
-    align-items: center;/*
+    align-items: center;
     width: 120px;
-    height: 40px;*/
+    height: 40px;
     border-radius: 5px;
     background-color: #5C5C5C;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     margin-top: 20px;
+    margin: 20px auto;
+    text-decoration: none;
 }
 
 .botao:hover {
     background-color: #222222;
 }
 
-.olho-senha {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    cursor: pointer;
+.conteudo{
+    font-size: 18px;
+    text-align: justify;
 }
 
 @media only screen and (max-width: 768px) {
@@ -146,6 +112,10 @@ input {
 
     .login-util {
         height: 85vh;
+    }
+
+    .login {
+        margin: 20px;
     }
 }
 
