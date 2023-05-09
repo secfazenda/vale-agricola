@@ -54,24 +54,34 @@ if (isset($_POST["button"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vale Agrícola | Cadastro de Documento</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+            <img src="../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        </div>
+        <div class="icone">
+            <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
+        </div>
+    </header>
+
     <div class="home-page-util">
         <div class="home-page">
-            <h1>Cadastre um Documento</h1>
+            <h1 class="titulo">Cadastre um Documento</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
-                <label for="fullname">Nome:</label>
-                <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required placeholder="Digite o nome do documento aqui">
+                <label for="fullname">Nome do Documento</label>
+                <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required>
 
-                <label for="validade">Validade do Documento:</label>
+                <label for="validade">Validade do Documento</label>
                 <input type="date" name="validade" id="validade" required>
 
-                <label for="pdf">Selecione o arquivo PDF do documento:</label>
+                <label for="pdf">Selecione o arquivo PDF do documento</label>
                 <input type="file" name="pdf" id="pdf" accept=".pdf" required>
 
                 <input type="submit" value="Cadastrar" class="botao" name="button">
             </form>
-            <a href="../home">Voltar</a>
+            <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
     </div>
 </body>

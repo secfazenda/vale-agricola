@@ -80,10 +80,10 @@ if (isset($_POST["button"])) {
                 <input type="email" name="email" id="email" required>
 
                 <label for="password">Senha</label>
-                <input type="password" name="senha" id="senha" minlength="5" maxlength="20" required>
+                <input type="password" name="senha" id="senha" minlength="5" maxlength="50" required>
 
                 <label for="password">Confirmar Senha</label>
-                <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="5" maxlength="20" required>
+                <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="5" maxlength="50" required>
 
                 <input type="submit" value="Criar Conta" class="botao" name="button">
 
