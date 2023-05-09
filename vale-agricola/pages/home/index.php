@@ -20,13 +20,24 @@ $documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vale Agrícola | Página de Usuário</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+            <img src="../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        </div>
+        <div class="icone">
+            <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
+        </div>
+    </header>
+
     <div class="home-page-util">
         <div class="home-page">
-            <?php echo "<h2>Olá ".$_SESSION['nome'].", Bem vindo! <br></h2>";
-            foreach($documentos as $documento){?>
-                <div class="document"><a href="">
+            <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", Bem vindo! <br></h2>";?>
+            <h2 class="subtitulo">Lista de Documentos</h2>
+            <?php foreach($documentos as $documento){?>
+                <div><a href="" class="document">
                 <?php 
                 echo "<td>{$documento->getNome()}</td>";
                 $validade = $documento->getValidade();
@@ -39,9 +50,9 @@ $documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
             <?php } ?>
             
             <div class="buttons">
-                <div class="new-document"><a href="../new-document">Cadastrar Documento</a></div>
-                <div class="edit-account"><a href="../edit">Editar Conta</a></div>
-                <div class="back-account"><a href="../logout">Sair</a></div>
+                <a href="../new-document" class="botao-cadastrar">Cadastrar Documento</a>
+                <a href="../edit" class="botao-editar">Editar Conta</a>
+                <a href="../logout" class="botao-sair">Sair</a>
             </div>
         </div>
     </div>
