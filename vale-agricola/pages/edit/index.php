@@ -36,6 +36,15 @@ if (isset($_SESSION['idEmpresa'])) {
 </head>
 
 <body>
+    <header class="header">
+        <div class="logo">
+            <img src="../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        </div>
+        <div class="icone">
+            <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
+        </div>
+    </header>
+
     <div class="edit-account-util">
         <div class="edit-account">
             <h1 class="titulo">Editar conta</h1>
@@ -52,7 +61,7 @@ if (isset($_SESSION['idEmpresa'])) {
             </form>
 
             <a class="excluir" href="../delete" onclick="return confirmarExclusao()">Excluir Conta</a>
-            <a class="go-home" href="../home">Voltar para a tela inicial</a>
+            <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
     </div>
 
