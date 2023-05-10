@@ -44,10 +44,9 @@ if (isset($_POST["button"])) {
                 <label for="senha">Senha</label>
                 <div class="div-senha">
                     <input type="password" name="senha" id="senha" maxlength="50" required>
-                    <span class="lnr lnr-eye"></span>
-                    <!--<button type="button" id="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>-->
+                    <button type="button" id="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>
                 </div>
-                <!--
+                
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
                 <script>
                 var senha = document.getElementById("senha");
@@ -63,7 +62,7 @@ if (isset($_POST["button"])) {
                     }
                 });
                 </script>
-            -->
+            
                 <input type="submit" value="Login" class="botao" name="button">
 
                 <a class="create-account" href="../new">Crie sua conta aqui</a>
