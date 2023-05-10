@@ -135,6 +135,13 @@ input {
     cursor: pointer;
 }
 
+.lnr-eye {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
     .logo{
         padding-left: 5%;
@@ -163,7 +170,8 @@ input {
     }
 
     .login {
-        margin: 10px;
+        margin: 10px 50px;
+        padding: 10px 20px;
     }
 
 }
