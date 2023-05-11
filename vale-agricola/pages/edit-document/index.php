@@ -8,6 +8,12 @@ if (!isset($_SESSION['idEmpresa'])) {
 
 $documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
 
+if (isset($_SESSION["idDocumento"])) {
+    $documentos_indv = Documento::findallByDocumento($_SESSION['idDocumento']);
+}else{
+    header("location: ../home");
+}
+
     /*if (isset($_POST["button"])) {
         $documento->setNome(trim($_POST['nome']));
         $documento->setValidade(trim($_POST['validade']));

@@ -127,7 +127,7 @@ class Documento implements ActiveRecord{
         return $documentos;
     }
 
-    public static function findallByDocumento($idEmpresa):array{
+    public static function findallByEmpresa($idEmpresa):array{
         $connection = new MySQL();
         $sql = "SELECT * FROM documento WHERE idEmpresa = {$idEmpresa}";
         $resultados = $connection->query($sql);
@@ -147,5 +147,24 @@ class Documento implements ActiveRecord{
         return $documentos;
     }
     
+    public static function findallByDocumento($idDocumento):array{
+        $connection = new MySQL();
+        $sql = "SELECT * FROM documento WHERE idDocumento = {$idDocumento}";
+        $resultados = $connection->query($sql);
+        $documentos = array();
+        foreach($resultados as $resultado){
+            $d = new Documento;
+            $d->constructorCreate(
+                $resultado['nome'],
+                new DateTime($resultado['validade']),
+                $resultado['pdf']
+            );
+            $d->setIdDocumento($resultado['idDocumento']);
+            $d->setIdEmpresa($resultado['idEmpresa']);
+            $documentos[] = $d;
+
+        }
+        return $documentos;
+    }
 
 }
