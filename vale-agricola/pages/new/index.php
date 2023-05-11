@@ -80,10 +80,10 @@ if (isset($_POST["button"])) {
                 <input type="email" name="email" id="email" required>
 
                 <label for="password">Senha</label>
-                <input type="password" name="senha" id="senha" minlength="5" maxlength="50" required>
+                <input type="password" name="senha" id="senha" minlength="6" required>
 
                 <label for="password">Confirmar Senha</label>
-                <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="5" maxlength="50" required>
+                <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="6" required>
 
                 <input type="submit" value="Criar Conta" class="botao" name="button">
 
@@ -124,7 +124,14 @@ if (isset($_POST["button"])) {
 <!-- Aplicando a máscara de CNPJ -->
 <script>
 $(document).ready(function(){
-  $('#cnpj').mask('00.000.000/0000-00');
+  $('#cnpj').mask('00.000.000/0000-00', {
+    onComplete: function(cnpj) {
+      var cnpjLength = cnpj.replace(/\D/g, '').length;
+      if (cnpjLength < 14) {
+        $('#cnpj').val('');
+      }
+    }
+  });
 });
 </script>
 

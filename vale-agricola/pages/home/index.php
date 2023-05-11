@@ -10,7 +10,6 @@ if (!isset($_SESSION["idEmpresa"])) {
 
 $documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +36,7 @@ $documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
             <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", Bem vindo! <br></h2>";?>
             <h2 class="subtitulo">Lista de Documentos</h2>
             <?php foreach($documentos as $documento){?>
-                <div><a href="" class="document">
+                <div><a href="../edit-document" class="document">
                 <?php 
                 echo "<td>{$documento->getNome()}</td>";
                 $validade = $documento->getValidade();
@@ -58,3 +57,14 @@ $documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
     </div>
 </body>
 </html>
+
+<script>
+    function confirmarExclusao() {
+        if (confirm("Tem certeza que deseja excluir esse documento?")) {
+            alert("Documento excluido com sucesso.");
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
