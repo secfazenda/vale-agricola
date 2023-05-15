@@ -108,7 +108,7 @@ input {
     transition: all 0.2s ease-in-out;
     margin-top: 20px;
     text-decoration: none;
-    margin: 10px auto;
+    margin: 10px;
 }
 
 .botao:hover {
@@ -139,6 +139,12 @@ input {
     width: 100%;
     max-width: 30px;
     height: auto;
+    margin: 10px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
 }
 
 @media only screen and (max-width: 768px) {

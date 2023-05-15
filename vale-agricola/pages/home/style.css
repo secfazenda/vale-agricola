@@ -184,6 +184,10 @@ input {
     background-color: #222222;
 }
 
+.buttons{
+    display: flex;
+}
+
 @media only screen and (max-width: 768px) {
     .logo{
         padding-left: 5%;

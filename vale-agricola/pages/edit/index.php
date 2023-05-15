@@ -55,13 +55,15 @@ if (isset($_SESSION['idEmpresa'])) {
                 <label for="email">E-mail:</label>
                 <input type="email" name="email" id="email" value="<?php echo $empresa->getEmail() ?>" required>
 
-                <input type="submit" value="Editar" class="botao" name="button">
-
                 <!-- <button type="submit" name="excluir">Excluir conta</button> -->
             </form>
 
-            <a class="excluir" href="../delete" onclick="return confirmarExclusao()">Excluir Conta</a>
-            <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
+            <div class="buttons">
+                <input type="submit" value="Editar" class="botao" name="button">
+
+                <a class="excluir" href="../delete" onclick="return confirmarExclusao()">Excluir Conta</a>
+                <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
+            </div>
         </div>
     </div>
 
