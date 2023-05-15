@@ -130,6 +130,7 @@
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
     }
     
     /* Define styles for the button on hover */
