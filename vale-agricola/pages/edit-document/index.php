@@ -2,35 +2,27 @@
 require_once "../../settings/config.php";
 session_start();
 
-if (!isset($_SESSION['idEmpresa'])) {
-    header("location: ../home");
-}
+// Verifique se o ID do documento foi fornecido na URL
+if (isset($_GET["idDocumento"])) {
+    $idDocumento = $_GET["idDocumento"];
 
-$documentos = Documento::findallByDocumento($_SESSION['idEmpresa']);
+    // Use o ID do documento para buscar as informações correspondentes
+    $documento = Documento::findByID($idDocumento);
 
-if (isset($_SESSION["idDocumento"])) {
-    $documentos_indv = Documento::findallByDocumento($_SESSION['idDocumento']);
-}else{
-    header("location: ../home");
-}
-
-    /*if (isset($_POST["button"])) {
-        $documento->setNome(trim($_POST['nome']));
-        $documento->setValidade(trim($_POST['validade']));
-        $documento->setPdf(trim($_POST['pdf']));
-
-        if ($documento->save()) {
-            header('location: ../edit-document');
-            exit();
-        } else {
-            echo "<script>alert('Ocorreu um erro ao editar o seu perfil');</script>";
-        }
-    
+    // Verifique se o documento foi encontrado
+    if ($documento) {
+        // Exiba as informações do documento
+        echo "<h1>{$documento->getNome()}</h1>";
+        echo "<p>Validade: {$documento->getValidade()->format("d/m/Y")}</p>";
+        // ...
+    } else {
+        echo "Documento não encontrado.";
+    }
 } else {
-    header("location: ../home");
-    exit();
-}*/
+    echo "ID do documento não fornecido na URL.";
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -45,23 +37,16 @@ if (isset($_SESSION["idDocumento"])) {
     <div class="edit-document-util">
         <div class="edit-document">
             <h1 class="titulo">Editar Documento</h1>
+            <!-- Formulário de edição do documento -->
             <form action="index.php" method="post" enctype="multipart/form-data">
-            <?php foreach($documentos as $documento){?>
-                <div><a href="../edit-document" class="document">
-                <?php 
-                echo "<td>{$documento->getNome()}</td>";
-                $validade = $documento->getValidade();
-                echo " - ";
-                echo "<td>{$validade->format("d/m/Y")}</td>";
-                // echo " - ";
-                // echo "<td>{$documento->getPdf()}</td>";
-                ?>
-                </a></div>
-            <?php } ?>
+                <!-- Campos do formulário -->
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="<?php echo $documento->getNome(); ?>"><br>
+                <label for="validade">Validade:</label>
+                <input type="text" id="validade" name="validade" value="<?php echo $documento->getValidade()->format("d/m/Y"); ?>"><br>
+                <!-- ... outros campos do formulário ... -->
 
                 <input type="submit" value="Editar" class="botao" name="button">
-
-                <!-- <button type="submit" name="excluir">Excluir conta</button> -->
             </form>
 
             <a class="excluir" href="../delete-document" onclick="return confirmarExclusao()">Excluir Documento</a>
@@ -74,7 +59,7 @@ if (isset($_SESSION["idDocumento"])) {
 <script>
     function confirmarExclusao() {
         if (confirm("Tem certeza que deseja excluir esse documento?")) {
-            alert("Documento excluido com sucesso.");
+            alert("Documento excluído com sucesso.");
             return true;
         } else {
             return false;

@@ -167,4 +167,32 @@ class Documento implements ActiveRecord{
         return $documentos;
     }
 
+    public static function findByID($idDocumento) {
+        $connection = new MySQL();
+        $sql = "SELECT * FROM documento WHERE idDocumento = {$idDocumento}";
+        $resultados = $connection->query($sql);
+    
+        if ($resultados && is_array($resultados) && count($resultados) > 0) {
+            $resultado = reset($resultados); // Obtém o primeiro elemento do array
+    
+            $documento = new Documento();
+            $documento->constructorCreate(
+                $resultado['nome'],
+                new DateTime($resultado['validade']),
+                $resultado['pdf']
+            );
+            $documento->setIdDocumento($resultado['idDocumento']);
+            $documento->setIdEmpresa($resultado['idEmpresa']);
+    
+            return $documento;
+        }
+    
+        return null;
+    }
+    
+    
+    
+    
+    
+
 }

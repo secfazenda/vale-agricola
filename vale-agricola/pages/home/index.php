@@ -1,7 +1,5 @@
 <?php
-
 require_once "../../settings/config.php";
-
 session_start();
 
 if (!isset($_SESSION["idEmpresa"])) {
@@ -35,16 +33,18 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
             <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", Bem vindo! <br></h2>";?>
             <h2 class="subtitulo">Lista de Documentos</h2>
             <?php foreach($documentos as $documento){?>
-                <div><a href="../edit-document" class="document">
-                <?php 
-                echo "<td>{$documento->getNome()}</td>";
-                $validade = $documento->getValidade();
-                echo " - ";
-                echo "<td>{$validade->format("d/m/Y")}</td>";
-                // echo " - ";
-                // echo "<td>{$documento->getPdf()}</td>";
-                ?>
-                </a></div>
+                <div>
+                <a href="../edit-document?idDocumento=<?php echo $documento->getIdDocumento(); ?>" class="document">
+                        <?php 
+                        echo "<td>{$documento->getNome()}</td>";
+                        $validade = $documento->getValidade();
+                        echo " - ";
+                        echo "<td>{$validade->format("d/m/Y")}</td>";
+                        // echo " - ";
+                        // echo "<td>{$documento->getPdf()}</td>";
+                        ?>
+                    </a>
+                </div>
             <?php } ?>
             
             <div class="buttons">
@@ -60,7 +60,7 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
 <script>
     function confirmarExclusao() {
         if (confirm("Tem certeza que deseja excluir esse documento?")) {
-            alert("Documento excluido com sucesso.");
+            alert("Documento excluído com sucesso.");
             return true;
         } else {
             return false;
