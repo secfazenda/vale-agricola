@@ -189,10 +189,5 @@ class Documento implements ActiveRecord{
     
         return null;
     }
-    
-    
-    
-    
-    
 
 }

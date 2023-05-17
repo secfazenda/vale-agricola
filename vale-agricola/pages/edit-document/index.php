@@ -11,10 +11,9 @@ if (isset($_GET["idDocumento"])) {
 
     // Verifique se o documento foi encontrado
     if ($documento) {
-        // Exiba as informações do documento
         echo "<h1>{$documento->getNome()}</h1>";
         echo "<p>Validade: {$documento->getValidade()->format("d/m/Y")}</p>";
-        // ...
+        // Resto do código para exibir as informações do documento
     } else {
         echo "Documento não encontrado.";
     }
@@ -22,7 +21,6 @@ if (isset($_GET["idDocumento"])) {
     echo "ID do documento não fornecido na URL.";
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,7 +47,7 @@ if (isset($_GET["idDocumento"])) {
                 <input type="submit" value="Editar" class="botao" name="button">
             </form>
 
-            <a class="excluir" href="../delete-document" onclick="return confirmarExclusao()">Excluir Documento</a>
+            <a class="excluir" href="../delete-document?idDocumento=<?php echo $documento->getIdDocumento(); ?>" onclick="return confirmarExclusao()">Excluir Documento</a>
             <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
     </div>
