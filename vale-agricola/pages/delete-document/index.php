@@ -2,23 +2,29 @@
 require_once "../../settings/config.php";
 session_start();
 
-if (isset($_SESSION['idDocumento'])) {
-    $documento = Documento::find($_SESSION['idDocumento']);
-    
-    // Verificar se o documento foi encontrado antes de tentar excluí-lo
-    if ($documento) {
-        // Obtenha o caminho completo do arquivo
-        $caminhoArquivo = $documento->getCaminhoArquivo();
-        
-        // Excluir o arquivo físico do sistema
-        if (unlink($caminhoArquivo)) {
-            // Se a exclusão do arquivo for bem-sucedida, exclua o documento do banco de dados
+// Verifique se o ID do documento foi fornecido na URL
+if (isset($_GET["idDocumento"])) {
+    $idDocumento = $_GET["idDocumento"];
+
+    // Verifique se o ID do documento é um número inteiro válido
+    if (is_numeric($idDocumento)) {
+        // Use o ID do documento para buscar as informações correspondentes
+        $documento = Documento::find($idDocumento);
+
+        // Verifique se o documento foi encontrado
+        if ($documento) {
+            // Exclua o documento
             $documento->delete();
+
+            // Redirecione para a página inicial ou exiba uma mensagem de sucesso
+            header("Location: ../home");
+            exit();
+        } else {
+            echo "Documento não encontrado.";
         }
+    } else {
+        echo "ID do documento inválido.";
     }
-
-    header("location: ../home");
 } else {
-    header("location: ../delete-document/erro.php");
+    echo "ID do documento não fornecido na URL.";
 }
-
