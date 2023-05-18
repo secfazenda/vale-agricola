@@ -63,7 +63,7 @@ if (isset($_GET["idDocumento"])) {
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" value="<?php echo $documento->getNome(); ?>"><br>
                 <label for="validade">Validade</label>
-                <input type="text" id="validade" name="validade" value="<?php echo $documento->getValidade()->format("d/m/Y"); ?>"><br>
+                <input type="date" id="validade" name="validade" value="<?php echo $documento->getValidade()->format("d/m/Y"); ?>"><br>
 
                 <input type="submit" value="Editar" class="botao" name="button">
             </form>
