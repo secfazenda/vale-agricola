@@ -1,6 +1,9 @@
 <?php
 require_once "../../settings/config.php";
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (isset($_SESSION['idEmpresa'])) {
     $empresa = Empresa::find($_SESSION['idEmpresa']);
@@ -10,25 +13,14 @@ if (isset($_SESSION['idEmpresa'])) {
         $novaSenha = $_POST['nova_senha'];
         $confirmarSenha = $_POST['confirmar_senha'];
 
-        // Verificar se a senha atual fornecida coincide com a senha armazenada
         function senhaCorreta($senha, $empresa) {
-            $senhaArmazenada = $empresa->getSenha(); // Obtenha a senha armazenada do objeto Empresa
-        
-            // Verifique se a senha fornecida corresponde à senha armazenada usando password_verify()
-            if (password_verify($senha, $senhaArmazenada)) {
-                return true; // A senha está correta
-            } else {
-                return false; // A senha está incorreta
-            }
+            $senhaArmazenada = $empresa->getSenha();
+            return password_verify($senha, $senhaArmazenada);
         }
 
         if (senhaCorreta($senhaAtual, $empresa)) {
-            // Verificar se a nova senha e a confirmação coincidem
             if ($novaSenha === $confirmarSenha) {
-                // Atualizar a senha da empresa com a nova senha
                 $empresa->setSenha($novaSenha);
-
-                // Salvar as outras informações da empresa
                 $empresa->setNome(trim($_POST['nome']));
                 $empresa->setEmail(trim($_POST['email']));
                 $empresa->setCnpj(trim($_POST['cnpj']));
@@ -79,10 +71,10 @@ if (isset($_SESSION['idEmpresa'])) {
             <h1 class="titulo">Editar conta</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" value="<?php echo $empresa->getNome() ?>" required>
+                <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($empresa->getNome()) ?>" required>
 
                 <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" value="<?php echo $empresa->getEmail() ?>" required>
+                <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($empresa->getEmail()) ?>" required>
 
                 <label for="senha_atual">Senha atual</label>
                 <input type="password" name="senha_atual" id="senha_atual" required>
