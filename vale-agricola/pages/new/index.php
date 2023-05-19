@@ -5,41 +5,41 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST["button"])) {
-  $empresas = Empresa::findall();
-  
-  $nome = trim($_POST["nome"]);
-  $cnpj = trim($_POST["cnpj"]);
-  $email = trim($_POST["email"]);
+    $empresas = Empresa::findall();
+    
+    $nome = trim($_POST["nome"]);
+    $cnpj = trim($_POST["cnpj"]);
+    $email = trim($_POST["email"]);
 
-  $erro = false;
+    $erro = false;
 
-  foreach ($empresas as $empresa) {
-    if($empresa->getNome() == $nome){
-      echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>O nome já está sendo utilizado.</h3></div>";
-      $erro = true;
-      break;
-    } else if($empresa->getEmail() == $email){
-      echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>E-mail já está sendo utilizado.</h3></div>";
-      $erro = true;
-      break;
-    } else if($empresa->getCnpj() == $cnpj){
-      echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>Cnpj já está sendo utilizado.</h3></div>";
-      $erro = true;
-      break;
-    }
-  }
+    foreach ($empresas as $empresa) {
+        if($empresa->getNome() == $nome){
+            echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>O nome já está sendo utilizado.</h3></div>";
+            $erro = true;
+            break;
+        } else if($empresa->getEmail() == $email){
+            echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>E-mail já está sendo utilizado.</h3></div>";
+            $erro = true;
+            break;
+        } else if($empresa->getCnpj() == $cnpj){
+            echo "<div class='div-mensagem-erro'><h3 class='mensagem-erro'>Cnpj já está sendo utilizado.</h3></div>";
+            $erro = true;
+            break;
+            }
+        }
 
-  if (!$erro){
-    $empresa = new Empresa();
-    $empresa->constructorCreate(
-      $nome,
-      trim($_POST["senha"]),
-      $email,
-      $cnpj
-    );
-    $empresa->save();
-    header("location: ../new-confirm/");
-  }
+        if (!$erro){
+            $empresa = new Empresa();
+            $empresa->constructorCreate(
+                $nome,
+                trim($_POST["senha"]),
+                $email,
+                $cnpj
+          );
+          $empresa->save();
+          header("location: ../new-confirm/");
+        }
 }
 
 ?>

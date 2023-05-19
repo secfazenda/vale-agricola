@@ -70,13 +70,13 @@ if (isset($_POST["button"])) {
         <div class="home-page">
             <h1 class="titulo">Cadastre um Documento</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
-                <label for="fullname">Nome do Documento</label>
+                <label for="fullname">Nome</label>
                 <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required>
 
-                <label for="validade">Validade do Documento</label>
+                <label for="validade">Validade</label>
                 <input type="date" name="validade" id="validade" required>
 
-                <label for="pdf">Selecione o arquivo PDF do documento</label>
+                <label for="pdf">Selecione ou arraste o arquivo PDF</label>
                 <input type="file" name="pdf" id="pdf" accept=".pdf" required>
 
                 <input type="submit" value="Cadastrar" class="botao" name="button">
