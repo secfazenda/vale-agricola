@@ -173,7 +173,7 @@ class Documento implements ActiveRecord{
         $resultados = $connection->query($sql);
     
         if ($resultados && is_array($resultados) && count($resultados) > 0) {
-            $resultado = reset($resultados); // Obtém o primeiro elemento do array
+            $resultado = reset($resultados);
     
             $documento = new Documento();
             $documento->constructorCreate(

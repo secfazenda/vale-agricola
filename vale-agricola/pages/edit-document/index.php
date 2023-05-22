@@ -11,12 +11,9 @@ if (isset($_GET["idDocumento"])) {
 
     // Verifique se o documento foi encontrado
     if ($documento) {
-        // echo "<h1>{$documento->getNome()}</h1>";
-        // echo "<p>Validade: {$documento->getValidade()->format("Y-m-d")}</p>";
         // Resto do código para exibir as informações do documento
 
-        if (isset($_POST["idDocumento"])) {
-            $idDocumento = $_POST["idDocumento"];
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $nome = $_POST["nome"];
             $validade = $_POST["validade"];
 
@@ -34,6 +31,7 @@ if (isset($_GET["idDocumento"])) {
     exit();
 }
 ?>
+
 
 
 <!DOCTYPE html>

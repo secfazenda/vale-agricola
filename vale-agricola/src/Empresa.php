@@ -90,6 +90,9 @@ class Empresa implements ActiveRecord
     public function delete(): bool
     {
         $connection = new MySQL();
+        $sql = "DELETE FROM documento WHERE idEmpresa = {$this->idEmpresa}";
+        $connection->execute($sql);
+        
         $sql = "DELETE FROM empresa WHERE idEmpresa = {$this->idEmpresa}";
         return $connection->execute($sql);
     }
