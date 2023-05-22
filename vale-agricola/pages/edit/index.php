@@ -22,6 +22,8 @@ if (isset($_SESSION['idEmpresa'])) {
         $empresa->setEmail(trim($_POST['email']));
         $empresa->setCnpj(trim($_POST['cnpj']));
 
+        
+
         if ($empresa->save()) {
             header('location: ../home');
             exit();
