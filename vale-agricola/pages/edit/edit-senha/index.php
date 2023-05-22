@@ -72,7 +72,7 @@ if (isset($_SESSION['idEmpresa'])) {
              
                 <input type="submit" value="Editar" class="botao" name="button">
             </form>
-            <a href="../home" class="botao-voltar"><img src="../../../settings/imagens/botao-voltar.png" alt=""></a>
+            <a href="../../home" class="botao-voltar"><img src="../../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
     </div>
 </body>

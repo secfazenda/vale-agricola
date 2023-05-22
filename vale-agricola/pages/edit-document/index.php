@@ -12,7 +12,7 @@ if (isset($_GET["idDocumento"])) {
     // Verifique se o documento foi encontrado
     if ($documento) {
         // echo "<h1>{$documento->getNome()}</h1>";
-        // echo "<p>Validade: {$documento->getValidade()->format("d/m/Y")}</p>";
+        // echo "<p>Validade: {$documento->getValidade()->format("Y-m-d")}</p>";
         // Resto do código para exibir as informações do documento
 
         if (isset($_POST["idDocumento"])) {
@@ -22,16 +22,19 @@ if (isset($_GET["idDocumento"])) {
 
             // Resto do código de edição...
             $documento->setNome($nome);
-            $documento->setValidade($validade);
+            $documento->setValidade(DateTime::createFromFormat('Y-m-d', $validade));
             $documento->save(); // Salvar as alterações no banco de dados
         }
     } else {
         echo "Documento não encontrado.";
+        exit();
     }
 } else {
-    echo "ID do documento não fornecido na URL.";
+    echo "ID do documento não foi fornecido na URL.";
+    exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -63,7 +66,7 @@ if (isset($_GET["idDocumento"])) {
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" value="<?php echo $documento->getNome(); ?>"><br>
                 <label for="validade">Validade</label>
-                <input type="date" id="validade" name="validade" value="<?php echo $documento->getValidade()->format("d/m/Y"); ?>"><br>
+                <input type="date" id="validade" name="validade" value="<?php echo $documento->getValidade()->format("Y-m-d"); ?>"><br>
 
                 <input type="submit" value="Editar" class="botao" name="button">
             </form>
@@ -73,16 +76,16 @@ if (isset($_GET["idDocumento"])) {
             
         </div>
     </div>
+
+    <script>
+        function confirmarExclusao() {
+            if (confirm("Tem certeza que deseja excluir esse documento?")) {
+                alert("Documento excluído com sucesso.");
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
-
-<script>
-    function confirmarExclusao() {
-        if (confirm("Tem certeza que deseja excluir esse documento?")) {
-            alert("Documento excluído com sucesso.");
-            return true;
-        } else {
-            return false;
-        }
-    }
-</script>
