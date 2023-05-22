@@ -46,8 +46,17 @@ if (isset($_SESSION['idEmpresa'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vale Agrícola | Editar Senha</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+            <img src="../../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        </div>
+        <div class="icone">
+            <img src="../../../settings/imagens/icone-contraste.png" alt="iconedl">
+        </div>
+    </header>
     <div class="edit-senha-util">
         <div class="edit-senha">
             <h1 class="titulo">Editar Senha</h1>
@@ -63,6 +72,7 @@ if (isset($_SESSION['idEmpresa'])) {
              
                 <input type="submit" value="Editar" class="botao" name="button">
             </form>
+            <a href="../home" class="botao-voltar"><img src="../../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
     </div>
 </body>
