@@ -118,7 +118,7 @@ input {
     background-color: #222222;
 }
 
-.excluir {
+.excluir, .editar-senha {
 	display: flex;
     justify-content: center;
     align-items: center;
@@ -131,10 +131,10 @@ input {
     transition: all 0.2s ease-in-out;
     margin-top: 20px;
     text-decoration: none;
-    margin: 10px auto 0px;
+    margin: 8px 5px;
 }
 
-.excluir:hover {
+.excluir:hover, .editar-senha:hover {
     background-color: #222222;
 }
 
@@ -145,7 +145,7 @@ input {
 }
 
 .buttons{
-    display: grid;
+    display: flex;
     align-items: center;
 }
 

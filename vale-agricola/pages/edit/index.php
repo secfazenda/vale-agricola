@@ -10,15 +10,26 @@ if (isset($_SESSION['idEmpresa'])) {
 
     if (isset($_POST["button"])) {
         $senhaAtual = $_POST['senha_atual'];
-        $novaSenha = $_POST['nova_senha'];
-        $confirmarSenha = $_POST['confirmar_senha'];
+        //$novaSenha = $_POST['nova_senha'];
+        //$confirmarSenha = $_POST['confirmar_senha'];
 
-        function senhaCorreta($senha, $empresa) {
+        /*function senhaCorreta($senha, $empresa) {
             $senhaArmazenada = $empresa->getSenha();
             return password_verify($senha, $senhaArmazenada);
+        }*/
+
+        $empresa->setNome(trim($_POST['nome']));
+        $empresa->setEmail(trim($_POST['email']));
+        $empresa->setCnpj(trim($_POST['cnpj']));
+
+        if ($empresa->save()) {
+            header('location: ../home');
+            exit();
+        } else {
+            echo "<script>alert('Ocorreu um erro ao editar o seu perfil');</script>";
         }
 
-        if (senhaCorreta($senhaAtual, $empresa)) {
+        /*if (senhaCorreta($senhaAtual, $empresa)) {
             if ($novaSenha === $confirmarSenha) {
                 $empresa->setSenha($novaSenha);
                 $empresa->setNome(trim($_POST['nome']));
@@ -36,7 +47,7 @@ if (isset($_SESSION['idEmpresa'])) {
             }
         } else {
             echo "<script>alert('A senha atual está incorreta');</script>";
-        }
+        }*/
     }
 } else {
     header("location: ../login");
@@ -76,22 +87,14 @@ if (isset($_SESSION['idEmpresa'])) {
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($empresa->getEmail()) ?>" required>
 
-                <label for="senha_atual">Senha atual</label>
-                <input type="password" name="senha_atual" id="senha_atual" required>
-
-                <label for="nova_senha">Nova senha</label>
-                <input type="password" name="nova_senha" id="nova_senha" required>
-
-                <label for="confirmar_senha">Confirmar nova senha</label>
-                <input type="password" name="confirmar_senha" id="confirmar_senha" required>
-
                 <input type="submit" value="Editar" class="botao" name="button">
             </form>
 
             <div class="buttons">
+                <a href="../edit/edit-senha" class="editar-senha">Editar Senha</a>
                 <a class="excluir" href="../delete" onclick="return confirmarExclusao()">Excluir Conta</a>
-                <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
             </div>
+            <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
     </div>
 

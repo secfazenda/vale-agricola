@@ -8,6 +8,7 @@ class Empresa implements ActiveRecord
     private string $senha;
     private string $email;
     private string $cnpj;
+    private string $novaSenha;
       
     public function __construct() {}
         
@@ -147,6 +148,17 @@ class Empresa implements ActiveRecord
         } else {
             return false;
         }
+    }
+
+    public function atualizarSenha(string $novaSenha): bool
+    {
+        $this->setSenha($novaSenha);
+
+        $connection = new MySQL();
+        $this->senha = password_hash($this->senha, PASSWORD_BCRYPT);
+
+        $sql = "UPDATE empresa SET senha = '{$this->senha}' WHERE idEmpresa = {$this->idEmpresa}";
+        return $connection->execute($sql);
     }
 
 }
