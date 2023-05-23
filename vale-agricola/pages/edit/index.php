@@ -9,20 +9,9 @@ if (isset($_SESSION['idEmpresa'])) {
     $empresa = Empresa::find($_SESSION['idEmpresa']);
 
     if (isset($_POST["button"])) {
-        $senhaAtual = $_POST['senha_atual'];
-        //$novaSenha = $_POST['nova_senha'];
-        //$confirmarSenha = $_POST['confirmar_senha'];
-
-        /*function senhaCorreta($senha, $empresa) {
-            $senhaArmazenada = $empresa->getSenha();
-            return password_verify($senha, $senhaArmazenada);
-        }*/
 
         $empresa->setNome(trim($_POST['nome']));
         $empresa->setEmail(trim($_POST['email']));
-        $empresa->setCnpj(trim($_POST['cnpj']));
-
-        
 
         if ($empresa->save()) {
             header('location: ../home');
@@ -30,26 +19,7 @@ if (isset($_SESSION['idEmpresa'])) {
         } else {
             echo "<script>alert('Ocorreu um erro ao editar o seu perfil');</script>";
         }
-
-        /*if (senhaCorreta($senhaAtual, $empresa)) {
-            if ($novaSenha === $confirmarSenha) {
-                $empresa->setSenha($novaSenha);
-                $empresa->setNome(trim($_POST['nome']));
-                $empresa->setEmail(trim($_POST['email']));
-                $empresa->setCnpj(trim($_POST['cnpj']));
-
-                if ($empresa->save()) {
-                    header('location: ../home');
-                    exit();
-                } else {
-                    echo "<script>alert('Ocorreu um erro ao editar o seu perfil');</script>";
-                }
-            } else {
-                echo "<script>alert('A nova senha e a confirmação de senha não coincidem');</script>";
-            }
-        } else {
-            echo "<script>alert('A senha atual está incorreta');</script>";
-        }*/
+    
     }
 } else {
     header("location: ../login");
