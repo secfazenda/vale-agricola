@@ -10,22 +10,47 @@ if (isset($_SESSION['idEmpresa'])) {
 
     if (isset($_POST["button"])) {
 
-        $empresa->setNome(trim($_POST['nome']));
-        $empresa->setEmail(trim($_POST['email']));
+        $nome = trim($_POST['nome']);
+        $email = trim($_POST['email']);
 
-        if ($empresa->save()) {
-            header('location: ../home');
-            exit();
-        } else {
-            echo "<script>alert('Ocorreu um erro ao editar o seu perfil');</script>";
+        if ($nome !== $empresa->getNome() || $email !== $empresa->getEmail()) {
+            $empresas = Empresa::findAll();
+
+            $erro = false;
+            $mensagemErro = "";
+
+            foreach ($empresas as $outraEmpresa) {
+                if ($outraEmpresa->getIdEmpresa() !== $empresa->getIdEmpresa() && $outraEmpresa->getNome() === $nome) {
+                    $mensagemErro = "O nome já está sendo utilizado.";
+                    $erro = true;
+                    break;
+                } else if ($outraEmpresa->getIdEmpresa() !== $empresa->getIdEmpresa() && $outraEmpresa->getEmail() === $email) {
+                    $mensagemErro = "E-mail já está sendo utilizado.";
+                    $erro = true;
+                    break;
+                }
+            }
+
+            if ($erro) {
+                echo "<script>alert('$mensagemErro');</script>";
+            } else {
+                $empresa->setNome($nome);
+                $empresa->setEmail($email);
+                if ($empresa->save()) {
+                    header('location: ../home');
+                    exit();
+                } else {
+                    echo "<script>alert('Ocorreu um erro ao editar o seu perfil');</script>";
+                }
+            }
         }
-    
     }
 } else {
     header("location: ../login");
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
