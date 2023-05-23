@@ -105,8 +105,6 @@ if (isset($_POST["button"])) {
     var email = document.getElementById("email").value;
     var senha = document.getElementById("senha").value;
     var confirmarSenha = document.getElementById("confirmar-senha").value;
-    //alert("Sua conta foi criada com sucesso.");
-    // Não está conseguindo passar por dentro desse if 
 
     if (cnpj.trim() === '' || nome.trim() === '' || email.trim() === '' || senha.trim() === '' || confirmarSenha.trim() === '' || !validarEmail(email)) {
         alert("Por favor, preencha os campos corretamente.");

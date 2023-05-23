@@ -53,7 +53,6 @@
     position: absolute;
     }
     
-    /* Define styles for the util area */
     .homepage-util-area {
     display: flex;
     flex-direction: column;
@@ -65,7 +64,6 @@
     padding: 20px;
     }
     
-    /* Define styles for the superior part */
     .hp-superior-part {
     display: flex;
     flex-direction: column;
@@ -74,14 +72,12 @@
     margin-bottom: 20px;
     }
     
-    /* Define styles for the title */
     .hp-title {
     font-size: 32px;
     font-weight: bold;
     text-align: center;
     }
     
-    /* Define styles for the subtitle */
     .hp-subtitle {
     font-size: 18px;
     font-weight: normal;
@@ -94,20 +90,17 @@
         text-align: justify;
     }
     
-    /* Define styles for the mid part */
     .hp-mid-part {
     display: grid;
     justify-content: center;
     align-items: center;
     }
     
-    /* Define styles for the main image */
     .hp-main-image {
     max-width: 100%;
     height: auto;
     }
     
-    /* Define styles for the bottom part */
     .hp-bottom-part {
     display: flex;
     justify-content: center;
@@ -115,12 +108,10 @@
     margin-top: 30px;
     }
     
-    /* Define styles for the button space */
     .hp-button-space {
     margin-bottom: 20px;
     }
     
-    /* Define styles for the button */
     .hp-button {
     display: flex;
     justify-content: center;
@@ -135,7 +126,6 @@
     text-decoration: none;
     }
     
-    /* Define styles for the button on hover */
     .hp-button:hover {
     background-color: #222222;
     }

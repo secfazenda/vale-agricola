@@ -2,25 +2,23 @@
 require_once "../../settings/config.php";
 session_start();
 
-// Verifique se o ID do documento foi fornecido na URL
+// Verificando se o ID do documento foi fornecido na URL
 if (isset($_GET["idDocumento"])) {
     $idDocumento = $_GET["idDocumento"];
 
-    // Use o ID do documento para buscar as informações correspondentes
+    // Usando o ID do documento para buscar as informações correspondentes
     $documento = Documento::findByID($idDocumento);
 
-    // Verifique se o documento foi encontrado
+    // Verificando se o documento foi encontrado
     if ($documento) {
-        // Resto do código para exibir as informações do documento
-
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $nome = $_POST["nome"];
             $validade = $_POST["validade"];
 
-            // Resto do código de edição...
             $documento->setNome($nome);
             $documento->setValidade(DateTime::createFromFormat('Y-m-d', $validade));
-            $documento->save(); // Salvar as alterações no banco de dados
+            $documento->save();
+            header("location: ../home");
         }
     } else {
         echo "Documento não encontrado.";
@@ -31,8 +29,6 @@ if (isset($_GET["idDocumento"])) {
     exit();
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -59,7 +55,7 @@ if (isset($_GET["idDocumento"])) {
         <div class="edit-document">
             <h1 class="titulo">Editar Documento</h1>
 
-            <form action="index.php" method="post" enctype="multipart/form-data">
+            <form action="index.php?idDocumento=<?php echo $idDocumento; ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="idDocumento" value="<?php echo $idDocumento; ?>">
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" value="<?php echo $documento->getNome(); ?>"><br>
