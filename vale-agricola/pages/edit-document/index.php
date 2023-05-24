@@ -62,7 +62,7 @@ if (isset($_GET["idDocumento"])) {
                 <label for="validade">Validade</label>
                 <input type="date" id="validade" name="validade" value="<?php echo $documento->getValidade()->format("Y-m-d"); ?>"><br>
 
-                <input type="submit" value="Editar" class="botao" name="button">
+                <input type="submit" value="Salvar" class="botao" name="button">
             </form>
             
             <a class="botao-excluir" href="../delete-document?idDocumento=<?php echo $documento->getIdDocumento(); ?>" onclick="return confirmarExclusao()">Excluir Documento</a>
