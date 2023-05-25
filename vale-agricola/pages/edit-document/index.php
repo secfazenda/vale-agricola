@@ -64,6 +64,19 @@ if (isset($_GET["idDocumento"])) {
 
                 <input type="submit" value="Salvar" class="botao" name="button">
             </form>
+                        
+            <?php
+                $caminhoDocumento = '../../documentos/?idDocumento=<?php echo $idDocumento; ?>' . $documento->getPdf();
+
+            ?>
+
+            <?php
+            $caminhoDocumento = '../../documentos/' . $idDocumento . '/' . $documento->getPdf();
+            ?>
+
+<a href="<?php echo $caminhoDocumento; ?>" download="<?php echo basename($caminhoDocumento); ?>">Nome do Documento</a>
+
+
             
             <a class="botao-excluir" href="../delete-document?idDocumento=<?php echo $documento->getIdDocumento(); ?>" onclick="return confirmarExclusao()">Excluir Documento</a>
             <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
