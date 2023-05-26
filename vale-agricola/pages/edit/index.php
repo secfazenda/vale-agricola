@@ -84,7 +84,7 @@ if (isset($_SESSION['idEmpresa'])) {
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($empresa->getEmail()) ?>" required>
 
-                <input type="submit" value="Editar" class="botao" name="button">
+                <input type="submit" value="Salvar" class="botao" name="button">
             </form>
 
             <div class="buttons">

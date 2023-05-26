@@ -126,7 +126,7 @@ input {
     display: flex;
 }
 
-.botao-excluir {
+.botao-excluir, .botao-baixar {
 	display: flex;
     justify-content: center;
     align-items: center;
@@ -139,10 +139,10 @@ input {
     transition: all 0.2s ease-in-out;
     margin-top: 20px;
     text-decoration: none;
-    margin: 10px auto;
+    margin: 5px auto;
 }
 
-.botao-excluir:hover {
+.botao-excluir:hover, .botao-baixar:hover {
     background-color: #222222;
 }
 

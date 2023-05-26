@@ -70,7 +70,7 @@ if (isset($_SESSION['idEmpresa'])) {
                 <label for="confirmar_senha">Confirmar nova senha</label>
                 <input type="password" name="confirmar_senha" id="confirmar_senha" required>
              
-                <input type="submit" value="Editar" class="botao" name="button">
+                <input type="submit" value="Salvar" class="botao" name="button">
             </form>
             <a href="../../home" class="botao-voltar"><img src="../../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
