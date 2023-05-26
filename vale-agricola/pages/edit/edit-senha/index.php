@@ -62,10 +62,10 @@ if (isset($_SESSION['idEmpresa'])) {
             <h1 class="titulo">Editar Senha</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
                 <label for="senha_atual">Senha atual</label>
-                <input type="password" name="senha_atual" id="senha_atual" required>
+                <input type="password" name="senha_atual" id="senha_atual" minlength="6" required>
 
                 <label for="nova_senha">Nova senha</label>
-                <input type="password" name="nova_senha" id="nova_senha" required>
+                <input type="password" name="nova_senha" id="nova_senha" minlength="6" required>
 
                 <label for="confirmar_senha">Confirmar nova senha</label>
                 <input type="password" name="confirmar_senha" id="confirmar_senha" required>

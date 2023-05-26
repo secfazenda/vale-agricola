@@ -58,7 +58,7 @@ if (isset($_GET["idDocumento"])) {
             <form action="index.php?idDocumento=<?php echo $idDocumento; ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="idDocumento" value="<?php echo $idDocumento; ?>">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" value="<?php echo $documento->getNome(); ?>"><br>
+                <input type="text" id="nome" name="nome" value="<?php echo $documento->getNome(); ?>" minlength="3" maxlength="20" required><br>
                 <label for="validade">Validade</label>
                 <input type="date" id="validade" name="validade" value="<?php echo $documento->getValidade()->format("Y-m-d"); ?>"><br>
 

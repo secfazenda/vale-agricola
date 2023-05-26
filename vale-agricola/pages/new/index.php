@@ -77,7 +77,7 @@ if (isset($_POST["button"])) {
                 <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required>
 
                 <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email" maxlength="50" required>
 
                 <label for="password">Senha</label>
                 <input type="password" name="senha" id="senha" minlength="6" required>
