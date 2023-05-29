@@ -62,14 +62,23 @@ if (isset($_SESSION['idEmpresa'])) {
             <h1 class="titulo">Editar Senha</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
                 <label for="senha_atual">Senha atual</label>
-                <input type="password" name="senha_atual" id="senha_atual" minlength="6" required>
+                <div>
+                    <input type="password" name="senha_atual" id="senha_atual" minlength="6" required>
+                    <button type="button" class="olho-senha" name="olho-senha-senha-atual"><i class="fa fa-eye"></i></button>
+                </div>
 
                 <label for="nova_senha">Nova senha</label>
-                <input type="password" name="nova_senha" id="nova_senha" minlength="6" required>
+                <div>
+                    <input type="password" name="nova_senha" id="nova_senha" minlength="6" required>
+                    <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
+                </div>
 
                 <label for="confirmar_senha">Confirmar nova senha</label>
-                <input type="password" name="confirmar_senha" id="confirmar_senha" required>
-             
+                <div>
+                    <input type="password" name="confirmar_senha" id="confirmar_senha" required>
+                    <button type="button" class="olho-senha" name="olho-senha-confirmar-senha"><i class="fa fa-eye"></i></button>
+                </div>
+                
                 <input type="submit" value="Salvar" class="botao" name="button">
             </form>
             <a href="../../home" class="botao-voltar"><img src="../../../settings/imagens/botao-voltar.png" alt=""></a>
@@ -77,3 +86,22 @@ if (isset($_SESSION['idEmpresa'])) {
     </div>
 </body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<script>
+var botoesOlhoSenha = document.getElementsByClassName("olho-senha");
+
+Array.from(botoesOlhoSenha).forEach(function(botaoOlhoSenha) {
+    botaoOlhoSenha.addEventListener("click", function() {
+        var senhaInput = this.previousElementSibling;
+        
+        if (senhaInput.type === "password") {
+            senhaInput.type = "text";
+            this.innerHTML = '<i class="fa fa-eye-slash"></i>';
+        } else {
+            senhaInput.type = "password";
+            this.innerHTML = '<i class="fa fa-eye"></i>';
+        }
+    });
+});
+</script>
