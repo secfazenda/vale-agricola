@@ -80,10 +80,17 @@ if (isset($_POST["button"])) {
                 <input type="email" name="email" id="email" maxlength="50" required>
 
                 <label for="password">Senha</label>
-                <input type="password" name="senha" id="senha" minlength="6" required>
+                <div>
+                  <input type="password" name="senha" id="senha" minlength="6" required>
+                  <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
+                </div>
 
+                
                 <label for="password">Confirmar Senha</label>
-                <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="6" required>
+                <div>
+                  <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="6" required>
+                  <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
+                </div>
 
                 <input type="submit" value="Criar Conta" class="botao" name="button">
 
@@ -173,4 +180,22 @@ $(document).ready(function(){
   });
 });
 
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<script>
+var botoesOlhoSenha = document.getElementsByClassName("olho-senha");
+
+Array.from(botoesOlhoSenha).forEach(function(botaoOlhoSenha) {
+    botaoOlhoSenha.addEventListener("click", function() {
+        var senhaInput = this.previousElementSibling;
+        
+        if (senhaInput.type === "password") {
+            senhaInput.type = "text";
+            this.innerHTML = '<i class="fa fa-eye-slash"></i>';
+        } else {
+            senhaInput.type = "password";
+            this.innerHTML = '<i class="fa fa-eye"></i>';
+        }
+    });
+});
 </script>

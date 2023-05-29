@@ -215,13 +215,13 @@ input {
     }
 
     .buttons{
-        display: grid;
+        display: flex;
         align-items: center;
     }
     
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 450px) {
     .logo{
         padding-left: 5%;
     }
@@ -237,6 +237,10 @@ input {
     .home-page {
         margin: 10px 50px;
         padding: 10px 20px;
+    }
+
+    .buttons{
+        display: grid;
     }
 
 
