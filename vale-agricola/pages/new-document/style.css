@@ -107,15 +107,17 @@ input {
 .botao {
 	display: flex;
     justify-content: center;
-    align-items: center;/*
-    width: 120px;
-    height: 40px;*/
+    align-items: center;
+    width: 150px;
+    height: 43px;
     border-radius: 5px;
     background-color: #5C5C5C;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     margin-top: 10px;
+    margin: auto;
+    font-size: 22px;
 }
 
 .botao:hover {
@@ -135,6 +137,20 @@ input {
         height: 100vh;
         padding: 10px;
     }
+}
+
+@media only screen and (max-width: 450px) {
+      .titulo {
+        font-size: 32px;
+      }
+      .home-page-util {
+          height: 90vh;
+      }
+      .home-page{
+          width: 100%;
+          height: auto;
+          padding: 10px;
+      }
 }
 
 @media only screen and (max-width: 320px) {
