@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mensagemErro = "CNPJ já está sendo utilizado.";
             break;
         }
-      if (strlen($cnpj) < 14) {
-        $erro = true;
-        $mensagemErro = "CNPJ inválido.";
+        if (strlen($cnpj) < 14) {
+            $erro = true;
+            $mensagemErro = "CNPJ inválido.";
     }
 
     }
