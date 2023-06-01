@@ -1,12 +1,14 @@
 <?php
 
-require 'vendor/autoload.php';
+require_once '../vale-agricola/vendor/autoload.php';
+echo PHPMailer\PHPMailer\PHPMailer::VERSION;
 
+use PHPMailer\PHPMailer\PHPMailer;
 
 $EMAIL_ADDRESS = 'marcelo.ost7@gmail.com';
 $EMAIL_PASSWORD = 'jqolwaclkzozhrum';
 
-$mail = new PHPMailer;
+$mail = new PHPMailer();
 $mail->isSMTP();
 $mail->SMTPDebug = 0;
 $mail->Host = 'smtp.gmail.com';
@@ -17,7 +19,7 @@ $mail->Username = $EMAIL_ADDRESS;
 $mail->Password = $EMAIL_PASSWORD;
 $mail->setFrom($EMAIL_ADDRESS);
 $mail->addAddress($EMAIL_ADDRESS);
-$mail->Subject = 'Jogo Grêmio';
+$mail->Subject = 'Jogo Gremio';
 $mail->Body = 'Jogo do Grêmio hoje contra o Cruzeiro.';
 
 if (!$mail->send()) {
