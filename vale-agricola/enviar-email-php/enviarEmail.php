@@ -19,8 +19,8 @@ $mail->Username = $EMAIL_ADDRESS;
 $mail->Password = $EMAIL_PASSWORD;
 $mail->setFrom($EMAIL_ADDRESS);
 $mail->addAddress($EMAIL_ADDRESS);
-$mail->Subject = 'Jogo Gremio';
-$mail->Body = 'Jogo do Grêmio hoje contra o Cruzeiro.';
+$mail->Subject = 'Vencimento de Documentos';
+$mail->Body = 'Olá, esse é um aviso para você dar uma olhada na validade dos documentos cadastrados no Vale Agricola, pois algum está prestes a expirar.';
 
 if (!$mail->send()) {
     echo 'Erro ao enviar o e-mail: ' . $mail->ErrorInfo;
