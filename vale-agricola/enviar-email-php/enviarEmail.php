@@ -1,7 +1,7 @@
 <?php
 
-require_once '../vale-agricola/vendor/autoload.php';
-echo PHPMailer\PHPMailer\PHPMailer::VERSION;
+require_once '../vendor/autoload.php';
+//echo PHPMailer\PHPMailer\PHPMailer::VERSION;
 
 use PHPMailer\PHPMailer\PHPMailer;
 
