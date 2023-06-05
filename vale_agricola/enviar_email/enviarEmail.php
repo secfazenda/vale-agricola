@@ -3,15 +3,12 @@
 require_once '../vendor/autoload.php';
 require_once '../src/Empresa.php';
 
-
 use PHPMailer\PHPMailer\PHPMailer;
-use vale_agricola\src\Empresa;
- // Substitua "path\para\classe" pelo caminho real para a classe Empresa
 
 $EMAIL_ADDRESS = 'marcelo.ost7@gmail.com';
 $EMAIL_PASSWORD = 'jqolwaclkzozhrum';
 
-$intervalo = 86400;
+$intervalo = 20; //86400;
 
 while (true) {
     enviarEmailsParaEmpresas($EMAIL_ADDRESS, $EMAIL_PASSWORD);
