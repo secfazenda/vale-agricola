@@ -1,9 +1,12 @@
 <?php
 
 require_once '../vendor/autoload.php';
-//echo PHPMailer\PHPMailer\PHPMailer::VERSION;
+require_once '../src/Empresa.php';
+
 
 use PHPMailer\PHPMailer\PHPMailer;
+use vale_agricola\src\Empresa;
+ // Substitua "path\para\classe" pelo caminho real para a classe Empresa
 
 $EMAIL_ADDRESS = 'marcelo.ost7@gmail.com';
 $EMAIL_PASSWORD = 'jqolwaclkzozhrum';
@@ -11,9 +14,18 @@ $EMAIL_PASSWORD = 'jqolwaclkzozhrum';
 $intervalo = 86400;
 
 while (true) {
-    enviarEmail($EMAIL_ADDRESS, $EMAIL_PASSWORD);
+    enviarEmailsParaEmpresas($EMAIL_ADDRESS, $EMAIL_PASSWORD);
 
     sleep($intervalo);
+}
+
+function enviarEmailsParaEmpresas($email, $senha){
+    $empresas = Empresa::findall();
+
+    foreach ($empresas as $empresa) {
+        $emailEmpresa = $empresa->getEmail();
+        enviarEmail($emailEmpresa, $senha);
+    }
 }
 
 function enviarEmail($email, $senha){
@@ -37,4 +49,5 @@ function enviarEmail($email, $senha){
         echo 'E-mail enviado com sucesso!';
     }
 }
+
 ?>
