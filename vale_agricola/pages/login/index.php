@@ -6,12 +6,25 @@ if (isset($_POST["button"])) {
     $empresa = new Empresa();
     $empresa->constructLogin($_POST["email"], $_POST["senha"]);
     
-    if ($empresa->authenticate()) {
+    // Após a autenticação bem-sucedida, armazene o ID da prefeitura em uma variável de sessão
+    $id_da_prefeitura = 1; 
+
+    // Redirecionamento após o login
+    if ($empresa->authenticate() == $id_da_prefeitura) {
+        // Redirecionar para a página da prefeitura
+        header("Location: ../home_prefeitura");
+    } elseif ($empresa->authenticate()) {
+        // Redirecionar para a página padrão das empresas
+        header("Location: ../home");
+    }
+    /*if ($empresa->authenticate()) {
         header("location: ../home");
-    } else {
+    }*/ else {
         header("location: index.php");
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
