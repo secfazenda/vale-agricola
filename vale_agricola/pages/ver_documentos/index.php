@@ -6,6 +6,10 @@ if (!isset($_SESSION["idEmpresa"])) {
     header("location: ../login");
 }
 
+$idEmpresa = $_GET['idEmpresa'];
+// Use o ID da empresa para exibir os documentos correspondentes
+
+$empresas = Empresa::findall($_SESSION['idEmpresa']);
 $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
 ?>
 
@@ -15,22 +19,21 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vale Agrícola | Página de Usuário</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
+<header class="header">
         <div class="logo">
             <img src="../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
         </div>
         <div class="icone">
             <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
         </div>
-    </header>
+    </header>    
 
-    <div class="home-page-util">
+        <div class="home-page-util">
         <div class="home-page">
-            <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", Bem vindo! <br></h2>";?>
             <h2 class="subtitulo">Lista de Documentos</h2>
             <?php foreach($documentos as $documento){?>
                 <div>
@@ -40,31 +43,15 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
                         $validade = $documento->getValidade();
                         echo " - ";
                         echo "<td>{$validade->format("d/m/Y")}</td>";
-                        // echo " - ";
-                        // echo "<td>{$documento->getPdf()}</td>";
                         ?>
                     </a>
                 </div>
             <?php } ?>
-            
-            <div class="buttons">
-                <a href="../new_document" class="botao-cadastrar">Cadastrar Documento</a>
-                <a href="../edit" class="botao-editar">Editar Conta</a>
-                <a href="../logout" class="botao-sair">Sair</a>
-                <a href="../../enviar_email/enviarEmail.php">enviar email</a>
+
+                <a href="../home_prefeitura" class="botao-voltar">Voltar</a>
+                
             </div>
         </div>
     </div>
 </body>
 </html>
-
-<script>
-    function confirmarExclusao() {
-        if (confirm("Tem certeza que deseja excluir esse documento?")) {
-            alert("Documento excluído com sucesso.");
-            return true;
-        } else {
-            return false;
-        }
-    }
-</script>

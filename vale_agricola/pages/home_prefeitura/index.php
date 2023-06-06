@@ -32,24 +32,11 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
         <div class="home-page-util">
         <div class="home-page">
             <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", Bem vindo! <br></h2>";?>
-            <h2 class="subtitulo">Lista de Documentos</h2>
-            <?php foreach($documentos as $documento){?>
-                <div>
-                <a href="../edit-document?idDocumento=<?php echo $documento->getIdDocumento(); ?>" class="document">
-                        <?php 
-                        echo "<td>{$documento->getNome()}</td>";
-                        $validade = $documento->getValidade();
-                        echo " - ";
-                        echo "<td>{$validade->format("d/m/Y")}</td>";
-                        ?>
-                    </a>
-                </div>
-            <?php } ?>
 
             <h2 class="subtitulo">Lista de Empresas</h2>
             <?php foreach($empresas as $empresa){?>
                 <div>
-                <a href="" class="empresa">
+                <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
                     <table>
                         <tr>
                             <td class="campo-nome"><?php echo $empresa->getNome(); ?></td>
@@ -58,6 +45,7 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
                         </tr>
                     </table>
                 </a>
+
 
                 </div>
             <?php } ?>

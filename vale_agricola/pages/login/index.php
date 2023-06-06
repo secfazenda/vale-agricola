@@ -4,28 +4,20 @@ require_once __DIR__."/../../settings/config.php";
 
 if (isset($_POST["button"])) {
     $empresa = new Empresa();
-    $empresa->constructLogin($_POST["email"], $_POST["senha"]);
+    $empresa->constructLogin($_POST["email"], $_POST["senha"]);    
     
-    // Após a autenticação bem-sucedida, armazene o ID da prefeitura em uma variável de sessão
-$id_da_prefeitura = 1;
+    $id_da_prefeitura = 1;
 
-// Redirecionamento após o login
-if ($empresa->authenticate($_SESSION['idEmpresa'])) {
-    if ($_SESSION['idEmpresa'] == $id_da_prefeitura) {
-        // Redirecionar para a página da prefeitura
-        header("Location: ../home_prefeitura");
-        exit();
-    } else {
-        // Redirecionar para a página padrão das empresas
-        header("Location: ../home");
-        exit();
+    if ($empresa->authenticate($_SESSION['idEmpresa'])) {
+        if ($_SESSION['idEmpresa'] == $id_da_prefeitura) {
+            header("Location: ../home_prefeitura");
+            exit();
+        } else {
+            header("Location: ../home");
+            exit();
+            }
         }
-    }
-
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
