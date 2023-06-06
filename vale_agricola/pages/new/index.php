@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $cnpj
         );
         $empresa->save();
-        header("location: ../new-confirm/");
+        header("location: ../new_confirm/");
         exit;
     }
 }
