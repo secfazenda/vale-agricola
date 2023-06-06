@@ -33,23 +33,24 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
         <div class="home-page">
             <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", Bem-vindo(a)! <br></h2>";?>
 
-            <h2 class="subtitulo">Lista de Empresas</h2>
-            <?php foreach($empresas as $empresa){?>
+            <?php foreach($empresas as $empresa) {
+            if ($empresa->getIdEmpresa() !== 1) {
+                ?>
                 <div class="lista-empresas">
-                <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
-                    <table class="lista-empresas">
-                        <tr>
-                            <td class="campo-nome"><?php echo $empresa->getNome(); ?></td>
-                            <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td>
-                            <td class="campo-email"><?php echo $empresa->getEmail(); ?></td>
-                        </tr>
-                    </table>
-                </a>
-
-
+                    <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
+                        <table class="lista-empresas">
+                            <tr>
+                                <td class="campo-nome"><?php echo $empresa->getNome(); ?></td>
+                                <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td>
+                                <td class="campo-email"><?php echo $empresa->getEmail(); ?></td>
+                            </tr>
+                        </table>
+                    </a>
                 </div>
-            <?php } ?>
-            
+                <?php
+            }
+        } ?>
+
             <div class="buttons">
             <!--<a href="../new-document" class="botao-cadastrar">Cadastrar Documento</a> -->
                 <a href="../edit_prefeitura" class="botao-editar">Editar Conta</a>
