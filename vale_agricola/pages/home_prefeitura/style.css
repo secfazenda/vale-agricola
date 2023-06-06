@@ -191,18 +191,45 @@ input {
     display: flex;
 }
 
+.lista-empresas {
+    margin: 10px auto;
+    max-width: 600px;
+    background-color: #008C9E;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.lista-empresas table {
+    width: 100%;
+}
+
+.lista-empresas td {
+    padding: 5px;
+    text-align: center;
+}
 
 .campo-nome {
-    width: 200px; /* Defina o tamanho desejado em pixels */
+    width: auto;
+    text-transform: uppercase;
 }
 
 .campo-cnpj {
-    width: 200px; /* Defina o tamanho desejado em pixels */
+    width: auto;
+    text-transform: uppercase;
 }
 
 .campo-email {
-    width: 200px; /* Defina o tamanho desejado em pixels */
+    width: auto;
+    text-transform: lowercase;
 }
+
+.empresa {
+    text-decoration: none;
+}
+
+
 
 @media only screen and (max-width: 768px) {
     .logo{

@@ -35,9 +35,9 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
 
             <h2 class="subtitulo">Lista de Empresas</h2>
             <?php foreach($empresas as $empresa){?>
-                <div>
+                <div class="lista-empresas">
                 <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
-                    <table>
+                    <table class="lista-empresas">
                         <tr>
                             <td class="campo-nome"><?php echo $empresa->getNome(); ?></td>
                             <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td>
