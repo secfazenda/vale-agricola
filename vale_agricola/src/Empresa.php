@@ -134,24 +134,25 @@ class Empresa implements ActiveRecord
         return $empresas;
     }
 
-    public function authenticate(): bool
-    {
-        $connection = new MySQL();
-        $sql = "SELECT idEmpresa, nome, senha, cnpj FROM empresa WHERE email = '{$this->email}'";
-        $results = $connection->query($sql);
+    public function authenticate($id_empresa): bool
+{
+    $connection = new MySQL();
+    $sql = "SELECT idEmpresa, nome, senha, cnpj FROM empresa WHERE email = '{$this->email}'";
+    $results = $connection->query($sql);
+    
+    if (password_verify($this->senha, $results[0]["senha"])) {
+        session_start();
+        $_SESSION['idEmpresa'] = $results[0]['idEmpresa'];
+        $_SESSION['nome'] = $results[0]['nome'];
+        $_SESSION['email'] = $results[0]['email'];
+        $_SESSION['cnpj'] = $results[0]['cnpj'];
         
-        if (password_verify($this->senha, $results[0]["senha"])) {
-            session_start();
-            $_SESSION['idEmpresa'] = $results[0]['idEmpresa'];
-            $_SESSION['nome'] = $results[0]['nome'];
-            $_SESSION['email'] = $results[0]['email'];
-            $_SESSION['cnpj'] = $results[0]['cnpj'];
-            
-            return true;
-        } else {
-            return false;
-        }
+        return true;
+    } else {
+        return false;
     }
+}
+
 
     public function atualizarSenha(string $novaSenha): bool
     {
