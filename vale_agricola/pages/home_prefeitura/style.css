@@ -18,10 +18,10 @@ body {
     padding: 10px;
 }
 
-.logo {
+.logo{
     width: 100%;
     height: auto;
-    padding-left: 5%;
+    padding-left: 200px;
     align-items: center;
 }
 
@@ -31,10 +31,10 @@ body {
     height: auto;
 }
 
-.icone {
+.icone{
     width: 100%;
     height: auto;
-    padding-left: 10%;
+    padding-left: 400px;
 }
 
 .icone img {
@@ -83,7 +83,7 @@ body {
     font-size: 30px;
     text-align: center;
     text-shadow: 2px 2px var #0000;
-    margin: 10px;
+    margin: 10px auto 20px;
 }
 
 form {
@@ -95,14 +95,6 @@ label {
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 20px;
-}
-
-input {
-    padding: 10px;
-    font-size: 20px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: none;
 }
 
 .document {
@@ -200,7 +192,7 @@ input {
     color: #FFFFFF;
     text-decoration: none;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .lista-empresas table {

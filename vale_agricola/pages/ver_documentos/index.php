@@ -44,8 +44,8 @@ $documentos = Documento::findallByEmpresa($idEmpresa);
                 ?>
                 <a href="<?php echo $caminhoDocumento; ?>" download="<?php echo basename($caminhoDocumento); ?>" class="document">
                     
-                    <p><?php echo $documento->getNome();?> - </p>
-                    <p>- <?php echo $documento->getValidade()->format("d/m/Y"); ?></p>
+                    <p><?php echo $documento->getNome();?> - <?php echo $documento->getValidade()->format("d/m/Y"); ?></p>
+                    
                 </a>
             <?php } ?>
             
