@@ -8,36 +8,34 @@ use PHPMailer\PHPMailer\PHPMailer;
 $EMAIL_ADDRESS = 'marcelo.ost7@gmail.com';
 $EMAIL_PASSWORD = 'jqolwaclkzozhrum';
 
-$intervalo = 86400; // Um dia em segundos
+// Obtém todas as empresas cadastradas
+$empresas = Empresa::findall();
 
-while (true) {
-    enviarEmailsParaEmpresas($EMAIL_ADDRESS, $EMAIL_PASSWORD);
-
-    sleep($intervalo);
-}
-
-function enviarEmailsParaEmpresas($email, $senha) {
-    $empresas = Empresa::findall();
-
-    foreach ($empresas as $empresa) {
-        $emailEmpresa = $empresa->getEmail();
-        $documentos = Documento::findByEmpresa($empresa->getIdEmpresa());
-
-        foreach ($documentos as $documento) {
-            $validade = $documento->getValidade();
-            $hoje = new DateTime();
-            $diferenca = $hoje->diff($validade);
-            $diasRestantes = $diferenca->days;
-
-            if ($diasRestantes <= 7) {
-                enviarEmail($emailEmpresa, $senha);
-                break; // Se um documento estiver prestes a expirar, envia apenas um e-mail e passa para a próxima empresa
-            }
+// Itera sobre as empresas
+foreach ($empresas as $empresa) {
+    $emailEmpresa = $empresa->getEmail();
+    $nomeEmpresa = $empresa->getNome();
+    
+    // Obtém os documentos da empresa
+    $documentos = Documento::findByEmpresa($empresa->getIdEmpresa());
+    
+    // Verifica se algum documento está prestes a expirar
+    foreach ($documentos as $documento) {
+        $dataAtual = new DateTime();
+        $dataExpiracao = $documento->getValidade();
+        $diasRestantes = $dataAtual->diff($dataExpiracao)->days;
+        
+        if ($diasRestantes <= 7) {
+            enviarEmail($emailEmpresa, $EMAIL_ADDRESS, $EMAIL_PASSWORD, $nomeEmpresa);
+            break; // Interrompe o loop caso um email seja enviado
         }
     }
 }
 
-function enviarEmail($email, $senha) {
+echo 'Verificação concluída com sucesso!';
+exit();
+
+function enviarEmail($email, $emailRemetente, $senhaRemetente, $nomeEmpresa){
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->SMTPDebug = 0;
@@ -45,17 +43,17 @@ function enviarEmail($email, $senha) {
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
     $mail->SMTPAuth = true;
-    $mail->Username = $email;
-    $mail->Password = $senha;
-    $mail->setFrom($email);
+    $mail->Username = $emailRemetente;
+    $mail->Password = $senhaRemetente;
+    $mail->setFrom($emailRemetente);
     $mail->addAddress($email);
     $mail->Subject = 'Vencimento de Documentos';
-    $mail->Body = 'Olá, esse é um aviso para você dar uma olhada na validade dos documentos cadastrados no Vale Agricola, pois algum está prestes a expirar.';
+    $mail->Body = "Olá, {$nomeEmpresa}! Esse é um aviso para você dar uma olhada na validade dos documentos cadastrados no Vale Agricola, pois algum está prestes a expirar.";
 
     if (!$mail->send()) {
         echo 'Erro ao enviar o e-mail: ' . $mail->ErrorInfo;
     } else {
-        echo 'E-mail enviado com sucesso!';
+        echo "E-mail enviado para {$nomeEmpresa} com sucesso!";
     }
 }
 
