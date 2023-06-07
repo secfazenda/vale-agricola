@@ -51,7 +51,7 @@ $documentos = Documento::findallByEmpresa($idEmpresa);
             
             <div class="buttons">
                 <a href="../home_prefeitura" class="botao-voltar">Voltar</a>
-                <a href="../../enviar_email/enviarEmail.php">Enviar Email</a>
+                <!--<a href="../../enviar_email/enviarEmail.php">Enviar Email</a>-->
             </div>
         </div>
     </div>

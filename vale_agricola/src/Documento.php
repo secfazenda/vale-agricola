@@ -133,7 +133,7 @@ class Documento implements ActiveRecord{
         $resultados = $connection->query($sql);
         $documentos = array();
         foreach($resultados as $resultado){
-            $d = new Documento;
+            $d = new Documento();
             $d->constructorCreate(
                 $resultado['nome'],
                 new DateTime($resultado['validade']),
@@ -146,6 +146,26 @@ class Documento implements ActiveRecord{
         }
         return $documentos;
     }
+
+    public static function findByEmpresa($idEmpresa) {
+        $connection = new MySQL();
+        $sql = "SELECT * FROM documento WHERE idEmpresa = {$idEmpresa}";
+        $resultados = $connection->query($sql);
+        $documentos = array();
+
+        foreach ($resultados as $resultado) {
+            $d = new Documento();
+            $d->setNome($resultado['nome']);
+            $d->setValidade(new DateTime($resultado['validade']));
+            $d->setPdf($resultado['pdf']);
+            $d->setIdDocumento($resultado['idDocumento']);
+            $d->setIdEmpresa($resultado['idEmpresa']);
+            $documentos[] = $d;
+        }
+
+        return $documentos;
+    }
+
     
     public static function findallByDocumento($idDocumento):array{
         $connection = new MySQL();
