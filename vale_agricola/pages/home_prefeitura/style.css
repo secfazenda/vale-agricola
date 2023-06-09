@@ -178,6 +178,26 @@ label {
     background-color: #222222;
 }
 
+.botao-enviar-email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #5C5C5C;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 20px;
+    text-decoration: none;
+    margin: 10px 10px;
+}
+
+.botao-enviar-email:hover {
+    background-color: #222222;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
