@@ -27,7 +27,7 @@ foreach ($empresas as $empresa) {
         
         if ($diasRestantes <= 7) {
             enviarEmail($emailEmpresa, $EMAIL_ADDRESS, $EMAIL_PASSWORD, $nomeEmpresa);
-            break; // Interrompe o loop caso um email seja enviado
+            break;
         }
     }
 }

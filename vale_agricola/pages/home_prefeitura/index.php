@@ -8,6 +8,14 @@ if (!isset($_SESSION["idEmpresa"])) {
 
 $empresas = Empresa::findall($_SESSION['idEmpresa']);
 $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
+
+// Função de comparação para ordenar as empresas pelo nome
+function compararEmpresas($a, $b) {
+    return strcmp($a->getNome(), $b->getNome());
+}
+
+// Ordenar as empresas pelo nome
+usort($empresas, 'compararEmpresas');
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +37,7 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
         </div>
     </header>    
 
-        <div class="home-page-util">
+    <div class="home-page-util">
         <div class="home-page">
             <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", Bem-vindo(a)! <br></h2>";?>
             <h2 class="subtitulo">Lista de Documentos</h2>
@@ -52,7 +60,7 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
         } ?>
 
             <div class="buttons">
-            <!--<a href="../new-document" class="botao-cadastrar">Cadastrar Documento</a> -->
+                <!--<a href="../new-document" class="botao-cadastrar">Cadastrar Documento</a> -->
                 <a href="../edit_prefeitura" class="botao-editar">Editar Conta</a>
                 <a href="../../enviar_email" class="botao-enviar-email">Enviar Avisos</a>
                 <a href="../logout" class="botao-sair">Sair</a>
