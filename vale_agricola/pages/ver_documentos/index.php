@@ -4,6 +4,7 @@ session_start();
 
 if (!isset($_SESSION["idEmpresa"])) {
     header("location: ../login");
+    exit;
 }
 
 if (!isset($_GET["idEmpresa"])) {
@@ -13,6 +14,14 @@ if (!isset($_GET["idEmpresa"])) {
 }
 
 $idEmpresa = $_GET["idEmpresa"];
+
+// Verificar se o ID da empresa é igual ao ID da prefeitura (1)
+if ($idEmpresa == 1) {
+    // Redirecionar para a página anterior ou exibir uma mensagem de erro
+    header("Location: {$_SERVER['HTTP_REFERER']}");
+    exit;
+}
+
 $documentos = Documento::findallByEmpresa($idEmpresa);
 ?>
 
@@ -33,7 +42,7 @@ $documentos = Documento::findallByEmpresa($idEmpresa);
         <div class="icone">
             <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
         </div>
-    </header>    
+    </header>   
 
     <div class="home-page-util">
         <div class="home-page">
@@ -51,6 +60,7 @@ $documentos = Documento::findallByEmpresa($idEmpresa);
             
             <div class="buttons">
                 <a href="../home_prefeitura" class="botao-voltar">Voltar</a>
+                <a class="excluir" href="../delete_parte_prefeitura?idEmpresa=<?php echo $idEmpresa; ?>" onclick="return confirmarExclusao()">Excluir Empresa</a>
                 <!--<a href="../../enviar_email/enviarEmail.php">Enviar Email</a>-->
             </div>
         </div>
@@ -58,3 +68,14 @@ $documentos = Documento::findallByEmpresa($idEmpresa);
     
 </body>
 </html>
+
+<script>
+    function confirmarExclusao() {
+        if (confirm("Tem certeza que deseja excluir sua conta?")) {
+            alert("Sua conta foi excluída com sucesso.");
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>

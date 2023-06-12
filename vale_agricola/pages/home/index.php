@@ -51,7 +51,6 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
                 <a href="../new_document" class="botao-cadastrar">Cadastrar Documento</a>
                 <a href="../edit" class="botao-editar">Editar Conta</a>
                 <a href="../logout" class="botao-sair">Sair</a>
-                <a href="../../enviar_email/enviarEmail.php">enviar email</a>
             </div>
         </div>
     </div>
