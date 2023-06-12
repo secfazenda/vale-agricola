@@ -60,7 +60,7 @@ $documentos = Documento::findallByEmpresa($idEmpresa);
             
             <div class="buttons">
                 <a href="../home_prefeitura" class="botao-voltar">Voltar</a>
-                <a class="excluir" href="../delete_parte_prefeitura?idEmpresa=<?php echo $idEmpresa; ?>" onclick="return confirmarExclusao()">Excluir Empresa</a>
+                <a class="botao-excluir" href="../delete_parte_prefeitura?idEmpresa=<?php echo $idEmpresa; ?>" onclick="return confirmarExclusao()">Excluir Empresa</a>
                 <!--<a href="../../enviar_email/enviarEmail.php">Enviar Email</a>-->
             </div>
         </div>
