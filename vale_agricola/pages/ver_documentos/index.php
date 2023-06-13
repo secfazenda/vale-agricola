@@ -47,15 +47,17 @@ $documentos = Documento::findallByEmpresa($idEmpresa);
     <div class="home-page-util">
         <div class="home-page">
             <h2 class="titulo">Documentos da Empresa</h2>
-            <?php foreach ($documentos as $documento) { ?>
-                <?php
-                $caminhoDocumento = '../../documentos/' . $documento->getIdDocumento() . '/' . $documento->getPdf();
-                ?>
-                <a href="<?php echo $caminhoDocumento; ?>" download="<?php echo basename($caminhoDocumento); ?>" class="document">
-                    
-                    <p><?php echo $documento->getNome();?> - <?php echo $documento->getValidade()->format("d/m/Y"); ?></p>
-                    
-                </a>
+            <?php if (empty($documentos)) { ?>
+                <p>Nenhum documento cadastrado para essa empresa.</p>
+            <?php } else { ?>
+                <?php foreach ($documentos as $documento) { ?>
+                    <?php
+                    $caminhoDocumento = '../../documentos/' . $documento->getIdDocumento() . '/' . $documento->getPdf();
+                    ?>
+                    <a href="<?php echo $caminhoDocumento; ?>" download="<?php echo basename($caminhoDocumento); ?>" class="document">
+                        <p><?php echo $documento->getNome();?> - <?php echo $documento->getValidade()->format("d/m/Y"); ?></p>
+                    </a>
+                <?php } ?>
             <?php } ?>
             
             <div class="buttons">

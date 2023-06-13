@@ -48,7 +48,13 @@ function enviarEmail($email, $emailRemetente, $senhaRemetente, $nomeEmpresa){
     $mail->setFrom($emailRemetente);
     $mail->addAddress($email);
     $mail->Subject = 'Vencimento de Documentos';
-    $mail->Body = "Olá, {$nomeEmpresa}! Esse é um aviso para você dar uma olhada na validade dos documentos cadastrados no Vale Agricola, pois algum está prestes a expirar.";
+    $mail->Body = "Olá, {$nomeEmpresa}!
+
+Esse é um aviso para você dar uma olhada na validade dos documentos cadastrados no Vale Agricola, pois algum está prestes a expirar.
+
+Não esqueça de atualiza-los o mais breve possível!
+
+Atenciosamente, Prefeitura de Alto Feliz";
 
     if (!$mail->send()) {
         echo 'Erro ao enviar o e-mail: ' . $mail->ErrorInfo;
