@@ -8,16 +8,13 @@ if (!isset($_SESSION["idEmpresa"])) {
 }
 
 if (!isset($_GET["idEmpresa"])) {
-    // Redirecionar para a página anterior ou exibir uma mensagem de erro
     header("Location: {$_SERVER['HTTP_REFERER']}");
     exit;
 }
 
 $idEmpresa = $_GET["idEmpresa"];
 
-// Verificar se o ID da empresa é igual ao ID da prefeitura (1)
 if ($idEmpresa == 1) {
-    // Redirecionar para a página anterior ou exibir uma mensagem de erro
     header("Location: {$_SERVER['HTTP_REFERER']}");
     exit;
 }
