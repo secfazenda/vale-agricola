@@ -1,25 +1,22 @@
 <?php
 require_once '../vendor/autoload.php';
-require_once '../src/Empresa.php';
-require_once '../src/Documento.php';
+//require_once '../src/Empresa.php';
+//require_once '../src/Documento.php';
+require 'docs.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-$EMAIL_ADDRESS = 'marcelo.ost7@gmail.com';
-$EMAIL_PASSWORD = 'jqolwaclkzozhrum';
+$EMAIL_ADDRESS = $emailP;
+$EMAIL_PASSWORD = $senhaP;
 
-// Obtém todas as empresas cadastradas
 $empresas = Empresa::findall();
 
-// Itera sobre as empresas
 foreach ($empresas as $empresa) {
     $emailEmpresa = $empresa->getEmail();
     $nomeEmpresa = $empresa->getNome();
     
-    // Obtém os documentos da empresa
     $documentos = Documento::findByEmpresa($empresa->getIdEmpresa());
     
-    // Verifica se algum documento está prestes a expirar
     foreach ($documentos as $documento) {
         $dataAtual = new DateTime();
         $dataExpiracao = $documento->getValidade();
