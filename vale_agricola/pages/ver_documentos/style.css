@@ -151,6 +151,10 @@ body {
     display: flex;
 }
 
+.nenhum-doc{
+    text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
     .logo{
         padding-left: 5%;

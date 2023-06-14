@@ -45,7 +45,7 @@ $documentos = Documento::findallByEmpresa($idEmpresa);
         <div class="home-page">
             <h2 class="titulo">Documentos da Empresa</h2>
             <?php if (empty($documentos)) { ?>
-                <p>Nenhum documento cadastrado para essa empresa.</p>
+                <p class="nenhum-doc">Nenhum documento cadastrado para essa empresa.</p>
             <?php } else { ?>
                 <?php foreach ($documentos as $documento) { ?>
                     <?php
