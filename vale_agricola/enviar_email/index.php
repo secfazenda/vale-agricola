@@ -2,12 +2,12 @@
 require_once '../vendor/autoload.php';
 //require_once '../src/Empresa.php';
 //require_once '../src/Documento.php';
-require 'docs.php';
+//require 'docs.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-$EMAIL_ADDRESS = $emailP;
-$EMAIL_PASSWORD = $senhaP;
+$EMAIL_ADDRESS = 'marcelo.ost7@gmail.com';
+$EMAIL_PASSWORD = 'jqolwaclkzozhrum';
 
 $empresas = Empresa::findall();
 
