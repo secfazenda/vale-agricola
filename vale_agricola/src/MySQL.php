@@ -8,23 +8,54 @@ class MySQL{
 
     public function __construct()
     {
-        $this->connection = new \mysqli(HOST,USER,PASSWORD,DATABASE);
+        $this->connection = new \mysqli(HOST, USER, PASSWORD, DATABASE);
         $this->connection->set_charset("utf8mb4");
     }
 
-    public function execute($sql): bool
+    public function execute($sql, $params = []): bool
     {
-        return $this->connection->query($sql);
+        $stmt = $this->connection->prepare($sql);
+        
+        if ($stmt === false) {
+            // Tratar erro de preparação da consulta
+            return false;
+        }
+
+        if (!empty($params)) {
+            $types = str_repeat('s', count($params));
+            $stmt->bind_param($types, ...$params);
+        }
+
+        $result = $stmt->execute();
+        $stmt->close();
+        
+        return $result;
     }
     
-    public function query($sql): array
+    public function query($sql, $params = []): array
     {
-        $result = $this->connection->query($sql);
-        $item = array();
-        $data = array();
-        while($item = mysqli_fetch_array($result)){
-            $data[] = $item;
+        $stmt = $this->connection->prepare($sql);
+        
+        if ($stmt === false) {
+            // Tratar erro de preparação da consulta
+            return [];
         }
+
+        if (!empty($params)) {
+            $types = str_repeat('s', count($params));
+            $stmt->bind_param($types, ...$params);
+        }
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        $stmt->close();
+        
         return $data;
     }
 }
