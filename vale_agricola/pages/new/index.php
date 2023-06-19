@@ -27,8 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (strlen($cnpj) < 14) {
             $erro = true;
             $mensagemErro = "CNPJ inválido.";
-    }
-
+        }
     }
 
     if ($erro) {
@@ -72,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="create-account-util">
         <div class="create-account">
             <h1 class="titulo">Criar Conta</h1>
-            <form action="index.php" method="post" enctype="multipart/form-data" id="create-account-form">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" id="create-account-form">
 
                 <label for="cnpj">CNPJ</label>
                 <input type="string" name="cnpj" id="cnpj" minlength="14" required>
@@ -95,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
                 </div>
 
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <input type="submit" value="Criar Conta" class="botao" name="button">
 
                 <a href="../login" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
