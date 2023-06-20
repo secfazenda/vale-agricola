@@ -1,6 +1,6 @@
 <?php
-
 require_once __DIR__."/../../settings/config.php";
+session_start();
 
 if (isset($_POST["button"])) {
     $empresa = new Empresa();
@@ -8,15 +8,15 @@ if (isset($_POST["button"])) {
     
     $id_da_prefeitura = 1;
 
-    if ($empresa->authenticate($_SESSION['idEmpresa'])) {
+    if ($empresa->authenticate(isset($_SESSION['idEmpresa']) ? $_SESSION['idEmpresa'] : null)) {
         if ($_SESSION['idEmpresa'] == $id_da_prefeitura) {
             header("Location: ../home_prefeitura");
             exit();
         } else {
             header("Location: ../home");
             exit();
-            }
         }
+    }
 }
 ?>
 
