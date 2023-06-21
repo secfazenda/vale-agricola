@@ -46,29 +46,32 @@ if (isset($_POST["button"])) {
 
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" required>
-    
-                <label for="senha">Senha</label>
-                <div class="div-senha">
-                    <input type="password" name="senha" id="senha" maxlength="50" required>
-                    <button type="button" id="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>
-                </div>
-                
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-                <script>
-                var senha = document.getElementById("senha");
-                var olhoSenha = document.getElementById("olho-senha");
 
-                olhoSenha.addEventListener("click", function() {
-                    if (senha.type === "password") {
-                    senha.type = "text";
-                    olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
-                    } else {
-                    senha.type = "password";
-                    olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
-                    }
-                });
-                </script>
-            
+                
+                <label for="senha">Senha</label>
+                <div class="senha">
+                    <div class="div-senha">
+                        <input type="password" name="senha" id="senha" maxlength="50" required>
+                        <button type="button" id="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>
+                    </div>
+                    
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+                    <script>
+                    var senha = document.getElementById("senha");
+                    var olhoSenha = document.getElementById("olho-senha");
+
+                    olhoSenha.addEventListener("click", function() {
+                        if (senha.type === "password") {
+                        senha.type = "text";
+                        olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
+                        } else {
+                        senha.type = "password";
+                        olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
+                        }
+                    });
+                    </script>
+                </div>
+
                 <input type="submit" value="Login" class="botao" name="button">
 
                 <a class="create-account" href="../new">Crie sua conta aqui</a>

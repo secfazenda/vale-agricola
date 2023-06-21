@@ -83,13 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="email" name="email" id="email" maxlength="50" required>
 
                 <label for="password">Senha</label>
-                <div>
+                <div class="div-senha">
                   <input type="password" name="senha" id="senha" minlength="6" required>
                   <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
                 </div>
 
                 <label for="password">Confirmar Senha</label>
-                <div>
+                <div class="div-senha">
                   <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="6" required>
                   <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
                 </div>

@@ -54,7 +54,7 @@ body {
 .create-account-util {
     background-size: cover;
     background-position: bottom center;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,6 +133,45 @@ input {
     text-align: center;
 }
 
+.div-senha {
+    position: relative;
+    display: inline-block;
+}
+
+#olho-senha {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#olho-senha i {
+    color: #888;
+}
+
+.div-senha {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.olho-senha {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.olho-senha i {
+    color: #888;
+}
+
 @media only screen and (max-width: 768px) {
     .logo{
         padding-left: 5%;
@@ -143,7 +182,7 @@ input {
     }
 
     .create-account-util {
-        height: 100vh;
+        height: 110vh;
     }
 }
 
@@ -154,10 +193,6 @@ input {
 
     .icone{
         padding-left: 10%;
-    }
-
-    .create-account-util {
-        height: 100vh;
     }
 
     .create-account {

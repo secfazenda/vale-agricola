@@ -126,23 +126,25 @@ input {
     margin-top: 20px;
 }
 
-.botao:hover {
-    background-color: #222222;
+.div-senha {
+    position: relative;
+    display: inline-block;
 }
 
-.olho-senha {
+#olho-senha {
     position: absolute;
-    top: 5px;
+    top: 50%;
     right: 10px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
     cursor: pointer;
 }
 
-.lnr-eye {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    cursor: pointer;
+#olho-senha i {
+    color: #888;
 }
+
 
 @media only screen and (max-width: 768px) {
     .logo{
