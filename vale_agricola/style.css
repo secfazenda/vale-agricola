@@ -14,16 +14,29 @@
     padding: 10px;
 }
 
+.brasao{
+  width: 100%;
+  height: auto;
+  padding-left: 200px;
+  align-items: center;
+}
+
+.brasao img {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+}
+
 .logo{
     width: 100%;
     height: auto;
-    padding-left: 200px;
+    
     align-items: center;
 }
 
 .logo img {
     width: 100%;
-    max-width: 200px;
+    max-width: 170px;
     height: auto;
 }
 
@@ -62,6 +75,10 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    }
+
+    .link{
+      color: #222222;
     }
     
     .hp-superior-part {
@@ -116,14 +133,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 40px;
+    width: 140px;
+    height: 50px;
     border-radius: 5px;
     background-color: #5C5C5C;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
+    font-size: 20px;
     }
     
     .hp-button:hover {
@@ -228,4 +246,61 @@
           font-size: 16px;
         }
       }
+      
+
+      .dark-mode {
+        background-color: #333;
+        color: #fff;
+      }
+      
+      .dark-mode .header {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      
+      .dark-mode .logo img {
+        filter: invert(1);
+      }
+      
+      .dark-mode .icone img {
+        filter: invert(1);
+      }
+      
+      .dark-mode .login {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      
+      .dark-mode label {
+        color: #fff;
+      }
+      
+      .dark-mode input,
+      .dark-mode .botao,
+      .dark-mode .create-account,
+      .dark-mode .botao-voltar img {
+        background-color: #333;
+        color: #fff;
+      }
+      
+      .dark-mode .div-senha {
+        border-color: #fff;
+      }
+      
+      .dark-mode #olho-senha i {
+        color: #fff;
+      }
+      
+      .dark-mode .homepage-util-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(40, 40, 40, 0.85);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        }
+
+        .dark-mode .link{
+          color: #fff;
+        }
       

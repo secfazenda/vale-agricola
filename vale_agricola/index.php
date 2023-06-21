@@ -1,5 +1,11 @@
 <?php
 require_once __DIR__.'/settings/config.php';
+
+// Verifica se o cookie de modo está definido
+$mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
+
+// Verifica se o modo é dark
+$isDarkMode = $mode === 'dark';
 ?>
 
 <!DOCTYPE html>
@@ -11,13 +17,25 @@ require_once __DIR__.'/settings/config.php';
     <link rel="shortcut icon" href="assets/images/olifx_logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <title>Vale Agrícola</title>
+    <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            var isDarkMode = body.classList.toggle('dark-mode');
+            
+            // Define um cookie para lembrar a preferência de modo
+            document.cookie = 'mode=' + (isDarkMode ? 'dark' : 'light') + '; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/';
+        }
+    </script>
 </head>
-<body>
+<body <?php if ($isDarkMode) echo 'class="dark-mode"'; ?>>
     <header class="header">
-        <div class="logo">
-            <img src="settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        <div class="brasao">
+            <img src="settings/imagens/logo-alto-feliz-brasao.png" alt="brasaoaf">
         </div>
-        <div class="icone">
+        <div class="logo">
+            <img src="settings/imagens/logo-alto-feliz-letras.png" alt="logoaf">
+        </div>
+        <div class="icone" onclick="toggleDarkMode()">
             <img src="settings/imagens/icone-contraste.png" alt="iconedl">
         </div>
     </header>
@@ -25,7 +43,7 @@ require_once __DIR__.'/settings/config.php';
         <div class="homepage-util-area">
             <div class="hp-superior-part">
                 <div class="hp-title">
-                    <h1>Bem-vindo ao Vale Agrícola</h1>
+                    <h1>Bem-vindo(a) ao Vale Agrícola</h1>
                 </div>
                 
                 <div class="hp-bottom-part">
@@ -40,7 +58,7 @@ require_once __DIR__.'/settings/config.php';
                     <h3>Como funciona?</h3>
                 </div>
                 <div class="content">
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;O incentivo concedido aos agricultores sob forma de Vale Agrícola, de acordo com o disposto na <a href="https://cespro.com.br/visualizarDiploma.php?cdMunicipio=7221&cdDiploma=20211468&NroLei=1.468&Word=&Word2=">Lei 1211/2017</a> e alterações instituídas pela Lei 1468/2021,  prevê o reembolso, mediante apresentação de nota fiscal de compras de mudas, produtos e insumos agrícolas, ferramentas agrícolas e combustíveis na Prefeitura Municipal.</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;O incentivo concedido aos agricultores sob forma de Vale Agrícola, de acordo com o disposto na <a href="https://cespro.com.br/visualizarDiploma.php?cdMunicipio=7221&cdDiploma=20211468&NroLei=1.468&Word=&Word2=" class="link">Lei 1211/2017</a> e alterações instituídas pela Lei 1468/2021,  prevê o reembolso, mediante apresentação de nota fiscal de compras de mudas, produtos e insumos agrícolas, ferramentas agrícolas e combustíveis na Prefeitura Municipal.</p>
 
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;Dos bônus já gerados e ainda válidos, referentes à produção do ano de 2018 e 2019, 30% pode ser gasto nos estabelecimentos acima relacionados. A contar do ano de 2021, ano base 2020, este valor passa a ser de 40% do valor, uma das alterações instituídas pela lei 1468.</p>
 
