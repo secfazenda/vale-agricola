@@ -68,6 +68,15 @@ body {
     width: 100%;
 }
 
+.edit-document {
+    background-color: rgba(250, 250, 250, 0.8);
+    padding: 10px 30px; 
+    border-radius: 10px;
+    box-shadow: 0 0 20px #0000;
+    transition: all ease .3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .titulo {	
     font-size: 35px;
     text-align: center;
@@ -75,8 +84,64 @@ body {
     margin: 10px;
 }
 
-.buttons{
-    display: flex;
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+    margin-top: 5px;
+	margin-bottom: 10px;
+    font-size: 20px;
+}
+
+input {
+	padding: 10px;
+	font-size: 20px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: none;
+}
+
+.document {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 70px;
+    border-radius: 5px;
+    background-color: #008C9E;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 20px;
+    text-decoration: none;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.document:hover {
+    background-color: #222222;
+}
+
+.botao {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #5C5C5C;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 20px;
+    text-decoration: none;
+    margin: 10px auto;
+}
+
+.botao:hover {
+    background-color: #222222;
 }
 
 .botao-baixar {
@@ -92,7 +157,47 @@ body {
     transition: all 0.2s ease-in-out;
     margin-top: 20px;
     text-decoration: none;
-    margin: 5px auto;
+    margin: 10px 10px;
+}
+
+.botao-baixar:hover {
+    background-color: #222222;
+}
+
+.botao-excluir {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #5C5C5C;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 20px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.botao-excluir:hover {
+    background-color: #222222;
+}
+
+.botao-baixar {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #5C5C5C;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 20px;
+    text-decoration: none;
+    margin: 5px;
 }
 
 .botao-baixar:hover {

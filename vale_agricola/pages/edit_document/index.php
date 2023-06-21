@@ -74,9 +74,11 @@ if (isset($_GET["idDocumento"])) {
             $caminhoDocumento = '../../documentos/' . $idDocumento . '/' . $documento->getPdf();
             ?>
 
-            <a href="<?php echo $caminhoDocumento; ?>" download="<?php echo basename($caminhoDocumento); ?>" class="botao-baixar">Baixar Documento</a>
-
-            <a class="botao-excluir" href="../delete_document?idDocumento=<?php echo $documento->getIdDocumento(); ?>" onclick="return confirmarExclusao()">Excluir Documento</a>
+            <div class="buttons">
+                <a href="<?php echo $caminhoDocumento; ?>" download="<?php echo basename($caminhoDocumento); ?>" class="botao-baixar">Baixar Documento</a>
+            
+                <a class="botao-excluir" href="../delete_document?idDocumento=<?php echo $documento->getIdDocumento(); ?>" onclick="return confirmarExclusao()">Excluir Documento</a>
+            </div>
             <a href="../home" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
             
         </div>
