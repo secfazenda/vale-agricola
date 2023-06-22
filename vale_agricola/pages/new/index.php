@@ -60,10 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     
     <header class="header">
-        <div class="logo">
-            <img src="../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        <div class="brasao">
+            <img src="../../settings/imagens/logo-alto-feliz-brasao.png" alt="brasaoaf">
         </div>
-        <div class="icone">
+        <div class="logo">
+            <img src="../../settings/imagens/logo-alto-feliz-letras.png" alt="logoaf">
+        </div>
+        <div class="icone" onclick="toggleDarkMode()">
             <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
         </div>
     </header>

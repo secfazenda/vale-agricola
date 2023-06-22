@@ -31,10 +31,13 @@ if (isset($_POST["button"])) {
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <img src="../../settings/imagens/logo-alto-feliz.png" alt="logoaf">
+        <div class="brasao">
+            <img src="../../settings/imagens/logo-alto-feliz-brasao.png" alt="brasaoaf">
         </div>
-        <div class="icone">
+        <div class="logo">
+            <img src="../../settings/imagens/logo-alto-feliz-letras.png" alt="logoaf">
+        </div>
+        <div class="icone" onclick="toggleDarkMode()">
             <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
         </div>
     </header>
@@ -109,3 +112,33 @@ function isValidEmail(email) {
 }
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script>
+    // Função para alternar entre o modo claro e escuro
+    function toggleDarkMode() {
+        var body = document.body;
+        body.classList.toggle("dark-mode");
+    }
+
+    // Aplicando a máscara de usuário no campo de email
+    $(document).ready(function() {
+        $('#email').mask("A", {
+            translation: {
+                "A": { pattern: /[\w@\-.+]/, recursive: true }
+            }
+        }).on("blur", function() {
+            let email = $(this).val();
+            if (!isValidEmail(email)) {
+                $(this).val("");
+            }
+        });
+    });
+
+    // Função para validar o formato do email
+    function isValidEmail(email) {
+        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+</script>

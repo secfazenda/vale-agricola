@@ -11,39 +11,38 @@
     display: flex;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
 }
 
-.brasao{
+.brasao {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Adicionado para posicionar à direita */
   width: 100%;
   height: auto;
-  padding-left: 200px;
-  align-items: center;
 }
 
 .brasao img {
-  width: 100%;
-  max-width: 80px;
+  max-width: 55px;
   height: auto;
 }
 
+
 .logo{
     width: 100%;
-    height: auto;
-    
+    height: auto;    
     align-items: center;
 }
 
 .logo img {
     width: 100%;
-    max-width: 170px;
+    max-width: 140px;
     height: auto;
 }
 
 .icone{
     width: 100%;
     height: auto;
-    padding-left: 400px;
+    
 }
 
 .icone img {
@@ -200,11 +199,6 @@
         
         .content {
           font-size: 14px;
-        }
-        
-        .hp-main-image {
-          margin-top: 20px;
-          margin-bottom: 20px;
         }
         
         .hp-button {

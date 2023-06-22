@@ -14,26 +14,38 @@ body{
     display: flex;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
 }
+
+.brasao {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Adicionado para posicionar à direita */
+  width: 100%;
+  height: auto;
+}
+
+.brasao img {
+  max-width: 55px;
+  height: auto;
+}
+
 
 .logo{
     width: 100%;
-    height: auto;
-    padding-left: 200px;
+    height: auto;    
     align-items: center;
 }
 
 .logo img {
     width: 100%;
-    max-width: 200px;
+    max-width: 140px;
     height: auto;
 }
 
 .icone{
     width: 100%;
     height: auto;
-    padding-left: 400px;
+    
 }
 
 .icone img {
