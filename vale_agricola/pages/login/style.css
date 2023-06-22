@@ -138,6 +138,10 @@ input {
     margin-top: 20px;
 }
 
+.botao:hover {
+    background-color: #222222;
+}
+
 .div-senha {
     position: relative;
     display: inline-block;
@@ -225,10 +229,7 @@ input {
     color: #fff;
   }
   
-  .dark-mode input,
-  .dark-mode .botao,
-  .dark-mode .create-account,
-  .dark-mode .botao-voltar img {
+  .dark-mode input {
     background-color: #424242;
     color: #fff;
   }
@@ -240,18 +241,12 @@ input {
   .dark-mode #olho-senha {
     color: #fff;
   }
-  
-  .dark-mode .homepage-util-area {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(40, 40, 40, 0.85);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+
+    .dark-mode .link,
+    .dark-mode .create-account{
+      color: #fff;
     }
 
-    .dark-mode .link{
-      color: #fff;
+    .dark-mode .botao:hover {
+        background-color: #222222;
     }

@@ -2,6 +2,9 @@
 require_once __DIR__."/../../settings/config.php";
 session_start();
 
+$mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
+$isDarkMode = $mode === 'dark';
+
 if (isset($_POST["button"])) {
     $empresa = new Empresa();
     $empresa->constructLogin($_POST["email"], $_POST["senha"]);    
@@ -28,8 +31,17 @@ if (isset($_POST["button"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vale Agrícola | Login</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            var isDarkMode = body.classList.toggle('dark-mode');
+            
+            // Define um cookie para lembrar a preferência de modo
+            document.cookie = 'mode=' + (isDarkMode ? 'dark' : 'light') + '; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/';
+        }
+    </script>
 </head>
-<body>
+<body <?php if ($isDarkMode) echo 'class="dark-mode"'; ?>>
     <header class="header">
         <div class="brasao">
             <img src="../../settings/imagens/logo-alto-feliz-brasao.png" alt="brasaoaf">
@@ -116,11 +128,6 @@ function isValidEmail(email) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
 <script>
-    // Função para alternar entre o modo claro e escuro
-    function toggleDarkMode() {
-        var body = document.body;
-        body.classList.toggle("dark-mode");
-    }
 
     // Aplicando a máscara de usuário no campo de email
     $(document).ready(function() {
