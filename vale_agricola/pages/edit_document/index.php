@@ -2,6 +2,9 @@
 require_once "../../settings/config.php";
 session_start();
 
+$mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
+$isDarkMode = $mode === 'dark';
+
 // Verificando se o ID do documento foi fornecido na URL
 if (isset($_GET["idDocumento"])) {
     $idDocumento = $_GET["idDocumento"];
@@ -39,8 +42,17 @@ if (isset($_GET["idDocumento"])) {
     <link rel="stylesheet" href="style.css">
     <title>Vale Agrícola | Documento</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            var isDarkMode = body.classList.toggle('dark-mode');
+            
+            // Define um cookie para lembrar a preferência de modo
+            document.cookie = 'mode=' + (isDarkMode ? 'dark' : 'light') + '; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/';
+        }
+    </script>
 </head>
-<body>
+<body <?php if ($isDarkMode) echo 'class="dark-mode"'; ?>>
 
     <header class="header">
         <div class="brasao">

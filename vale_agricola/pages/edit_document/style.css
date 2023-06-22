@@ -257,3 +257,54 @@ input {
     }
 
 }
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .dark-mode .edit-document-util{
+    background-color: #000000;
+  }
+  
+  .dark-mode .header {
+    background-color: #363636;
+  }
+  
+  .dark-mode .logo img {
+    filter: invert(1);
+  }
+  
+  .dark-mode .icone img {
+    filter: invert(1);
+  }
+
+  .dark-mode .botao-voltar img {
+    filter: invert(1);
+  }
+  
+  .dark-mode .edit-document {
+    background-color: #363636;
+  }
+  
+  .dark-mode label {
+    color: #fff;
+  }
+  
+  .dark-mode input,
+  .dark-mode .botao-baixar,
+  .dark-mode .botao-excluir {
+    background-color: #424242;
+    color: #fff;
+  }
+  
+    .dark-mode .link,
+    .dark-mode .create-account{
+      color: #fff;
+    }
+
+    .dark-mode .botao:hover,
+    .dark-mode .botao-baixar:hover,
+    .dark-mode .botao-excluir:hover {
+        background-color: #222222;
+    }
