@@ -1,6 +1,9 @@
 <?php
 require_once "../../settings/config.php";
 
+$mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
+$isDarkMode = $mode === 'dark';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $empresas = Empresa::findall();
     
@@ -56,8 +59,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Vale Agrícola | Criar Conta</title>
   <script src="scripts.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            var isDarkMode = body.classList.toggle('dark-mode');
+            
+            document.cookie = 'mode=' + (isDarkMode ? 'dark' : 'light') + '; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/';
+        }
+  </script>
 </head>
-<body>
+<body <?php if ($isDarkMode) echo 'class="dark-mode"'; ?>>
     
     <header class="header">
         <div class="brasao">
