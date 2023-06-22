@@ -2,6 +2,9 @@
 
 require_once "../../settings/config.php";
 
+$mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
+$isDarkMode = $mode === 'dark';
+
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +15,17 @@ require_once "../../settings/config.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vale Agrícola | Confirmação de Cadastro</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            var isDarkMode = body.classList.toggle('dark-mode');
+            
+            // Define um cookie para lembrar a preferência de modo
+            document.cookie = 'mode=' + (isDarkMode ? 'dark' : 'light') + '; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/';
+        }
+    </script>
 </head>
-<body>
+<body <?php if ($isDarkMode) echo 'class="dark-mode"'; ?>>
     <header class="header">
         <div class="brasao">
             <img src="../../settings/imagens/logo-alto-feliz-brasao.png" alt="brasaoaf">
