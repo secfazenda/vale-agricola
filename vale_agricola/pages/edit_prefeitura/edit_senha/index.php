@@ -77,9 +77,33 @@ if (isset($_SESSION['idEmpresa'])) {
             <h1 class="titulo">Editar Senha</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
                 <label for="senha_atual">Senha atual</label>
-                <div>
+                <div class="div-senha">
                     <input type="password" name="senha_atual" id="senha_atual" minlength="6" required>
-                    <button type="button" class="olho-senha" name="olho-senha-senha-atual"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>
+                </div>
+
+                <label for="senha">Senha</label>
+                <div class="senha">
+                    <div class="div-senha">
+                        <input type="password" name="senha" id="senha" maxlength="50" required>
+                        <button type="button" id="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>
+                    </div>
+                    
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+                    <script>
+                    var senha = document.getElementById("senha");
+                    var olhoSenha = document.getElementById("olho-senha");
+
+                    olhoSenha.addEventListener("click", function() {
+                        if (senha.type === "password") {
+                        senha.type = "text";
+                        olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
+                        } else {
+                        senha.type = "password";
+                        olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
+                        }
+                    });
+                    </script>
                 </div>
 
                 <label for="nova_senha">Nova senha</label>

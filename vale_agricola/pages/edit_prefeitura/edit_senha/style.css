@@ -63,7 +63,24 @@ body {
     height: 100vh;
 }
 
+.div-senha {
+    position: relative;
+    display: inline-block;
+}
 
+#olho-senha {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#olho-senha i {
+    color: #888;
+}
 
 
 
