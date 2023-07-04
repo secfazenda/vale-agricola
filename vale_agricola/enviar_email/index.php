@@ -6,8 +6,8 @@ require_once '../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-$EMAIL_ADDRESS = 'marcelo.ost7@gmail.com';
-$EMAIL_PASSWORD = 'jqolwaclkzozhrum';
+$EMAIL_ADDRESS = '';
+$EMAIL_PASSWORD = '';
 
 $empresas = Empresa::findall();
 
