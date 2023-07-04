@@ -77,23 +77,30 @@ if (isset($_SESSION['idEmpresa'])) {
         <div class="edit-senha">
             <h1 class="titulo">Editar Senha</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
-                <label for="senha_atual">Senha atual</label>
-                <div>
-                    <input type="password" name="senha_atual" id="senha_atual" minlength="6" required>
-                    <button type="button" class="olho-senha" name="olho-senha-senha-atual"><i class="fa fa-eye"></i></button>
-                </div>
+            <div class="input-wrapper">
+    <label for="senha_atual">Senha atual</label>
+    <div class="input-group">
+        <input type="password" name="senha_atual" id="senha_atual" minlength="6" required>
+        <button type="button" class="olho-senha" name="olho-senha-senha-atual"><i class="fa fa-eye"></i></button>
+    </div>
+</div>
 
-                <label for="nova_senha">Nova senha</label>
-                <div>
-                    <input type="password" name="nova_senha" id="nova_senha" minlength="6" required>
-                    <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
-                </div>
+<div class="input-wrapper">
+    <label for="nova_senha">Nova senha</label>
+    <div class="input-group">
+        <input type="password" name="nova_senha" id="nova_senha" minlength="6" required>
+        <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
+    </div>
+</div>
 
-                <label for="confirmar_senha">Confirmar nova senha</label>
-                <div>
-                    <input type="password" name="confirmar_senha" id="confirmar_senha" required>
-                    <button type="button" class="olho-senha" name="olho-senha-confirmar-senha"><i class="fa fa-eye"></i></button>
-                </div>
+<div class="input-wrapper">
+    <label for="confirmar_senha">Confirmar nova senha</label>
+    <div class="input-group">
+        <input type="password" name="confirmar_senha" id="confirmar_senha" required>
+        <button type="button" class="olho-senha" name="olho-senha-confirmar-senha"><i class="fa fa-eye"></i></button>
+    </div>
+</div>
+
                 
                 <input type="submit" value="Salvar" class="botao" name="button">
             </form>

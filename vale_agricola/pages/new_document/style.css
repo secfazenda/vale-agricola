@@ -15,26 +15,38 @@ body{
     display: flex;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
 }
+
+.brasao {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Adicionado para posicionar à direita */
+  width: 100%;
+  height: auto;
+}
+
+.brasao img {
+  max-width: 55px;
+  height: auto;
+}
+
 
 .logo{
     width: 100%;
-    height: auto;
-    padding-left: 200px;
+    height: auto;    
     align-items: center;
 }
 
 .logo img {
     width: 100%;
-    max-width: 200px;
+    max-width: 140px;
     height: auto;
 }
 
 .icone{
     width: 100%;
     height: auto;
-    padding-left: 400px;
+    
 }
 
 .icone img {
@@ -173,3 +185,58 @@ input {
     }
   
 }
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .dark-mode .home-page-util{
+    background-color: #000000;
+  }
+  
+  .dark-mode .header {
+    background-color: #363636;
+  }
+  
+  .dark-mode .logo img {
+    filter: invert(1);
+  }
+  
+  .dark-mode .icone img {
+    filter: invert(1);
+  }
+
+  .dark-mode .botao-voltar img {
+    filter: invert(1);
+  }
+  
+  .dark-mode .home-page {
+    background-color: #363636;
+  }
+  
+  .dark-mode label {
+    color: #fff;
+  }
+  
+  .dark-mode input {
+    background-color: #424242;
+    color: #fff;
+  }
+  
+  .dark-mode .div-senha {
+    border-color: #fff;
+  }
+  
+  .dark-mode #olho-senha {
+    color: #fff;
+  }
+
+    .dark-mode .link,
+    .dark-mode .create-account{
+      color: #fff;
+    }
+
+    .dark-mode .botao:hover {
+        background-color: #222222;
+    }

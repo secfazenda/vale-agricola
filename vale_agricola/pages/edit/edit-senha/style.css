@@ -196,3 +196,32 @@ input {
     .dark-mode .botao:hover {
         background-color: #222222;
     }
+
+
+    .input-wrapper {
+        position: relative;
+      }
+      
+      .input-group {
+        position: relative;
+      }
+      
+      .olho-senha {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 5px;
+      }
+      
+      input[type="password"] {
+        padding-right: 30px;
+      }
+      
+      .dark-mode .olho-senha {
+        filter: invert(1);
+      }
