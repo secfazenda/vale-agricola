@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Maio-2023 às 21:08
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 04/07/2023 às 19:24
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `documento`
+-- Estrutura para tabela `documento`
 --
 
 CREATE TABLE `documento` (
@@ -33,20 +33,19 @@ CREATE TABLE `documento` (
   `validade` date DEFAULT NULL,
   `pdf` blob NOT NULL,
   `idEmpresa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `documento`
+-- Despejando dados para a tabela `documento`
 --
 
 INSERT INTO `documento` (`idDocumento`, `nome`, `validade`, `pdf`, `idEmpresa`) VALUES
-(46, 'teste', '2025-12-31', 0x2e2e2f2e2e2f646f63756d656e746f732f415441202d204d617263656c6f204f73742e706466, 1),
-(47, 'Agricola', '2026-03-22', 0x2e2e2f2e2e2f646f63756d656e746f732f416c696d656e7461c3a7c3a36f2042616c616e63656164612e706466, 1);
+(49, 'Patrimonio', '2023-07-07', 0x2e2e2f2e2e2f646f63756d656e746f732f416c696d656e7461c3a7c3a36f2042616c616e63656164612e706466, 119);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `empresa`
+-- Estrutura para tabela `empresa`
 --
 
 CREATE TABLE `empresa` (
@@ -55,55 +54,55 @@ CREATE TABLE `empresa` (
   `senha` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `cnpj` varchar(18) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `empresa`
+-- Despejando dados para a tabela `empresa`
 --
 
 INSERT INTO `empresa` (`idEmpresa`, `nome`, `senha`, `email`, `cnpj`) VALUES
-(1, 'Marcelo Agroferagem', '$2y$10$gcVOgSxcOdmk/BXEdLtar.4Zgfzc/3a/bWH.zTHq6yQgFBWmLeTAy', 'marcelo@gmail.com', ''),
-(117, 'Agro Ost', '$2y$10$zqOM8HGYgsbaWEC3GqynOulPlx3P0ESQphkud5m09jYzeGGCpBK4q', 'admin@gmail.com', '25.615.161/5615-61');
+(1, 'Prefeitura', '$2y$10$gcVOgSxcOdmk/BXEdLtar.4Zgfzc/3a/bWH.zTHq6yQgFBWmLeTAy', 'marcelo.ost7@gmail.com', '92.123.926/0001-92'),
+(119, 'Marcelo Agroferagem', '$2y$10$Hp8.jq9hTpnU4irSQingGuFWNyAfkwkSqKISjT2CjvVP3YCU3r1/O', 'marcelo@gmail.com', '20.548.484/1548-48');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `documento`
+-- Índices de tabela `documento`
 --
 ALTER TABLE `documento`
   ADD PRIMARY KEY (`idDocumento`),
   ADD KEY `fk_empresa_documento` (`idEmpresa`);
 
 --
--- Índices para tabela `empresa`
+-- Índices de tabela `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`idEmpresa`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `documento`
 --
 ALTER TABLE `documento`
-  MODIFY `idDocumento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `idDocumento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `documento`
+-- Restrições para tabelas `documento`
 --
 ALTER TABLE `documento`
   ADD CONSTRAINT `fk_empresa_documento` FOREIGN KEY (`idEmpresa`) REFERENCES `empresa` (`idEmpresa`);
