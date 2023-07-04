@@ -194,3 +194,62 @@ input {
     }
 
 }
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .dark-mode .edit-account-util{
+    background-color: #000000;
+  }
+  
+  .dark-mode .header {
+    background-color: #363636;
+  }
+  
+  .dark-mode .logo img {
+    filter: invert(1);
+  }
+  
+  .dark-mode .icone img {
+    filter: invert(1);
+  }
+
+  .dark-mode .botao-voltar img {
+    filter: invert(1);
+  }
+  
+  .dark-mode .edit-account {
+    background-color: #363636;
+  }
+  
+  .dark-mode label {
+    color: #fff;
+  }
+  
+  .dark-mode input {
+    background-color: #424242;
+    color: #fff;
+  }
+  
+  .dark-mode .div-senha {
+    border-color: #fff;
+  }
+  
+  .dark-mode #olho-senha {
+    color: #fff;
+  }
+
+    .dark-mode .link,
+    .dark-mode .create-account{
+      color: #fff;
+    }
+
+    .dark-mode .botao:hover {
+        background-color: #222222;
+    }
+
+    .dark-mode .botao{
+        background-color: #5C5C5C;
+    }
