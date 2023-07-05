@@ -213,13 +213,29 @@ label {
 }
 
 .lista-empresas {
+    width: 100%;
+    height: auto;
     margin: 10px auto;
-    max-width: 600px;
+    max-width: 500px;
     background-color: #008C9E;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 5px;
+    padding: 15px;
     border-radius: 10px;
+    text-align: center;
+}
+
+.nome-uppercase{
+    text-transform: uppercase;
+    margin: 0px 0px 3px;
+}
+
+.empresa{
+    color: #fff;
+}
+
+.lista-empresas:hover {
+    background-color: #222222;
 }
 
 .lista-empresas table {

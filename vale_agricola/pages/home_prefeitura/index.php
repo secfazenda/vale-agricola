@@ -59,17 +59,17 @@ usort($empresas, 'compararEmpresas');
             <?php foreach($empresas as $empresa) {
             if ($empresa->getIdEmpresa() !== 1) {
                 ?>
-                <div class="lista-empresas">
-                    <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
-                        <table class="lista-empresas">
-                            <tr>
+                <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
+                    <div class="lista-empresas">
+                        <tr>
+                            <div class="nome-uppercase">
                                 <td class="campo-nome"><?php echo $empresa->getNome(); ?></td>
-                                <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td>
-                                <td class="campo-email"><?php echo $empresa->getEmail(); ?></td>
-                            </tr>
-                        </table>
-                    </a>
-                </div>
+                            </div>
+                            <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td> --- 
+                            <td class="campo-email"><?php echo $empresa->getEmail(); ?></td>
+                        </tr>
+                    </div>
+                </a>
                 <?php
             }
         } ?>
