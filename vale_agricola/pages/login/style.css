@@ -116,7 +116,13 @@ input {
 	text-decoration: none;
     margin: 7px;
     font-size: 20px;
+    position: relative;
+    transition: top 0.2s ease;
 }
+
+.create-account:hover {
+    top: -5px; 
+  }
 
 .botao-voltar img {
     width: 100%;
