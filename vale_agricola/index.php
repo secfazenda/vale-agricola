@@ -1,11 +1,16 @@
 <?php
 require_once __DIR__.'/settings/config.php';
+session_start();
+
 
 // Verifica se o cookie de modo está definido
 $mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
 
 // Verifica se o modo é dark
 $isDarkMode = $mode === 'dark';
+
+$empresas = Empresa::findall();
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +48,7 @@ $isDarkMode = $mode === 'dark';
         <div class="homepage-util-area">
             <div class="hp-superior-part">
                 <div class="hp-title">
-                    <h1>Bem-vindo(a) ao Vale Agrícola</h1>
+                    <h1 class="titulo">Bem-vindo(a) ao Vale Agrícola</h1>
                 </div>
                 
                 <div class="hp-bottom-part">
@@ -52,10 +57,30 @@ $isDarkMode = $mode === 'dark';
                     </div>
                 </div>
 
+                <div class="tabela-empresas">
+                    <h3 class="titulo-tabela">Lista de Empresas Credenciadas</h3>
+                    <?php foreach($empresas as $empresa) {
+                        if ($empresa->getIdEmpresa() !== 1) {
+                            ?>
+                            <p href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
+                                <div class="lista-empresas">
+                                    <tr>
+                                        <div class="nome-uppercase">
+                                            <td class="campo-nome">- <?php echo $empresa->getNome(); ?></td>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </p>
+                            <?php
+                        }
+                    } ?>
+                </div>
+
+
             </div>
             <div class="hp-mid-part">
                 <div class="hp-subtitle">
-                    <h3>Como funciona?</h3>
+                    <h3 class="subtitulo">Como funciona?</h3>
                 </div>
                 <div class="content">
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;O incentivo concedido aos agricultores sob forma de Vale Agrícola, de acordo com o disposto na <a href="https://cespro.com.br/visualizarDiploma.php?cdMunicipio=7221&cdDiploma=20211468&NroLei=1.468&Word=&Word2=" class="link">Lei 1211/2017</a> e alterações instituídas pela Lei 1468/2021,  prevê o reembolso, mediante apresentação de nota fiscal de compras de mudas, produtos e insumos agrícolas, ferramentas agrícolas e combustíveis na Prefeitura Municipal.</p>

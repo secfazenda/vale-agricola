@@ -147,17 +147,34 @@
     background-color: #222222;
     }
     
-    h1, h3{
+    .titulo, .subtitulo{
         margin-top: 50px;
     }
 
-    h1{
+    .titulo{
         margin-bottom: 30px;
     }
 
     .content{
         margin: 5px;
     }
+
+    .tabela-empresas {
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 50px 0px 0px 0px;
+    }
+    
+    .titulo-tabela {
+      text-align: center;
+      margin: 0px 0px 20px;
+    }
+
+    .lista-empresas{
+      text-transform: uppercase;
+    }
+
     @media screen and (max-width: 768px) {
         .homepage-container {
           padding: 50px 70px 50px 70px;
@@ -298,3 +315,6 @@
           color: #fff;
         }
       
+        .dark-mode .tabela-empresas{
+          background-color: rgba(255, 255, 255, 0.1);
+        }
