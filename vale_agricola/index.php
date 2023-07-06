@@ -71,7 +71,7 @@ $empresas = Empresa::findall();
                                     </tr>
                                 </div>
                             </p>
-                            <?php
+                        <?php
                         }
                     } ?>
                 </div>
