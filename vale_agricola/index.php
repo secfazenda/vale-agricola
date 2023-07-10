@@ -9,7 +9,7 @@ $mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
 // Verifica se o modo é dark
 $isDarkMode = $mode === 'dark';
 
-$empresas = Empresa::findall();
+$empresas = Empresa::findHabilitadas();
 
 ?>
 
@@ -60,20 +60,20 @@ $empresas = Empresa::findall();
                 <div class="tabela-empresas">
                     <h3 class="titulo-tabela">Lista de Empresas Credenciadas</h3>
                     <?php foreach($empresas as $empresa) {
-                        if ($empresa->getIdEmpresa() !== 1) {
-                            ?>
-                            <p href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
-                                <div class="lista-empresas">
-                                    <tr>
-                                        <div class="nome-uppercase">
-                                            <td class="campo-nome">- <?php echo $empresa->getNome(); ?></td>
-                                        </div>
-                                    </tr>
-                                </div>
-                            </p>
-                        <?php
-                        }
-                    } ?>
+            if ($empresa->getHabilitada() === 1 && $empresa->getIdEmpresa() !== 1) {
+                ?>
+                <p href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
+                    <div class="lista-empresas">
+                        <tr>
+                            <div class="nome-uppercase">
+                                <td class="campo-nome">- <?php echo $empresa->getNome(); ?></td>
+                            </div>
+                        </tr>
+                    </div>
+                </p>
+            <?php
+            }
+        } ?>
                 </div>
 
 

@@ -9,8 +9,12 @@ class Empresa implements ActiveRecord
     private string $email;
     private string $cnpj;
     private string $novaSenha;
+    private int $habilitada;
       
-    public function __construct() {}
+    public function __construct()
+    {
+        $this->habilitada = 0; // Inicializa a propriedade $habilitada com um valor padrão (por exemplo, 0)
+    }
         
     public function constructorCreate(
         string $nome,
@@ -71,19 +75,27 @@ class Empresa implements ActiveRecord
         return $this->nome;
     }
 
-    public function save(): bool 
+    public function setHabilitada(int $habilitada): void
+    {
+        $this->habilitada = $habilitada;
+    }
+
+    public function getHabilitada(): int
+    {
+        return $this->habilitada;
+    }
+
+    public function save(): bool
     {
         $connection = new MySQL();
-        
+
         if (isset($this->idEmpresa)) {
-          $sql = "UPDATE empresa SET nome = '{$this->nome}', email = '{$this->email}', cnpj = '{$this->cnpj}'   WHERE idEmpresa = {$this->idEmpresa}";
+            $sql = "UPDATE empresa SET nome = '{$this->nome}', email = '{$this->email}', cnpj = '{$this->cnpj}', habilitada = {$this->habilitada} WHERE idEmpresa = {$this->idEmpresa}";
+        } else {
+            $this->senha = password_hash($this->senha, PASSWORD_BCRYPT);
+            $sql = "INSERT INTO empresa (nome, senha, email, cnpj, habilitada) VALUES ('{$this->nome}', '{$this->senha}', '{$this->email}', '{$this->cnpj}', {$this->habilitada})";
         }
 
-        else {
-            $this->senha = password_hash($this->senha,PASSWORD_BCRYPT);
-            $sql = "INSERT INTO empresa (nome,senha,email,cnpj) VALUES ('{$this->nome}','{$this->senha}','{$this->email}','{$this->cnpj}')";
-        }
-        
         return $connection->execute($sql);
     }
 
@@ -164,5 +176,26 @@ class Empresa implements ActiveRecord
         $sql = "UPDATE empresa SET senha = '{$this->senha}' WHERE idEmpresa = {$this->idEmpresa}";
         return $connection->execute($sql);
     }
+
+    public static function findHabilitadas(): array
+{
+    $connection = new MySQL();
+    $sql = "SELECT * FROM empresa WHERE habilitada = 1";
+    $results = $connection->query($sql);
+    $empresas = [];
+
+    foreach ($results as $res) {
+        $e = new Empresa();
+        $e->setIdEmpresa($res['idEmpresa']);
+        $e->setNome($res['nome']);
+        $e->setSenha($res['senha']);
+        $e->setEmail($res['email']);
+        $e->setCnpj($res['cnpj']);
+        $e->setHabilitada($res['habilitada']);
+        $empresas[] = $e;
+    }
+
+    return $empresas;
+}
 
 }
