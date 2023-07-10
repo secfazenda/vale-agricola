@@ -132,15 +132,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 140px;
-    height: 50px;
+    width: 250px;
+    height: 60px;
     border-radius: 5px;
     background-color: #5C5C5C;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 30px;
     }
     
     .hp-button:hover {
@@ -219,9 +219,9 @@
         }
         
         .hp-button {
-          width: 90px;
-          height: 45px;
-          font-size: 17px;
+          width: 250px;
+          height: 50px;
+          font-size: 20px;
         }
       }
       
@@ -252,9 +252,9 @@
         }
         
         .hp-button {
-          width: 80px;
-          height: 40px;
-          font-size: 16px;
+          width: 250px;
+          height: 50px;
+          font-size: 20px;
         }
       }
       

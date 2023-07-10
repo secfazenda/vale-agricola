@@ -70,8 +70,9 @@ usort($empresas, 'compararEmpresas');
                     <td class="campo-habilitada">
                         <form method="POST" action="habilitada.php">
                             <input type="hidden" name="idEmpresa" value="<?php echo $empresa->getIdEmpresa(); ?>">
-                            <button type="submit" name="habilitar" value="1">Habilitar</button>
-                            <button type="submit" name="habilitar" value="0">Desabilitar</button>
+                            <button class="button-habilitar" type="submit" name="habilitar" value="1">Habilitar</button>
+                            <button class="button-desabilitar" type="submit" name="habilitar" value="0">Desabilitar</button>
+
                         </form>
                     </td>
                 </tr>

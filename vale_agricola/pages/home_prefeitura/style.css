@@ -271,6 +271,32 @@ label {
     text-decoration: none;
 }
 
+.button-habilitar {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-desabilitar {
+    background-color: #424242;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-habilitar:hover,
+.button-desabilitar:hover {
+    opacity: 0.8;
+}
+
+
 @media only screen and (max-width: 768px) {
     .logo {
         padding-left: 5%;
