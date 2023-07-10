@@ -82,11 +82,10 @@ usort($empresas, 'compararEmpresas');
     }
 } ?>
 
-
             <div class="buttons">
-                <!--<a href="../new-document" class="botao-cadastrar">Cadastrar Documento</a> -->
+                <!--<a href="../new-document" class="botao-cadastrar">Cadastrar Documento</a>-->
                 <a href="../edit_prefeitura" class="botao-editar">Editar Conta</a>
-                <a href="../../enviar_email" class="botao-enviar-email">Enviar Avisos</a>
+                <!--<a href="../../enviar_email" class="botao-enviar-email">Enviar Avisos</a>-->
                 <a href="../logout" class="botao-sair">Sair</a>
             </div>
         </div>
