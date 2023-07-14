@@ -58,8 +58,9 @@ usort($empresas, 'compararEmpresas');
             <h2 class="subtitulo">Lista de Empresas</h2>
             <?php foreach($empresas as $empresa) {
                 if ($empresa->getIdEmpresa() !== 1) {
+                    $classeBackground = $empresa->getHabilitada() ? '1' : '0';
                     ?>
-                    <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
+                    <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa <?php echo $classeBackground; ?>">
                         <div class="lista-empresas">
                             <tr>
                                 <div class="nome-uppercase">
