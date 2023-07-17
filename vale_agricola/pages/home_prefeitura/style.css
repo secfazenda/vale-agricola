@@ -18,22 +18,21 @@ body {
 }
 
 .brasao {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Adicionado para posicionar à direita */
-  width: 100%;
-  height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Adicionado para posicionar à direita */
+    width: 100%;
+    height: auto;
 }
 
 .brasao img {
-  max-width: 55px;
-  height: auto;
+    max-width: 55px;
+    height: auto;
 }
 
-
-.logo{
+.logo {
     width: 100%;
-    height: auto;    
+    height: auto;
     align-items: center;
 }
 
@@ -43,10 +42,9 @@ body {
     height: auto;
 }
 
-.icone{
+.icone {
     width: 100%;
     height: auto;
-    
 }
 
 .icone img {
@@ -217,25 +215,25 @@ label {
     height: auto;
     margin: 10px auto;
     max-width: 500px;
-    background-color: #008C9E;
-    color: #FFFFFF;
+    color: #000;
     text-decoration: none;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
 }
 
-.nome-uppercase{
+.nome-uppercase {
     text-transform: uppercase;
     margin: 0px 0px 3px;
 }
 
-.empresa{
+.empresa {
     color: #fff;
 }
 
 .lista-empresas:hover {
-    background-color: #222222;
+    background-color: #424242;
+    color: #fff;
 }
 
 .lista-empresas table {
@@ -273,7 +271,7 @@ label {
 
 .button-habilitar {
     background-color: #5C5C5C;
-    color: #fff;
+    color: #FFFFFF;
     border: none;
     padding: 8px 16px;
     border-radius: 5px;
@@ -284,7 +282,7 @@ label {
 
 .button-desabilitar {
     background-color: #808080;
-    color: #fff;
+    color: #FFFFFF;
     border: none;
     padding: 8px 16px;
     border-radius: 5px;
@@ -294,154 +292,94 @@ label {
 
 .button-habilitar:hover,
 .button-desabilitar:hover {
-    opacity: 0.8;
+    background-color: #222222;
 }
 
-.button-habilitada {
-    background-color: green;
+.habilitada {
+    background-color: #008C9E;
 }
 
-.button-desabilitada {
-    background-color: gray;
-}
-
-
-@media only screen and (max-width: 768px) {
-    .logo {
-        padding-left: 5%;
-    }
-
-    .icone {
-        padding-left: 10%;
-    }
-
-    .home-page-util {
-        height: 105vh;
-    }
-
-    .home-page {
-        margin: 10px;
-        padding: 10px;
-    }
-
-    .botao-cadastrar,
-    .botao-editar,
-    .botao-sair {
-        margin: 3px auto;
-    }
-
-    .buttons {
-        display: flex;
-        align-items: center;
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    .logo {
-        padding-left: 5%;
-    }
-
-    .icone {
-        padding-left: 10%;
-    }
-
-    .home-page-util {
-        height: 125vh;
-    }
-
-    .home-page {
-        margin: 10px;
-        padding: 10px;
-    }
-
-    .buttons {
-        display: grid;
-    }
-    .botao-editar{
-        width: 100%;
-    }
-    .botao-sair{
-        width: 280px;
-    }
+.desabilitada {
+    background-color: #d3d3d3;
 }
 
 .dark-mode {
     background-color: #333;
     color: #fff;
-  }
+}
 
-  .dark-mode .home-page-util{
+.dark-mode .home-page-util {
     background-color: #000000;
-  }
-  
-  .dark-mode .header {
-    background-color: #363636;
-  }
-  
-  .dark-mode .logo img {
-    filter: invert(1);
-  }
-  
-  .dark-mode .icone img {
-    filter: invert(1);
-  }
+}
 
-  .dark-mode .botao-voltar img {
-    filter: invert(1);
-  }
-  
-  .dark-mode .home-page {
+.dark-mode .header {
     background-color: #363636;
-  }
-  
-  .dark-mode label {
+}
+
+.dark-mode .logo img {
+    filter: invert(1);
+}
+
+.dark-mode .icone img {
+    filter: invert(1);
+}
+
+.dark-mode .botao-voltar img {
+    filter: invert(1);
+}
+
+.dark-mode .home-page {
+    background-color: #363636;
+}
+
+.dark-mode label {
     color: #fff;
-  }
-  
-  .dark-mode input {
+}
+
+.dark-mode input {
     background-color: #424242;
     color: #fff;
-  }
-  
-  .dark-mode .div-senha {
+}
+
+.dark-mode .div-senha {
     border-color: #fff;
-  }
-  
-  .dark-mode #olho-senha {
+}
+
+.dark-mode #olho-senha {
     color: #fff;
-  }
+}
 
-    .dark-mode .link,
-    .dark-mode .create-account{
-      color: #fff;
-    }
+.dark-mode .link,
+.dark-mode .create-account {
+    color: #fff;
+}
 
-    .dark-mode .botao:hover {
-        background-color: #222222;
-    }
+.dark-mode .botao:hover {
+    background-color: #222222;
+}
 
-    .dark-mode .button-habilitar {
-        background-color: #000;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        margin-top: 10px;
-    }
-    
-    .dark-mode .button-desabilitar {
-        background-color: #424242;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    .dark-mode .button-habilitar:hover,
-    .button-desabilitar:hover {
-        opacity: 0.8;
-    }
+.dark-mode .button-habilitar {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.dark-mode .button-desabilitar {
+    background-color: #424242;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode .button-habilitar:hover,
+.button-desabilitar:hover {
+    opacity: 0.8;
+}

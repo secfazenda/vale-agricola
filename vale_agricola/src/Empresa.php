@@ -126,25 +126,32 @@ class Empresa implements ActiveRecord
         return $empresa;
     }
 
-    public static function findall():array{
-        $connection = new MySQL();
-        $sql = "SELECT * FROM empresa";
-        $results = $connection->query($sql);
-        $empresas = array();
-        foreach($results as $res){
-            $e = new Empresa;
-            // $e = new Empresa($resultado['nome'],$resultado['email'],$resultado['email']);
-            $e->constructorCreate(
-                $res['nome'],
-                $res['senha'],
-                $res['email'],
-                $res['cnpj']
-            );
-            $e->setIdEmpresa($res['idEmpresa']);
-            $empresas[] = $e;
-        }           
-        return $empresas;
+    public static function findall($idEmpresa = null): array
+{
+    $connection = new MySQL();
+    $sql = "SELECT * FROM empresa";
+
+    if ($idEmpresa !== null) {
+        $sql .= " WHERE idEmpresa = {$idEmpresa}";
     }
+
+    $results = $connection->query($sql);
+    $empresas = [];
+
+    foreach ($results as $res) {
+        $e = new Empresa();
+        $e->setIdEmpresa($res['idEmpresa']);
+        $e->setNome($res['nome']);
+        $e->setSenha($res['senha']);
+        $e->setEmail($res['email']);
+        $e->setCnpj($res['cnpj']);
+        $e->setHabilitada($res['habilitada']);
+        $empresas[] = $e;
+    }
+
+    return $empresas;
+}
+
 
     public function authenticate($id_empresa): bool
 {

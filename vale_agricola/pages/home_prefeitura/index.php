@@ -9,15 +9,26 @@ if (!isset($_SESSION["idEmpresa"])) {
     header("location: ../login");
 }
 
-$empresas = Empresa::findall($_SESSION['idEmpresa']);
+$empresas = Empresa::findall(); // Remova o argumento $_SESSION['idEmpresa']
 $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
 
-// Função de comparação para ordenar as empresas pelo nome
+// Função de comparação para ordenar as empresas
 function compararEmpresas($a, $b) {
+    // Verifica se as empresas estão habilitadas ou não
+    $habilitadaA = $a->getHabilitada() ? 1 : 0;
+    $habilitadaB = $b->getHabilitada() ? 1 : 0;
+
+    // Compara a habilitação das empresas
+    if ($habilitadaA !== $habilitadaB) {
+        // Empresas habilitadas vêm antes das não habilitadas
+        return $habilitadaB - $habilitadaA;
+    }
+
+    // Empresas do mesmo status de habilitação são ordenadas por nome
     return strcmp($a->getNome(), $b->getNome());
 }
 
-// Ordenar as empresas pelo nome
+// Ordenar as empresas pelo status de habilitação e nome
 usort($empresas, 'compararEmpresas');
 ?>
 
@@ -33,7 +44,7 @@ usort($empresas, 'compararEmpresas');
         function toggleDarkMode() {
             var body = document.body;
             var isDarkMode = body.classList.toggle('dark-mode');
-            
+
             // Define um cookie para lembrar a preferência de modo
             document.cookie = 'mode=' + (isDarkMode ? 'dark' : 'light') + '; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/';
         }
@@ -50,7 +61,7 @@ usort($empresas, 'compararEmpresas');
         <div class="icone" onclick="toggleDarkMode()">
             <img src="../../settings/imagens/icone-contraste.png" alt="iconedl">
         </div>
-    </header>  
+    </header>
 
     <div class="home-page-util">
         <div class="home-page">
@@ -58,26 +69,29 @@ usort($empresas, 'compararEmpresas');
             <h2 class="subtitulo">Lista de Empresas</h2>
             <?php foreach($empresas as $empresa) {
                 if ($empresa->getIdEmpresa() !== 1) {
-                    $classeBackground = $empresa->getHabilitada() ? '1' : '0';
+                    $classeBackground = $empresa->getHabilitada() ? 'habilitada' : 'desabilitada';
                     ?>
-                    <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa <?php echo $classeBackground; ?>">
-                        <div class="lista-empresas">
-                            <tr>
-                                <div class="nome-uppercase">
+                    <a href="../ver_documentos?idEmpresa=<?php echo $empresa->getIdEmpresa(); ?>" class="empresa">
+                        <div class="lista-empresas <?php echo $classeBackground; ?>">
+                            <table>
+                                <tr>
                                     <td class="campo-nome"><?php echo $empresa->getNome(); ?></td>
-                                </div>
-                                <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td> --- 
-                                <td class="campo-email"><?php echo $empresa->getEmail(); ?></td>
-                                <td class="campo-habilitada">
-                                    <form method="POST" action="habilitada.php">
-                                        <input type="hidden" name="idEmpresa" value="<?php echo $empresa->getIdEmpresa(); ?>">
-                                        <button class="button-habilitar" type="submit" name="habilitar" value="1">Habilitar</button>
-                                        <button class="button-desabilitar" type="submit" name="habilitar" value="0">Desabilitar</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                    <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td>
+                                    <td class="campo-email"><?php echo $empresa->getEmail(); ?></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="campo-habilitada">
+                                        <form method="POST" action="habilitada.php">
+                                            <input type="hidden" name="idEmpresa" value="<?php echo $empresa->getIdEmpresa(); ?>">
+                                            <button class="button-habilitar" type="submit" name="habilitar" value="1">Habilitar</button>
+                                            <button class="button-desabilitar" type="submit" name="habilitar" value="0">Desabilitar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </a>
+
                     <?php
                 }
             } ?>
@@ -90,6 +104,6 @@ usort($empresas, 'compararEmpresas');
             </div>
         </div>
     </div>
-    
+
 </body>
 </html>
