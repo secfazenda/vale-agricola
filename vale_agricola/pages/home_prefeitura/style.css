@@ -60,7 +60,7 @@ body {
 .home-page-util {
     background-size: cover;
     background-position: bottom center;
-    height: 95vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -359,7 +359,7 @@ label {
 }
 
 .dark-mode .button-habilitar {
-    background-color: #000;
+    background-color: #2b2b2b;
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -379,7 +379,21 @@ label {
     transition: background-color 0.3s ease;
 }
 
+.dark-mode .habilitada {
+    background-color: #008C9E;
+}
+
+.dark-mode .desabilitada {
+    background-color: #222222;
+    color: #fff;
+}
+
+.dark-mode .lista-empresas:hover {
+    background-color: #888888;
+    color: #fff;
+}
+
 .dark-mode .button-habilitar:hover,
-.button-desabilitar:hover {
-    opacity: 0.8;
+.dark-mode .button-desabilitar:hover {
+    background-color: #000;
 }
