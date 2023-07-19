@@ -75,9 +75,17 @@ usort($empresas, 'compararEmpresas');
                         <div class="lista-empresas <?php echo $classeBackground; ?>">
                             <table>
                                 <tr>
-                                    <td class="campo-nome"><?php echo $empresa->getNome(); ?></td>
-                                    <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td>
-                                    <td class="campo-email"><?php echo $empresa->getEmail(); ?></td>
+                                    <div class="informacoes-empresa">
+                                        <div>
+                                            <td class="campo-nome"><?php echo $empresa->getNome(); ?></td>
+                                        </div>
+                                        <div>
+                                            <td class="campo-cnpj"><?php echo $empresa->getCnpj(); ?></td>
+                                        </div>
+                                        <div>
+                                            <td class="campo-email"><?php echo $empresa->getEmail(); ?></td>
+                                        </div>
+                                    </div>
                                 </tr>
                                 <tr>
                                     <td colspan="3" class="campo-habilitada">
