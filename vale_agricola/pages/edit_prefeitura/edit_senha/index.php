@@ -106,6 +106,30 @@ if (isset($_SESSION['idEmpresa'])) {
                     </script>
                 </div>
 
+                <label for="nova-senha">Nova senha</label>
+                <div class="senha">
+                    <div class="div-senha">
+                        <input type="password" name="nova-senha" id="nova-senha" minlength="6" maxlength="50" required>
+                        <button type="button" id="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
+                    </div>
+                    
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+                    <script>
+                    var senha = document.getElementById("senha");
+                    var olhoSenha = document.getElementById("olho-senha");
+
+                    olhoSenha.addEventListener("click", function() {
+                        if (senha.type === "password") {
+                        senha.type = "text";
+                        olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
+                        } else {
+                        senha.type = "password";
+                        olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
+                        }
+                    });
+                    </script>
+                </div>
+
                 <label for="nova_senha">Nova senha</label>
                 <div>
                     <input type="password" name="nova_senha" id="nova_senha" minlength="6" required>
@@ -120,7 +144,7 @@ if (isset($_SESSION['idEmpresa'])) {
                 
                 <input type="submit" value="Salvar" class="botao" name="button">
             </form>
-            <a href="../../home_prefeitura" class="botao-voltar"><img src="../../../settings/imagens/botao-voltar.png" alt=""></a>
+            <a href="../../edit_prefeitura" class="botao-voltar"><img src="../../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
     </div>
 </body>
