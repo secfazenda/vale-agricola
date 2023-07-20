@@ -116,7 +116,7 @@ input {
 	display: flex;
     justify-content: center;
     align-items: center;
-    width: 170px;
+    width: 100%;
     height: 40px;
     border-radius: 5px;
     background-color: #5C5C5C;
@@ -125,7 +125,7 @@ input {
     transition: all 0.2s ease-in-out;
     margin-top: 20px;
     text-decoration: none;
-    margin: 0px auto;
+    margin: 10px auto 0px;
 }
 
 .botao:hover {
@@ -137,6 +137,7 @@ input {
     width: 100%;
     max-width: 30px;
     height: auto;
+    margin: 10px;
 }
 
 .dark-mode {
