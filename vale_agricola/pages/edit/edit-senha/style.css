@@ -63,29 +63,26 @@ body {
     height: 100vh;
 }
 
-
-
-
-
-
 .edit-senha-util {
-    background-size: cover;
-    background-position: bottom center;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(240,240,240);
-    width: 100%;
+  background-size: cover;
+  background-position: bottom center;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(240, 240, 240);
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .edit-senha {
-    background-color: rgba(250, 250, 250, 0.8);
-    padding: 10px 30px; 
-    border-radius: 10px;
-    box-shadow: 0 0 20px #0000;
-    transition: all ease .3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(250, 250, 250, 0.8);
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -184,7 +181,7 @@ input {
     border-color: #fff;
   }
   
-  .dark-mode #olho-senha {
+  .dark-mode .olho-senha {
     color: #fff;
   }
 
@@ -199,29 +196,63 @@ input {
 
 
     .input-wrapper {
-        position: relative;
+      position: relative;
+  }
+  
+  .input-group {
+      position: relative;
+  }
+  
+  .olho-senha {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 5px;
+      height: 100%;
+  }
+  
+  input[type="password"] {
+      padding-right: 30px;
+      width: 100%;
+  }
+  
+  @media only screen and (max-width: 768px) {
+      .logo {
+          padding-left: 5%;
       }
-      
-      .input-group {
-        position: relative;
+  
+      .icone {
+          padding-left: 10%;
       }
-      
-      .olho-senha {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 5px;
+  
+      .buttons {
+          flex-direction: column;
       }
-      
-      input[type="password"] {
-        padding-right: 30px;
+
+      .botao{
+        width: 100%;
       }
-      
-      .dark-mode .olho-senha {
-        filter: invert(1);
+  }
+  
+  @media only screen and (max-width: 480px) {
+      .logo img {
+          max-width: 100px;
       }
+  
+      .titulo {
+          font-size: 25px;
+      }
+  
+      .subtitulo {
+          font-size: 20px;
+      }
+  
+      .buttons {
+          flex-direction: column;
+      }
+  }
