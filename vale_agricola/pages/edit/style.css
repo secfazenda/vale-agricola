@@ -105,25 +105,27 @@ label {
 input {
 	padding: 10px;
 	font-size: 20px;
-	margin-bottom: 10px;
 	border-radius: 5px;
 	border: none;
+}
+
+#nome, #email {
+    margin-bottom: 10px;
 }
 
 .botao {
 	display: flex;
     justify-content: center;
     align-items: center;
-    width: 170px;
+    width: 100%;
     height: 40px;
     border-radius: 5px;
     background-color: #5C5C5C;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    margin-top: 20px;
+    margin-top: 5px;
     text-decoration: none;
-    margin: 0px auto;
 }
 
 .botao:hover {
@@ -134,16 +136,15 @@ input {
 	display: flex;
     justify-content: center;
     align-items: center;
-    width: 170px;
+    width: 100%;
     height: 40px;
     border-radius: 5px;
     background-color: #5C5C5C;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    margin-top: 20px;
     text-decoration: none;
-    margin: 8px 5px;
+    margin-top: 5px;
 }
 
 .excluir:hover, .editar-senha:hover {
@@ -154,11 +155,11 @@ input {
     width: 100%;
     max-width: 30px;
     height: auto;
+    margin: 10px;
 }
 
-.buttons{
-    display: flex;
-    align-items: center;
+.buttons {
+    flex-direction: column;
 }
 
 @media only screen and (max-width: 768px) {
@@ -170,27 +171,27 @@ input {
         padding-left: 10%;
     }
 
-    .edit-account-util {
-        height: 100vh;
+    .buttons {
+        flex-direction: column;
     }
+    
 }
 
-@media only screen and (max-width: 320px) {
-    .logo{
-        padding-left: 5%;
+@media only screen and (max-width: 480px) {
+    .logo img {
+        max-width: 100px;
     }
 
-    .icone{
-        padding-left: 10%;
+    .titulo {
+        font-size: 25px;
     }
 
-    .edit-account-util {
-        height: 102vh;
+    .subtitulo {
+        font-size: 20px;
     }
 
-    .edit-account {
-        margin: 10px 50px;
-        padding: 10px 20px;
+    .buttons {
+        flex-direction: column;
     }
 
 }
