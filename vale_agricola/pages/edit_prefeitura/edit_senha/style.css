@@ -68,7 +68,8 @@ body {
     display: inline-block;
 }
 
-#olho-senha {
+#olho-senha,
+.olho-senha {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -78,10 +79,10 @@ body {
     cursor: pointer;
 }
 
-#olho-senha i {
+#olho-senha i,
+.olho-senha i {
     color: #888;
 }
-
 
 
 
@@ -136,22 +137,20 @@ input {
 	display: flex;
     justify-content: center;
     align-items: center;
-    width: 170px;
+    width: 100%;
     height: 40px;
     border-radius: 5px;
     background-color: #5C5C5C;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    margin-top: 20px;
+    margin-top: 10px;
     text-decoration: none;
-    margin: 0px auto;
 }
 
 .botao:hover {
     background-color: #222222;
 }
-
 
 .botao-voltar img {
     width: 100%;
@@ -197,11 +196,9 @@ input {
     color: #fff;
   }
   
-  .dark-mode .div-senha {
-    border-color: #fff;
-  }
   
-  .dark-mode #olho-senha {
+  .dark-mode #olho-senha i,
+  .dark-mode .olho-senha i {
     color: #fff;
   }
 

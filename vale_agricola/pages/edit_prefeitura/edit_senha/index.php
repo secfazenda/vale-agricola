@@ -76,71 +76,32 @@ if (isset($_SESSION['idEmpresa'])) {
         <div class="edit-senha">
             <h1 class="titulo">Editar Senha</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
-                <label for="senha_atual">Senha atual</label>
-                <div class="div-senha">
-                    <input type="password" name="senha_atual" id="senha_atual" minlength="6" required>
-                    <button type="button" class="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>
-                </div>
 
-                <label for="senha">Senha</label>
-                <div class="senha">
-                    <div class="div-senha">
-                        <input type="password" name="senha" id="senha" maxlength="50" required>
-                        <button type="button" id="olho-senha" name="olho-senha"><i class="fa fa-eye"></i></button>
-                    </div>
-                    
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-                    <script>
-                    var senha = document.getElementById("senha");
-                    var olhoSenha = document.getElementById("olho-senha");
+            <label for="senha">Senha</label>
+<div class="senha">
+    <div class="div-senha">
+        <input type="password" name="senha" id="senha" maxlength="50" required>
+        <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
+    </div>
 
-                    olhoSenha.addEventListener("click", function() {
-                        if (senha.type === "password") {
-                        senha.type = "text";
-                        olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
-                        } else {
-                        senha.type = "password";
-                        olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
-                        }
-                    });
-                    </script>
-                </div>
+    <!-- The JavaScript for the first "olho-senha" button is already in place. No changes needed. -->
+</div>
 
-                <label for="nova-senha">Nova senha</label>
-                <div class="senha">
-                    <div class="div-senha">
-                        <input type="password" name="nova-senha" id="nova-senha" minlength="6" maxlength="50" required>
-                        <button type="button" id="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
-                    </div>
-                    
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-                    <script>
-                    var senha = document.getElementById("senha");
-                    var olhoSenha = document.getElementById("olho-senha");
+<label for="nova-senha">Nova senha</label>
+<div class="senha">
+    <div class="div-senha">
+        <input type="password" name="nova-senha" id="nova-senha" minlength="6" maxlength="50" required>
+        <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
+    </div>
+</div>
 
-                    olhoSenha.addEventListener("click", function() {
-                        if (senha.type === "password") {
-                        senha.type = "text";
-                        olhoSenha.innerHTML = '<i class="fa fa-eye-slash"></i>';
-                        } else {
-                        senha.type = "password";
-                        olhoSenha.innerHTML = '<i class="fa fa-eye"></i>';
-                        }
-                    });
-                    </script>
-                </div>
-
-                <label for="nova_senha">Nova senha</label>
-                <div>
-                    <input type="password" name="nova_senha" id="nova_senha" minlength="6" required>
-                    <button type="button" class="olho-senha" name="olho-senha-nova-senha"><i class="fa fa-eye"></i></button>
-                </div>
-
-                <label for="confirmar_senha">Confirmar nova senha</label>
-                <div>
-                    <input type="password" name="confirmar_senha" id="confirmar_senha" required>
-                    <button type="button" class="olho-senha" name="olho-senha-confirmar-senha"><i class="fa fa-eye"></i></button>
-                </div>
+<label for="confirmar-senha">Confirmar nova senha</label>
+<div class="senha">
+    <div class="div-senha">
+        <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="6" maxlength="50" required>
+        <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
+    </div>
+</div>
                 
                 <input type="submit" value="Salvar" class="botao" name="button">
             </form>
@@ -151,20 +112,21 @@ if (isset($_SESSION['idEmpresa'])) {
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 <script>
-var botoesOlhoSenha = document.getElementsByClassName("olho-senha");
+    var botoesOlhoSenha = document.getElementsByClassName("olho-senha");
 
-Array.from(botoesOlhoSenha).forEach(function(botaoOlhoSenha) {
-    botaoOlhoSenha.addEventListener("click", function() {
-        var senhaInput = this.previousElementSibling;
-        
-        if (senhaInput.type === "password") {
-            senhaInput.type = "text";
-            this.innerHTML = '<i class="fa fa-eye-slash"></i>';
-        } else {
-            senhaInput.type = "password";
-            this.innerHTML = '<i class="fa fa-eye"></i>';
-        }
+    Array.from(botoesOlhoSenha).forEach(function(botaoOlhoSenha) {
+        botaoOlhoSenha.addEventListener("click", function() {
+            var senhaInput = this.previousElementSibling;
+            
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
+                this.innerHTML = '<i class="fa fa-eye-slash"></i>';
+            } else {
+                senhaInput.type = "password";
+                this.innerHTML = '<i class="fa fa-eye"></i>';
+            }
+        });
     });
-});
 </script>
