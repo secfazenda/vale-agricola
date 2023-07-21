@@ -11,10 +11,10 @@ $isDarkMode = $mode === 'dark';
 if (isset($_SESSION['idEmpresa'])) {
     $empresa = Empresa::find($_SESSION['idEmpresa']);
 
-    if (isset($_POST["button"])) {
-        $senhaAtual = $_POST['senha_atual'];
-        $novaSenha = $_POST['nova_senha'];
-        $confirmarSenha = $_POST['confirmar_senha'];
+    if (!empty($_POST)) {
+        $senhaAtual = isset($_POST['senha_atual']) ? $_POST['senha_atual'] : '';
+        $novaSenha = isset($_POST['nova_senha']) ? $_POST['nova_senha'] : '';
+        $confirmarSenha = isset($_POST['confirmar_senha']) ? $_POST['confirmar_senha'] : '';
 
         function senhaCorreta($senha, $empresa) {
             $senhaArmazenada = $empresa->getSenha();
@@ -24,7 +24,7 @@ if (isset($_SESSION['idEmpresa'])) {
         if (senhaCorreta($senhaAtual, $empresa)) {
             if ($novaSenha === $confirmarSenha) {
                 if ($empresa->atualizarSenha($novaSenha)) {
-                    header('location: ../../home');
+                    header('location: ../../home_prefeitura');
                     exit();
                 } else {
                     echo "<script>alert('Ocorreu um erro ao editar a sua senha');</script>";
@@ -77,31 +77,29 @@ if (isset($_SESSION['idEmpresa'])) {
             <h1 class="titulo">Editar Senha</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
 
-            <label for="senha">Senha</label>
-<div class="senha">
-    <div class="div-senha">
-        <input type="password" name="senha" id="senha" maxlength="50" required>
-        <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
-    </div>
+            <label for="senha-atual">Senha atual</label>
+            <div class="senha">
+                <div class="div-senha">
+                    <input type="password" name="senha_atual" id="senha-atual" maxlength="50" required>
+                    <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
+                </div>
+            </div>
 
-    <!-- The JavaScript for the first "olho-senha" button is already in place. No changes needed. -->
-</div>
+            <label for="nova-senha">Nova senha</label>
+            <div class="senha">
+                <div class="div-senha">
+                    <input type="password" name="nova_senha" id="nova-senha" minlength="6" maxlength="50" required>
+                    <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
+                </div>
+            </div>
 
-<label for="nova-senha">Nova senha</label>
-<div class="senha">
-    <div class="div-senha">
-        <input type="password" name="nova-senha" id="nova-senha" minlength="6" maxlength="50" required>
-        <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
-    </div>
-</div>
-
-<label for="confirmar-senha">Confirmar nova senha</label>
-<div class="senha">
-    <div class="div-senha">
-        <input type="password" name="confirmar-senha" id="confirmar-senha" minlength="6" maxlength="50" required>
-        <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
-    </div>
-</div>
+            <label for="confirmar-senha">Confirmar nova senha</label>
+            <div class="senha">
+                <div class="div-senha">
+                    <input type="password" name="confirmar_senha" id="confirmar-senha" minlength="6" maxlength="50" required>
+                    <button type="button" class="olho-senha"><i class="fa fa-eye"></i></button>
+                </div>
+            </div>
                 
                 <input type="submit" value="Salvar" class="botao" name="button">
             </form>
@@ -111,7 +109,6 @@ if (isset($_SESSION['idEmpresa'])) {
 </body>
 </html>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 <script>
     var botoesOlhoSenha = document.getElementsByClassName("olho-senha");

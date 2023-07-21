@@ -196,10 +196,14 @@ input {
     color: #fff;
   }
   
-  
-  .dark-mode #olho-senha i,
-  .dark-mode .olho-senha i {
-    color: #fff;
+  .dark-mode #olho-senha,
+  .dark-mode .olho-senha {
+      color: #fff;
+  }
+
+  .dark-mode #olho-senha,
+  .dark-mode .olho-senha {
+      right: 14px;
   }
 
     .dark-mode .link,
