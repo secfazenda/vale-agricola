@@ -14,19 +14,23 @@ $empresas = Empresa::findall();
 foreach ($empresas as $empresa) {
     $emailEmpresa = $empresa->getEmail();
     $nomeEmpresa = $empresa->getNome();
-    
+    $habilitada = $empresa->getHabilitada();
+
     $documentos = Documento::findByEmpresa($empresa->getIdEmpresa());
     
-    foreach ($documentos as $documento) {
-        $dataAtual = new DateTime();
-        $dataExpiracao = $documento->getValidade();
-        $diasRestantes = $dataAtual->diff($dataExpiracao)->days;
-        
-        if ($diasRestantes <= 7) {
-            enviarEmail($emailEmpresa, $EMAIL_ADDRESS, $EMAIL_PASSWORD, $nomeEmpresa);
-            break;
+    if ($habilitada === 1) {
+        foreach ($documentos as $documento) {
+            $dataAtual = new DateTime();
+            $dataExpiracao = $documento->getValidade();
+            $diasRestantes = $dataAtual->diff($dataExpiracao)->days;
+            
+            if ($diasRestantes <= 7) {
+                enviarEmail($emailEmpresa, $EMAIL_ADDRESS, $EMAIL_PASSWORD, $nomeEmpresa);
+                break;
+            }
         }
     }
+
 }
 
 echo 'Verificação concluída com sucesso!';
@@ -59,6 +63,5 @@ Atenciosamente, Prefeitura de Alto Feliz";
         echo "E-mail enviado para {$nomeEmpresa} com sucesso!";
     }
 }
-
 
 ?>
