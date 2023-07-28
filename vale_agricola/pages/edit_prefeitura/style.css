@@ -130,7 +130,7 @@ input {
     background-color: #222222;
 }
 
-.excluir, .editar-senha {
+.editar-senha {
 	display: flex;
     justify-content: center;
     align-items: center;
@@ -143,7 +143,7 @@ input {
     transition: all 0.2s ease-in-out;
     margin-top: 20px;
     text-decoration: none;
-    margin: 8px 5px;
+    margin: 10px auto;
 }
 
 .excluir:hover, .editar-senha:hover {
@@ -172,6 +172,10 @@ input {
 
     .edit-account-util {
         height: 100vh;
+    }
+
+    .botao, .editar-senha{
+        width: 100%;
     }
 }
 

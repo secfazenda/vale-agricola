@@ -90,7 +90,7 @@ if (isset($_SESSION['idEmpresa'])) {
 
     <div class="edit-account-util">
         <div class="edit-account">
-            <h1 class="titulo">Editar conta</h1>
+            <h1 class="titulo">Editar Conta</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($empresa->getNome()) ?>" required>
@@ -103,7 +103,7 @@ if (isset($_SESSION['idEmpresa'])) {
 
             <div class="buttons">
                 <a href="../edit_prefeitura/edit_senha" class="editar-senha">Editar Senha</a>
-                <a class="excluir" href="../delete" onclick="return confirmarExclusao()">Excluir Conta</a>
+                <!--<a class="excluir" href="../delete" onclick="return confirmarExclusao()">Excluir Conta</a>-->
             </div>
             <a href="../home_prefeitura" class="botao-voltar"><img src="../../settings/imagens/botao-voltar.png" alt=""></a>
         </div>
