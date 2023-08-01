@@ -114,13 +114,14 @@ input {
     width: 100%;
     max-width: 30px;
     height: auto;
+    margin: 10px;
 }
 
 .botao {
 	display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
+    width: 100%;
     height: 43px;
     border-radius: 5px;
     background-color: #5C5C5C;

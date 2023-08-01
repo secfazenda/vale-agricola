@@ -28,7 +28,6 @@ if (isset($_POST["button"])) {
         }
     }
     
-    
     if (!empty($_POST["nome"])) {
         $validade = isset($_POST["validade"]) ? new DateTime($_POST["validade"]) : null;
         $caminho_arquivo = $caminho_completo;
