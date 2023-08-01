@@ -90,13 +90,15 @@ class Empresa implements ActiveRecord
         $connection = new MySQL();
 
         if (isset($this->idEmpresa)) {
-            $sql = "UPDATE empresa SET nome = '{$this->nome}', email = '{$this->email}', cnpj = '{$this->cnpj}', habilitada = {$this->habilitada} WHERE idEmpresa = {$this->idEmpresa}";
+            $sql = "UPDATE empresa SET nome = ?, email = ?, cnpj = ?, habilitada = ? WHERE idEmpresa = ?";
+            $params = [$this->nome, $this->email, $this->cnpj, $this->habilitada, $this->idEmpresa];
         } else {
             $this->senha = password_hash($this->senha, PASSWORD_BCRYPT);
-            $sql = "INSERT INTO empresa (nome, senha, email, cnpj, habilitada) VALUES ('{$this->nome}', '{$this->senha}', '{$this->email}', '{$this->cnpj}', {$this->habilitada})";
+            $sql = "INSERT INTO empresa (nome, senha, email, cnpj, habilitada) VALUES (?, ?, ?, ?, ?)";
+            $params = [$this->nome, $this->senha, $this->email, $this->cnpj, $this->habilitada];
         }
 
-        return $connection->execute($sql);
+        return $connection->execute($sql, $params);
     }
 
     public function delete(): bool
@@ -154,24 +156,24 @@ class Empresa implements ActiveRecord
 
 
     public function authenticate($id_empresa): bool
-{
-    $connection = new MySQL();
-    $sql = "SELECT idEmpresa, nome, senha, cnpj FROM empresa WHERE email = '{$this->email}'";
-    $results = $connection->query($sql);
-    
-    if (password_verify($this->senha, $results[0]["senha"])) {
-        session_start();
-        $_SESSION['idEmpresa'] = $results[0]['idEmpresa'];
-        $_SESSION['nome'] = $results[0]['nome'];
-        $_SESSION['email'] = $results[0]['email'];
-        $_SESSION['cnpj'] = $results[0]['cnpj'];
-        
-        return true;
-    } else {
-        return false;
-    }
-}
+    {
+        $connection = new MySQL();
+        $sql = "SELECT idEmpresa, nome, senha, cnpj FROM empresa WHERE email = ?";
+        $params = [$this->email];
+        $results = $connection->query($sql, $params);
 
+        if (!empty($results) && password_verify($this->senha, $results[0]["senha"])) {
+            session_start();
+            $_SESSION['idEmpresa'] = $results[0]['idEmpresa'];
+            $_SESSION['nome'] = $results[0]['nome'];
+            $_SESSION['email'] = $this->email;
+            $_SESSION['cnpj'] = $results[0]['cnpj'];
+
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function atualizarSenha(string $novaSenha): bool
     {
