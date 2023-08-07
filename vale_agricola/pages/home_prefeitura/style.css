@@ -53,10 +53,6 @@ body {
     height: auto;
 }
 
-body {
-    height: 100vh;
-}
-
 .home-page-util {
     background-size: cover;
     background-position: bottom center;
@@ -396,6 +392,10 @@ label {
 .dark-mode {
     background-color: #333;
     color: #fff;
+}
+
+body.dark-mode {
+    background-color: #000000;
 }
 
 .dark-mode .home-page-util {

@@ -46,7 +46,7 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
 
     <div class="home-page-util">
         <div class="home-page">
-            <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", Bem-vindo(a)! <br></h2>";?>
+        <?php echo "<h2 class='titulo'>Olá ".$_SESSION['nome'].", <span id='saudacao'></span>! <br></h2>";?>
             <h2 class="subtitulo">Lista de Documentos</h2>
             <?php foreach($documentos as $documento){?>
                 <div>
@@ -82,4 +82,26 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
             return false;
         }
     }
+
+  function saudacaoPorHorario() {
+    const data = new Date();
+    const hora = data.getHours();
+
+    let saudacao;
+
+    if (hora >= 5 && hora < 12) {
+      saudacao = "Bom dia";
+    } else if (hora >= 12 && hora < 18) {
+      saudacao = "Boa tarde";
+    } else {
+      saudacao = "Boa noite";
+    }
+
+    return saudacao;
+  }
+
+  const saudacaoElemento = document.getElementById("saudacao");
+  const saudacao = saudacaoPorHorario();
+  saudacaoElemento.textContent = saudacao;
+
 </script>
