@@ -59,19 +59,17 @@ html {
 	height: 100%;
     width: 100%;
 }
-body {
-    height: 100vh;
-}
 
 .home-page-util {
     background-size: cover;
     background-position: bottom center;
-    height: 90vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(240,240,240);
     width: 100%;
+    padding: 10px;
 }
 
 .home-page {
@@ -176,15 +174,10 @@ body {
         padding-left: 10%;
     }
 
-    .home-page-util {
-        height: 90vh;
-    }
-
     .home-page {
         margin: 10px 10px;
         padding: 10px 20px;
     }
-
 
     .botao-cadastrar, .botao-editar, .botao-sair{
         margin: 3px auto;
@@ -206,10 +199,6 @@ body {
         padding-left: 10%;
     }
 
-    .home-page-util {
-        height: 90vh;
-    }
-
     .home-page {
         margin: 10px 50px;
         padding: 10px 20px;
@@ -226,6 +215,10 @@ body {
     color: #fff;
   }
 
+  body.dark-mode {
+    background-color: #000000;
+  }
+  
   .dark-mode .home-page-util{
     background-color: #000000;
   }

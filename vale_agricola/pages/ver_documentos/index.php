@@ -23,6 +23,12 @@ if ($idEmpresa == 1) {
 }
 
 $documentos = Documento::findallByEmpresa($idEmpresa);
+
+function compareByValidade($doc1, $doc2) {
+    return $doc1->getValidade() <=> $doc2->getValidade();
+}
+
+usort($documentos, 'compareByValidade');
 ?>
 
 <!DOCTYPE html>
