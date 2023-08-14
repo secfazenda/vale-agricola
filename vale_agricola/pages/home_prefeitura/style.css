@@ -301,6 +301,22 @@ label {
     background-color: #d3d3d3;
 }
 
+.informacoes-empresa {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.campo-nome,
+.campo-cnpj,
+.campo-email {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media only screen and (max-width: 768px) {
     .logo{
         padding-left: 5%;
