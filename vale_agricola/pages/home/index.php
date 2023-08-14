@@ -51,14 +51,26 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
             <?php foreach($documentos as $documento){?>
                 <div>
                 <a href="../edit_document?idDocumento=<?php echo $documento->getIdDocumento(); ?>" class="document">
-                        <?php 
-                        echo "<td>{$documento->getNome()}</td>";
-                        $validade = $documento->getValidade();
-                        echo " - ";
-                        echo "<td>{$validade->format("d/m/Y")}</td>";
-                        // echo " - ";
-                        // echo "<td>{$documento->getPdf()}</td>";
-                        ?>
+                <div class="informacoes-documento">
+                        <div>
+                            <?php 
+                            echo "<td>{$documento->getNome()}</td>";
+                            ?>
+                        </div>
+                        <div>
+                            <?php 
+                            $validade = $documento->getValidade();
+                            echo "Validade - <td>{$validade->format("d/m/Y")}</td>";
+                            ?>
+                        </div>
+                        <!-- Comentei o trecho abaixo pois não está claro o que é o campo PDF -->
+                        <div>
+                            <?php 
+                            // echo "<td>{$documento->getPdf()}</td>";
+                            ?>
+                        </div>
+                    </div>
+
                     </a>
                 </div>
             <?php } ?>
