@@ -63,14 +63,7 @@ $documentos = Documento::findallByEmpresa($_SESSION['idEmpresa']);
                             echo "Validade - <td>{$validade->format("d/m/Y")}</td>";
                             ?>
                         </div>
-                        <!-- Comentei o trecho abaixo pois não está claro o que é o campo PDF -->
-                        <div>
-                            <?php 
-                            // echo "<td>{$documento->getPdf()}</td>";
-                            ?>
-                        </div>
                     </div>
-
                     </a>
                 </div>
             <?php } ?>
