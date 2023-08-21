@@ -5,14 +5,11 @@ session_start();
 $mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
 $isDarkMode = $mode === 'dark';
 
-// Verificando se o ID do documento foi fornecido na URL
 if (isset($_GET["idDocumento"])) {
     $idDocumento = $_GET["idDocumento"];
 
-    // Usando o ID do documento para buscar as informações correspondentes
     $documento = Documento::findByID($idDocumento);
 
-    // Verificando se o documento foi encontrado
     if ($documento) {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $nome = $_POST["nome"];
@@ -47,7 +44,6 @@ if (isset($_GET["idDocumento"])) {
             var body = document.body;
             var isDarkMode = body.classList.toggle('dark-mode');
             
-            // Define um cookie para lembrar a preferência de modo
             document.cookie = 'mode=' + (isDarkMode ? 'dark' : 'light') + '; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/';
         }
     </script>
