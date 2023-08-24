@@ -1,6 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
-require_once '../src/documentos.php';
+require_once '../src/docs.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
