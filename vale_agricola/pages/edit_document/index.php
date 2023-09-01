@@ -38,7 +38,6 @@ if (isset($_GET["idDocumento"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Vale Agrícola | Documento</title>
-    <link rel="stylesheet" href="style.css">
     <script>
         function toggleDarkMode() {
             var body = document.body;
