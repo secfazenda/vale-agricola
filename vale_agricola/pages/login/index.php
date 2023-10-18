@@ -5,6 +5,8 @@ session_start();
 $mode = isset($_COOKIE['mode']) ? $_COOKIE['mode'] : '';
 $isDarkMode = $mode === 'dark';
 
+$loginError = "";
+
 if (isset($_POST["button"])) {
     $empresa = new Empresa();
     $empresa->constructLogin($_POST["email"], $_POST["senha"]);    
@@ -19,6 +21,10 @@ if (isset($_POST["button"])) {
             header("Location: ../home");
             exit();
         }
+    
+    } else {
+        // Exiba um alerta JavaScript
+        echo "<script>alert('Credenciais inválidas. Por favor, verifique seu e-mail e senha.');</script>";
     }
 }
 ?>
