@@ -86,7 +86,7 @@ if (isset($_POST["button"])) {
             <h1 class="titulo">Cadastre um Documento</h1>
             <form action="index.php" method="post" enctype="multipart/form-data">
                 <label for="fullname">Nome</label>
-                <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required>
+                <input type="text" name="nome" id="nome" minlength="3" maxlength="50" required>
 
                 <label for="validade">Validade</label>
                 <input type="date" name="validade" id="validade" required>
