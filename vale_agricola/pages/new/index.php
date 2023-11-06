@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="string" name="cnpj" id="cnpj" minlength="14" required>
 
                 <label for="fullname">Nome</label>
-                <input type="text" name="nome" id="nome" minlength="3" maxlength="20" required>
+                <input type="text" name="nome" id="nome" minlength="3" maxlength="50" required>
 
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" maxlength="50" required>
