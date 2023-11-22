@@ -4,8 +4,8 @@ require_once '../src/docs.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-$EMAIL_ADDRESS = '';
-$EMAIL_PASSWORD = '';
+$EMAIL_ADDRESS = $email;
+$EMAIL_PASSWORD = $senha;
 
 $empresas = Empresa::findall();
 
