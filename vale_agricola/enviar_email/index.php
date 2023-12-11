@@ -4,8 +4,8 @@ require_once '../src/docs.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-$EMAIL_ADDRESS = $email;
-$EMAIL_PASSWORD = $senha;
+$EMAIL_ADDRESS = 'fazenda@altofeliz.rs.gov.br';
+$EMAIL_PASSWORD = 'gL!16DP@5q';
 
 $empresas = Empresa::findall();
 
